@@ -177,15 +177,17 @@
 <h3 id="apk打包"><a href="#apk打包" class="headerlink" title="apk打包"></a>apk打包</h3><blockquote>
 <p>./gradlew aOR</p>
 </blockquote>
-<h3 id="git工作流"><a href="#git工作流" class="headerlink" title="git工作流"></a>git工作流</h3><p> // 当release 分支 结束时 finish掉分支<br>&gt;<br>&gt;<br>Follow-up actions:</p>
+<h3 id="git工作流"><a href="#git工作流" class="headerlink" title="git工作流"></a>git工作流</h3><blockquote>
+<p>当release分支结束时，使用gitflow，finish掉分支</p>
+<p>Follow-up actions:</p>
 <ul>
 <li>Bump the version number now!</li>
 <li>Start committing last-minute fixes in preparing your release</li>
-<li><p>When done, run:</p>
-<p>   git flow release finish ‘1.1’</p>
-</li>
+<li>When done, run:</li>
 </ul>
-<h3 id="查看项目SHA１-MD５-值"><a href="#查看项目SHA１-MD５-值" class="headerlink" title="查看项目ＳＨＡ１　ＭＤ５　值"></a>查看项目ＳＨＡ１　ＭＤ５　值</h3><p>keytool -v -list -keystore ~/.android/debug.keystore</p>
+</blockquote>
+<pre><code>git flow release finish &apos;1.1&apos;
+</code></pre><h3 id="查看项目SHA１-MD５-值"><a href="#查看项目SHA１-MD５-值" class="headerlink" title="查看项目ＳＨＡ１　ＭＤ５　值"></a>查看项目ＳＨＡ１　ＭＤ５　值</h3><p>keytool -v -list -keystore ~/.android/debug.keystore</p>
 <h3 id="混淆记录"><a href="#混淆记录" class="headerlink" title="混淆记录"></a>混淆记录</h3><blockquote>
 <p>tmp.txt         //忽略tmp.txt</p>
 <p>*.log           //忽略所有log文件</p>

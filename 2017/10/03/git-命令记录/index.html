@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="xwdz">
 <meta property="og:description" content="删除本地分支 git branch -d 分支名  新建本地分支 git branch 分支名  推送分支到服务器 git push origin 本地分支名:服务器分支名  删除远程分支 git push origin –delete   git 回退commit 首先，Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本. 上一个版本就是HEAD^，上上一个版本就是HEAD^^">
 <meta property="og:locale" content="java">
-<meta property="og:updated_time" content="2017-10-03T04:23:18.000Z">
+<meta property="og:updated_time" content="2017-10-03T04:27:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git 命令记录">
 <meta name="twitter:description" content="删除本地分支 git branch -d 分支名  新建本地分支 git branch 分支名  推送分支到服务器 git push origin 本地分支名:服务器分支名  删除远程分支 git push origin –delete   git 回退commit 首先，Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本. 上一个版本就是HEAD^，上上一个版本就是HEAD^^">
@@ -176,15 +176,17 @@
 <h3 id="apk打包"><a href="#apk打包" class="headerlink" title="apk打包"></a>apk打包</h3><blockquote>
 <p>./gradlew aOR</p>
 </blockquote>
-<h3 id="git工作流"><a href="#git工作流" class="headerlink" title="git工作流"></a>git工作流</h3><p> // 当release 分支 结束时 finish掉分支<br>&gt;<br>&gt;<br>Follow-up actions:</p>
+<h3 id="git工作流"><a href="#git工作流" class="headerlink" title="git工作流"></a>git工作流</h3><blockquote>
+<p>当release分支结束时，使用gitflow，finish掉分支</p>
+<p>Follow-up actions:</p>
 <ul>
 <li>Bump the version number now!</li>
 <li>Start committing last-minute fixes in preparing your release</li>
-<li><p>When done, run:</p>
-<p>   git flow release finish ‘1.1’</p>
-</li>
+<li>When done, run:</li>
 </ul>
-<h3 id="查看项目SHA１-MD５-值"><a href="#查看项目SHA１-MD５-值" class="headerlink" title="查看项目ＳＨＡ１　ＭＤ５　值"></a>查看项目ＳＨＡ１　ＭＤ５　值</h3><p>keytool -v -list -keystore ~/.android/debug.keystore</p>
+</blockquote>
+<pre><code>git flow release finish &apos;1.1&apos;
+</code></pre><h3 id="查看项目SHA１-MD５-值"><a href="#查看项目SHA１-MD５-值" class="headerlink" title="查看项目ＳＨＡ１　ＭＤ５　值"></a>查看项目ＳＨＡ１　ＭＤ５　值</h3><p>keytool -v -list -keystore ~/.android/debug.keystore</p>
 <h3 id="混淆记录"><a href="#混淆记录" class="headerlink" title="混淆记录"></a>混淆记录</h3><blockquote>
 <p>tmp.txt         //忽略tmp.txt</p>
 <p>*.log           //忽略所有log文件</p>
