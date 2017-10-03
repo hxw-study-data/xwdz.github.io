@@ -137,6 +137,103 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-git-命令记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/03/git-命令记录/">git 命令记录</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/03/git-命令记录/" class="archive-article-date">
+  	<time datetime="2017-10-03T04:18:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="删除本地分支"><a href="#删除本地分支" class="headerlink" title="删除本地分支"></a>删除本地分支</h3><blockquote>
+<p>git branch -d 分支名</p>
+</blockquote>
+<h3 id="新建本地分支"><a href="#新建本地分支" class="headerlink" title="新建本地分支"></a>新建本地分支</h3><blockquote>
+<p>git branch 分支名</p>
+</blockquote>
+<h3 id="推送分支到服务器"><a href="#推送分支到服务器" class="headerlink" title="推送分支到服务器"></a>推送分支到服务器</h3><blockquote>
+<p>git push origin 本地分支名:服务器分支名</p>
+</blockquote>
+<h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><blockquote>
+<p>git push origin –delete <branchname></branchname></p>
+</blockquote>
+<h3 id="git-回退commit"><a href="#git-回退commit" class="headerlink" title="git 回退commit"></a>git 回退commit</h3><blockquote>
+<p>首先，Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本.</p>
+<p>上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。</p>
+<p>$ git reset –hard HEAD^</p>
+</blockquote>
+<h3 id="apk打包"><a href="#apk打包" class="headerlink" title="apk打包"></a>apk打包</h3><blockquote>
+<p>./gradlew aOR</p>
+</blockquote>
+<h3 id="git工作流"><a href="#git工作流" class="headerlink" title="git工作流"></a>git工作流</h3><p> // 当release 分支 结束时 finish掉分支<br>&gt;<br>&gt;<br>Follow-up actions:</p>
+<ul>
+<li>Bump the version number now!</li>
+<li>Start committing last-minute fixes in preparing your release</li>
+<li><p>When done, run:</p>
+<p>   git flow release finish ‘1.1’</p>
+</li>
+</ul>
+<h3 id="查看项目SHA１-MD５-值"><a href="#查看项目SHA１-MD５-值" class="headerlink" title="查看项目ＳＨＡ１　ＭＤ５　值"></a>查看项目ＳＨＡ１　ＭＤ５　值</h3><p>keytool -v -list -keystore ~/.android/debug.keystore</p>
+<h3 id="混淆记录"><a href="#混淆记录" class="headerlink" title="混淆记录"></a>混淆记录</h3><blockquote>
+<p>tmp.txt         //忽略tmp.txt</p>
+<p>*.log           //忽略所有log文件</p>
+<p>tmp/*           //忽略tmp文件夹所有文件</p>
+<p>log/<em>*/</em>.log    //忽略log目录下的包括子目录下的所有log文件</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/03/git-命令记录/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
