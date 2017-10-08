@@ -11,15 +11,15 @@
   <entry>
     <title><![CDATA[Android 混淆相关]]></title>
     <url>%2F2017%2F10%2F03%2FAndroid-%E6%B7%B7%E6%B7%86%E7%9B%B8%E5%85%B3%2F</url>
-    <content type="text"><![CDATA[忽略tmp.txt tmp.txt 忽略所有log文件 *.log 忽略tmp文件夹所有文件 tmp/* 忽略log目录下的包括子目录下的所有log文件 log/*/.log 查看项目ＳＨＡ１ ＭＤ５ 值 keytool -v -list -keystore ~/.android/debug.keystore]]></content>
+    <content type="text"><![CDATA[忽略tmp.txt tmp.txt 忽略所有log文件 .log 忽略tmp文件夹所有文件tmp/* 忽略log目录下的包括子目录下的所有log文件 log/**/.log* 查看项目ＳＨＡ１ ＭＤ５ 值 keytool -v -list -keystore ~/.android/debug.keystore]]></content>
       <tags>
-        <tag>Android 混淆</tag>
+        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[git 命令记录]]></title>
     <url>%2F2017%2F10%2F03%2Fgit-%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95%2F</url>
-    <content type="text"><![CDATA[删除本地分支 git branch -d 分支名 删除未合并分支 git branch -D 分支名 新建本地分支 git branch 分支名 推送分支到服务器 git push origin 本地分支名:服务器分支名 删除远程分支 git push origin –delete git 回退commit 首先，Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本. 上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。 $ git reset –hard HEAD^ git工作流 当release分支结束时，使用gitflow，finish掉分支 Follow-up actions: Bump the version number now! Start committing last-minute fixes in preparing your release When done, run: git flow release finish &apos;1.1&apos;]]></content>
+    <content type="text"><![CDATA[删除本地分支 git branch -d 分支名 删除未合并分支 git branch -D 分支名 新建本地分支 git branch 分支名 推送分支到服务器 git push origin 本地分支名:服务器分支名 删除远程分支 git push origin –delete git 回退commit首先，Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本. 上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。 $ git reset –hard HEAD^ git工作流当release分支结束时，使用gitflow，finish掉分支 git flow release finish ‘1.1’]]></content>
       <tags>
         <tag>git</tag>
       </tags>
@@ -27,7 +27,7 @@
   <entry>
     <title><![CDATA[github hexo 搭建博客]]></title>
     <url>%2F2017%2F10%2F02%2Fgithub%2Bhexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%2F</url>
-    <content type="text"><![CDATA[mac环境下使用github + hexo 搭建博客hexo官网 需要环境 git github userNmae node.js 安装hexo 如果是开发的话1.2则是开发小哥必需品吧，则不多介绍,移步官网 www.github.com https://git-scm.com/ 关于node.js,用来生成静态页面的到Node.js官网下载相应平台的最新版本，一路安装即可; 着重说说这个hexo的坑关联github 在安装hexo之前一定要确保满足以上3个条件，才能进行下一步 执行如下命令安装Hexo：sudo npm install -g hexo 安装成功以后 hexo init blog(即blog目录) blog目录／source／_posts/则会看见hello world.md 文档了 hexo g &amp;&amp; hexo d 发布 且push到github]]></content>
+    <content type="text"><![CDATA[mac环境下使用github + hexo 搭建博客hexo官网 需要环境 git github userNmae node.js 安装hexo 如果是开发的话1.2则是开发小哥必需品吧，则不多介绍,移步官网 github git – 关于node.js,用来生成静态页面的到Node.js官网下载相应平台的最新版本，一路安装即可; 着重说说这个hexo的坑关联github 在安装hexo之前一定要确保满足以上3个条件，才能进行下一步 执行如下命令安装Hexo：sudo npm install -g hexo 安装成功以后 hexo init blog(即blog目录) blog目录／source／_posts/则会看见hello world.md 文档了 hexo g &amp;&amp; hexo d 发布 且push到github]]></content>
       <tags>
         <tag>hexo</tag>
       </tags>
