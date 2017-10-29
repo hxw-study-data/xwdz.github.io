@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[电影]]></title>
-    <url>%2F2017%2F10%2F29%2F%E7%94%B5%E5%BD%B1%2F</url>
-    <content type="text"></content>
-      <tags>
-        <tag>电影</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[说几句话]]></title>
     <url>%2F2017%2F10%2F24%2F%E8%AF%B4%E5%87%A0%E5%8F%A5%E8%AF%9D%2F</url>
     <content type="text"><![CDATA[也许不是因为菜好吃，而是因为陪在身边的人。这句话出自前女友博客，分手不过半月，看到这句话嘴角笑着想起来以前跟她的点点滴滴。 酸菜鱼吃这道菜的时候，是她某次来大理的时候，我找了一家饭馆，吃的酸菜鱼，也是我至今吃过最好吃的酸菜鱼了，便宜，实惠，跟她一起吃的。 放下跟她分手之后，我会经常发牢骚，想找她聊天，又不敢，各种纠结，好不容易跟她说话我都会比较冲会带着小情绪跟她说话。 中午午休的时候前女友给我分享了个博客，我看完之后跟她产生了如下对话： 我：你又勾起我的回忆 她：你只看出这个 我：。。。 我：你分享给我是让我写观后感嘛？ 她：不是啊 她：哈哈哈 她：反正我们都要放下啦 她：你也别再无缘无故跟我发脾气了 当看见着两条信息的时候，心里蹦的一下，曾经那么信任，亲近的一个人，离开了。 大概就是分手了从心底里希望你快乐幸福，This is Love。 即使自己心中有万分不舍也得放下，自己也应该调整好心态。]]></content>
@@ -41,11 +33,11 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[git 命令记录]]></title>
+    <title><![CDATA[git命令记录]]></title>
     <url>%2F2017%2F10%2F03%2Fgit-%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95%2F</url>
     <content type="text"><![CDATA[删除本地分支 git branch -d 分支名 删除未合并分支 git branch -D 分支名 新建本地分支 git branch 分支名 推送分支到服务器 git push origin 本地分支名:服务器分支名 删除远程分支 git push origin --delete &lt;branchName&gt; git 回退commit首先，Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本. 上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。 $ git reset --hard HEAD^ 版本比对git diff commitMD5 git工作流当release分支结束时，使用gitflow，finish掉分支 git flow release finish &#39;1.1&#39;]]></content>
       <tags>
-        <tag>Git</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
