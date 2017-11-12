@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Android studio发布个人开源项目至bintray]]></title>
+    <url>%2F2017%2F11%2F12%2FAndroid-studio%E5%8F%91%E5%B8%83%E4%B8%AA%E4%BA%BA%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91bintray%2F</url>
+    <content type="text"><![CDATA[创建账号创建账号时要注意要用国外邮箱。 使用插件发布 项目根目录 build.gradle 添加引用 1classpath 'com.novoda:bintray-release:0.3.4' library目录下的build.gradle 配置如下信息 1234567891011121314151617181920apply plugin: 'com.android.library'//添加如下引用apply plugin: 'com.novoda.bintray-release'//def siteUrl = 'https://github.com/xwdz/BarChartView'publish &#123; userOrg = 'quinnhuang'//bintray.com的用户名 repoName = 'xw-widget'//远程仓库名字,不指明，默认是上传到maven groupId = 'com.xiaowei'//jcenter上的路径 artifactId = 'barchart-view'//项目名称 publishVersion = '1.0.0'//版本号 desc = '轻量型柱形图'//描述，不重要 website = siteUrl//项目主页&#125;tasks.withType(Javadoc) &#123;//防止编码问题 options.addStringOption('Xdoclint:none', '-quiet') options.addStringOption('encoding', 'UTF-8') options.addStringOption('charSet', 'UTF-8')&#125; 上传至bintray1./gradlew clean build bintrayUpload -PbintrayUser=xxx -PbintrayKey=xxxx -PdryRun=falser 期间遇到的问题用户名不统一1Could not create version '1.0.0': HTTP/1.1 401 Unauthorized PbintrayUser、userOrg 两者属性属性必须一样，即bintray.com的用户名 lint 检查出来的错误12345android &#123; lintOptions &#123; abortOnError false &#125; &#125; 在你library以及App的build.gradle的androud模块添加 123456789101112131415161718192021222324android &#123; compileSdkVersion 26 buildToolsVersion "26.0.0" defaultConfig &#123; minSdkVersion 21 targetSdkVersion 26 versionCode 1 versionName "1.0" testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner" &#125; buildTypes &#123; release &#123; minifyEnabled false proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro' &#125; &#125; // 忽略lint lintOptions &#123; abortOnError false &#125;&#125; 最后add central 等待审核即可]]></content>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[说几句话]]></title>
     <url>%2F2017%2F10%2F24%2F%E8%AF%B4%E5%87%A0%E5%8F%A5%E8%AF%9D%2F</url>
     <content type="text"><![CDATA[也许不是因为菜好吃，而是因为陪在身边的人。这句话出自前女友博客，分手不过半月，看到这句话嘴角笑着想起来以前跟她的点点滴滴。 酸菜鱼吃这道菜的时候，是她某次来大理的时候，我找了一家饭馆，吃的酸菜鱼，也是我至今吃过最好吃的酸菜鱼了，便宜，实惠，跟她一起吃的。 放下跟她分手之后，我会经常发牢骚，想找她聊天，又不敢，各种纠结，好不容易跟她说话我都会比较冲会带着小情绪跟她说话。 中午午休的时候前女友给我分享了个博客，我看完之后跟她产生了如下对话： 我：你又勾起我的回忆 她：你只看出这个 我：。。。 我：你分享给我是让我写观后感嘛？ 她：不是啊 她：哈哈哈 她：反正我们都要放下啦 她：你也别再无缘无故跟我发脾气了 当看见着两条信息的时候，心里蹦的一下，曾经那么信任，亲近的一个人，离开了。 大概就是分手了从心底里希望你快乐幸福，This is Love。 即使自己心中有万分不舍也得放下，自己也应该调整好心态。]]></content>
