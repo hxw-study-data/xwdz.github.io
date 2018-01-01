@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[2018 First Day]]></title>
+    <url>%2F2018%2F01%2F01%2F2018-First-Day%2F</url>
+    <content type="text"><![CDATA[只有当紫霞仙子离开至尊宝的时候，他才能变孙悟空。]]></content>
+      <tags>
+        <tag>Lift</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Android studio发布个人开源项目至bintray]]></title>
     <url>%2F2017%2F11%2F12%2FAndroidStudio%E5%8F%91%E5%B8%83%E4%B8%AA%E4%BA%BA%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91bintray%2F</url>
     <content type="text"><![CDATA[创建账号创建账号时要注意要用国外邮箱。 使用插件发布 项目根目录 build.gradle 添加引用 1classpath 'com.novoda:bintray-release:0.3.4' library目录下的build.gradle 配置如下信息 1234567891011121314151617181920apply plugin: 'com.android.library'//添加如下引用apply plugin: 'com.novoda.bintray-release'//def siteUrl = 'https://github.com/xwdz/BarChartView'publish &#123; userOrg = 'quinnhuang'//bintray.com的用户名 repoName = 'xw-widget'//远程仓库名字,不指明，默认是上传到maven groupId = 'com.xiaowei'//jcenter上的路径 artifactId = 'barchart-view'//项目名称 publishVersion = '1.0.0'//版本号 desc = '轻量型柱形图'//描述，不重要 website = siteUrl//项目主页&#125;tasks.withType(Javadoc) &#123;//防止编码问题 options.addStringOption('Xdoclint:none', '-quiet') options.addStringOption('encoding', 'UTF-8') options.addStringOption('charSet', 'UTF-8')&#125; 上传至bintray1./gradlew clean build bintrayUpload -PbintrayUser=xxx -PbintrayKey=xxxx -PdryRun=falser 期间遇到的问题用户名不统一1Could not create version '1.0.0': HTTP/1.1 401 Unauthorized PbintrayUser、userOrg 两者属性属性必须一样，即bintray.com的用户名 lint 检查出来的错误12345android &#123; lintOptions &#123; abortOnError false &#125; &#125; 在你library以及App的build.gradle的androud模块添加 123456789101112131415161718192021222324android &#123; compileSdkVersion 26 buildToolsVersion "26.0.0" defaultConfig &#123; minSdkVersion 21 targetSdkVersion 26 versionCode 1 versionName "1.0" testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner" &#125; buildTypes &#123; release &#123; minifyEnabled false proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro' &#125; &#125; // 忽略lint lintOptions &#123; abortOnError false &#125;&#125; 最后add central 等待审核即可]]></content>
