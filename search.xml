@@ -56,12 +56,4 @@
         <tag>git</tag>
       </tags>
   </entry>
-  <entry>
-    <title><![CDATA[Github+Hexo搭建博客]]></title>
-    <url>%2F2017%2F10%2F02%2Fhexo%E6%89%98%E7%AE%A1github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%2F</url>
-    <content type="text"><![CDATA[mac环境下使用github + hexo 搭建博客hexo官网 需要环境 git github userNmae node.js 安装hexo 如果是开发的话1.2则是开发小哥必需品吧，则不多介绍,移步官网 Github Git – 关于node.js,用来生成静态页面的到Node.js官网下载相应平台的最新版本，一路安装即可; 着重说说这个hexo的坑关联github 在安装hexo之前一定要确保满足以上3个条件，才能进行下一步 执行如下命令安装Hexo：sudo npm install -g hexo 安装成功以后 hexo init blog(即blog目录) blog目录／source／_posts/则会看见hello world.md 文档了 hexo g &amp;&amp; hexo d 发布 且push到github]]></content>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
 </search>
