@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Glide 执行流程]]></title>
-    <url>%2F2018%2F03%2F06%2FGlide-%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%2F</url>
-    <content type="text"></content>
-      <tags>
-        <tag>Android</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[设计模式 代理模式]]></title>
     <url>%2F2018%2F02%2F27%2F%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[定义为其他对象提供一种代理一控制对这个对象的访问。 场景当不想直接访问某个对象或访问某个对象存在着一定困难时就可以通过一个代理对象来间接访问。 Code1234567891011121314151617181920212223242526272829303132public class Test &#123; public static void main(String args[]) &#123; // 通过代理类访问具体执行发送信息对象 ProxyMessage proxy = new ProxyMessage(); proxy.sendMessage("Android"); &#125; //代理类 static class ProxyMessage &#123; final Message mMessage = new Message(); void sendMessage(String type) &#123; if ("Android".equals(type)) &#123; mMessage.sendAndroid(); &#125; else &#123; mMessage.sendIOS(); &#125; &#125; &#125; public static class Message &#123; void sendAndroid() &#123; System.out.println("send Android"); &#125; void sendIOS() &#123; System.out.println("send ios"); &#125; &#125;&#125;]]></content>
@@ -101,7 +93,7 @@
     <url>%2F2017%2F10%2F03%2Fgit%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95%2F</url>
     <content type="text"><![CDATA[删除本地分支 git branch -d 分支名 删除未合并分支 git branch -D 分支名 新建本地分支 git branch 分支名 推送分支到服务器 git push origin 本地分支名:服务器分支名 删除远程分支 git push origin --delete &lt;branchName&gt; git 回退commit首先，Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本. 上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。 $ git reset --hard HEAD^ 版本比对git diff commitMD5 git工作流当release分支结束时，使用gitflow，finish掉分支 git flow release finish &#39;1.1&#39;]]></content>
       <tags>
-        <tag>Git</tag>
+        <tag>git</tag>
       </tags>
   </entry>
 </search>
