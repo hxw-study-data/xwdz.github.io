@@ -12,7 +12,7 @@ mRemoteViews.setOnClickPendingIntent(mRemoteBuild.clickId, pendingIntent1);
 <p>我对比发现两者的不同点只是在activity的生命周期上面了。</p>
 <p>注意开屏广告的activity生命周期只有3s。这点也非常重要。</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/2651056-87ebe321327cdd0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>如上是非常典型的生命周期了。</p>
+<p>附一张非常经典的生命周期图。</p>
 <p>而我用新建的项目测试的时候有一点是 当前的activity 在下载过程中一直都没有销毁，而项目里面测试的时候是开屏广告activity，生命周期只有3s，3s之后就已经被自动的finish了。</p>
 <p>而又我在新建的项目里面继续写测试代码，写了个3s之后自动finish当前activity，果然也报错了，看来就是跟当前生命周期有关，那也就是传过来的context了。</p>
 <h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>想了想，解决办法也很简单。因为下载的service要一直在后台运行，所以将传进来的context.getApplicationContext()，去注册广播，销毁广播等，这样就能保证是在整个app运行期间了，也不会造成内存泄漏问题。</p>
