@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Android BroadcastReceiveer引用context生命周期的影响]]></title>
+    <title><![CDATA[Android 使用Activity作为Contenxt启动BroadcastReceiveer的一些问题]]></title>
     <url>%2F2018%2F04%2F17%2FAndroid%20BroadcastReceiveer%E5%BC%95%E7%94%A8context%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E5%BD%B1%E5%93%8D%2F</url>
     <content type="text"><![CDATA[问题背景下载APK的时候需要做一个通知栏并且支持暂停，取消等功能交互。通知栏的UI点击交互用的就是broadcast来接受点击事件 代码如下 registerReceiver(context, MyBroadcastReceiver); Intent intent = new Intent(ACTION); PendingIntent pendingIntent1 = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT); ... mRemoteViews.setOnClickPendingIntent(mRemoteBuild.clickId, pendingIntent1); 伪代码如上就是为通知栏设置点击事件的一种方法。 可当我测试点击的时候我注册的广播里面就是接收不到点击事件。无奈我有改用静态方式来注册广播，观察log发现静态方式是可以接受到点击事件的那看来就是动态注册方式出了问题。于是我开始整理思路。 打开App，显示开屏广告，点击广告下载apk然后再创建通知栏，再更新下载进度。 而后我继续测试，我将组件拿出来新建了一个项目来测试，发现是正常的，而后再次切换到前者项目测试，发现还是不行接受不到广播点击事件。 我对比发现两者的不同点只是在activity的生命周期上面了。 注意开屏广告的activity生命周期只有3s。这点也非常重要。 附一张非常经典的生命周期图。 而我用新建的项目测试的时候有一点是 当前的activity 在下载过程中一直都没有销毁，而项目里面测试的时候是开屏广告activity，生命周期只有3s，3s之后就已经被自动的finish了。 而又我在新建的项目里面继续写测试代码，写了个3s之后自动finish当前activity，果然也报错了，看来就是跟当前生命周期有关，那也就是传过来的context了。 解决办法想了想，解决办法也很简单。因为下载的service要一直在后台运行，所以将传进来的context.getApplicationContext()，去注册广播，销毁广播等，这样就能保证是在整个app运行期间了，也不会造成内存泄漏问题。]]></content>
       <tags>
