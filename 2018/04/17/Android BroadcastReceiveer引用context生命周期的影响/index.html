@@ -3,7 +3,6 @@
  Intent intent = new Intent(ACTION);
  PendingIntent pendingIntent1 = PendingIntent.getBroadcast(context, 0,
                 intent, PendingIntent.FLAG_UPDATE_CURRENT);
-...
 mRemoteViews.setOnClickPendingIntent(mRemoteBuild.clickId, pendingIntent1);
 </code></pre><p>伪代码如上就是为通知栏设置点击事件的一种方法。</p>
 <p>可当我测试点击的时候我注册的广播里面就是接收不到点击事件。<br>无奈我有改用静态方式来注册广播，观察log发现静态方式是可以接受到点击事件的那看来就是动态注册方式出了问题。于是我开始整理思路。</p>
