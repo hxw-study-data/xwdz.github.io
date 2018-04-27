@@ -1,19 +1,120 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Hook基础-反射 | 酸菜</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Hook基础-反射</h1><a id="logo" href="/.">酸菜</a><p class="description">未来路很长</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Hook基础-反射</h1><div class="post-meta">Apr 27, 2018<span> | </span><span class="category"><a href="/categories/android-hook基础-反射/">android-hook基础-反射</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><div class="post-content"><h3 id="Hook基础-反射"><a href="#Hook基础-反射" class="headerlink" title="Hook基础-反射"></a>Hook基础-反射</h3><p><strong>通过Class.forName静态方法可以根据类的绝对路径拿到某个类的Class实例</strong></p>
-<h4 id="新建测试Test类如下"><a href="#新建测试Test类如下" class="headerlink" title="新建测试Test类如下"></a>新建测试Test类如下</h4><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.example.lib;</div><div class="line"></div><div class="line"><span class="keyword">public</span> class Test &#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">String</span> username;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">String</span> password;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> Test()&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="built_in">int</span> showInfo(<span class="keyword">String</span> name,<span class="keyword">String</span> pwd)&#123;</div><div class="line">        MyClass.<span class="built_in">print</span>(<span class="string">"name = "</span> + name);</div><div class="line">        MyClass.<span class="built_in">print</span>(<span class="string">"pwd = "</span> + pwd);</div><div class="line">        <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    <span class="keyword">public</span> <span class="keyword">String</span> toString() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Test&#123;"</span> +</div><div class="line">                <span class="string">"username='"</span> + username + <span class="string">'\''</span> +</div><div class="line">                <span class="string">", password='"</span> + password + <span class="string">'\''</span> +</div><div class="line">                <span class="string">'&#125;'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<hr>
-<h4 id="反射变量"><a href="#反射变量" class="headerlink" title="反射变量"></a>反射变量</h4><figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">public static void main(<span class="type">String</span>[] args)&#123;</div><div class="line">                <span class="type">Class</span>&lt;?&gt; cls = <span class="type">Class</span>.forName(<span class="string">"x.com.lib.Test"</span>);</div><div class="line">                <span class="type">Object</span> <span class="class"><span class="keyword">object</span> </span>= cls.newInstance();</div><div class="line">                <span class="type">Field</span> username = cls.getDeclaredField(<span class="string">"username"</span>);</div><div class="line">                username.setAccessible(<span class="literal">true</span>);</div><div class="line">                username.set(<span class="class"><span class="keyword">object</span>,"100")</span>;</div><div class="line">            &#125;</div><div class="line">```	</div><div class="line"></div><div class="line"></div><div class="line">	   	 输出</div><div class="line">	    <span class="type">Test</span>&#123;username=<span class="symbol">'10</span>0', password=<span class="symbol">'nul</span>l'&#125;</div><div class="line"></div><div class="line"></div><div class="line">#### 注意</div><div class="line"></div><div class="line"> -  **set(<span class="type">Object</span> var1, <span class="type">Object</span> var2)** 方法接收两个参数</div><div class="line"></div><div class="line">    **var1**  : 当前实例</div><div class="line">    **var2**  : 修改的实例</div><div class="line"></div><div class="line">-  **get(<span class="type">Object</span> var1)** 方法接受一个参数</div><div class="line"></div><div class="line">  **var1** : <span class="type">Field</span>实例</div><div class="line"> </div><div class="line"></div><div class="line">- 如果没加**username.setAccessible(<span class="literal">true</span>)**则会报错如下</div><div class="line"> </div><div class="line">	 can not access a member of <span class="class"><span class="keyword">class</span> <span class="title">x</span>.<span class="title">com</span>.<span class="title">lib</span>.<span class="title">Test</span> <span class="keyword">with</span> <span class="title">modifiers</span> "<span class="title">private</span>"</span></div><div class="line"><span class="class">	 </span></div><div class="line"><span class="class"></span></div><div class="line"><span class="class">  <span class="title">**因为Test里面定义的变量是private的</span>,<span class="title">改成public即可。**</span></span></div><div class="line"><span class="class">  </span></div><div class="line"><span class="class">  <span class="title">**如果需要获取到private属性的则需要加username</span>.<span class="title">setAccessible</span>(<span class="params">true</span>)<span class="title">。**</span></span></div><div class="line"><span class="class"></span></div><div class="line"><span class="class"></span></div><div class="line"><span class="class">```	</span></div><div class="line"><span class="class">	</span></div><div class="line"><span class="class"><span class="title">public</span> <span class="title">static</span> <span class="title">void</span> <span class="title">main</span>(<span class="params"><span class="type">String</span>[] args</span>)</span>&#123;</div><div class="line">	<span class="type">Class</span>&lt;?&gt; cls = <span class="type">Class</span>.forName(<span class="string">"x.com.lib.Test"</span>);</div><div class="line">        <span class="type">Object</span> <span class="class"><span class="keyword">object</span> </span>= cls.newInstance();</div><div class="line">        <span class="type">Field</span> username = cls.getDeclaredField(<span class="string">"username"</span>);</div><div class="line">        username.setAccessible(<span class="literal">true</span>);</div><div class="line">        username.set(<span class="class"><span class="keyword">object</span>,"100")</span>;</div><div class="line">	</div><div class="line">        <span class="type">Field</span> password = cls.getDeclaredField(<span class="string">"password"</span>);</div><div class="line">        password.setAccessible(<span class="literal">true</span>);</div><div class="line">        password.set(<span class="class"><span class="keyword">object</span>,"1234567")</span>;</div><div class="line">	</div><div class="line">        print(<span class="class"><span class="keyword">object</span>.<span class="title">toString</span>(<span class="params"></span>))</span>;</div><div class="line">&#125;</div><div class="line">	</div><div class="line">```	</div><div class="line"></div><div class="line">	输出 </div><div class="line">	<span class="type">Test</span>&#123;username=<span class="symbol">'10</span>0', password=<span class="symbol">'123456</span>7'&#125;	</div><div class="line"></div><div class="line">---</div><div class="line"></div><div class="line">#### 反射方法</div></pre></td></tr></table></figure>
-<p> public static void main(String[] args){<br>                Class&lt;?&gt; cls = Class.forName(“x.com.lib.Test”);<br>                Object object = cls.newInstance();<br>                Method method = cls.getDeclaredMethod(“showInfo”,String.class,String.class);<br>                method.invoke(object,”hello”,”今天天气真好”);<br>            }<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">	输出</div><div class="line">	name = hello</div><div class="line">	pwd = 今天天气真好</div><div class="line">	</div><div class="line">---</div><div class="line"></div><div class="line">#### 反射 获取方法返回类型</div></pre></td></tr></table></figure></p>
-<p>public static void main(String[] args){<br>                Class&lt;?&gt; cls = Class.forName(“x.com.lib.Test”);<br>                Object object = cls.newInstance();<br>                Method method = cls.getDeclaredMethod(“showInfo”,String.class,String.class);<br>                Class&lt;?&gt; returnType = method.getReturnType();<br>                int resulr = method.invoke(object,”hello”,”今天天气真好”);<br>            }<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="code">	输出 	</span></div><div class="line"><span class="code">	name = hello</span></div><div class="line"><span class="code">	pwd = 今天天气真好</span></div><div class="line"><span class="code">	result = 2</span></div><div class="line"><span class="code">	returnType = int</span></div><div class="line"></div><div class="line"><span class="code">	</span></div><div class="line">---</div><div class="line"><span class="code">	</span></div><div class="line">##### 注意</div><div class="line"></div><div class="line">如果反射的方法是静态方法的话可直接*<span class="strong">*invoke(null,...)*</span><span class="strong">*</span></div></pre></td></tr></table></figure></p>
-<p>public static int showInfo(String name,String pwd){<br>                MyClass.print(“name = “ + name);<br>                MyClass.print(“pwd = “ + pwd);<br>                return 2;<br>            }</p>
+<h4 id="新建测试Test类如下"><a href="#新建测试Test类如下" class="headerlink" title="新建测试Test类如下"></a>新建测试Test类如下</h4><pre><code>package com.example.lib;
+
+public class Test {
+
+    private String username;
+    private String password;
+
+    public Test(){
+    }
+
+    public int showInfo(String name,String pwd){
+        MyClass.print(&quot;name = &quot; + name);
+        MyClass.print(&quot;pwd = &quot; + pwd);
+        return 2;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Test{&quot; +
+                &quot;username=&apos;&quot; + username + &apos;\&apos;&apos; +
+                &quot;, password=&apos;&quot; + password + &apos;\&apos;&apos; +
+                &apos;}&apos;;
+    }
+}
+</code></pre><hr>
+<h4 id="反射变量"><a href="#反射变量" class="headerlink" title="反射变量"></a>反射变量</h4><pre><code>public static void main(String[] args){
+                Class&lt;?&gt; cls = Class.forName(&quot;x.com.lib.Test&quot;);
+                Object object = cls.newInstance();
+                Field username = cls.getDeclaredField(&quot;username&quot;);
+                username.setAccessible(true);
+                username.set(object,&quot;100&quot;);
+            }
+
+
+        输出
+    Test{username=&apos;100&apos;, password=&apos;null&apos;}
+</code></pre><h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><ul>
+<li><p><strong>set(Object var1, Object var2)</strong> 方法接收两个参数</p>
+<p><strong>var1</strong>  : 当前实例<br><strong>var2</strong>  : 修改的实例</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>get(Object var1)</strong> 方法接受一个参数</p>
+<p><strong>var1</strong> : Field实例</p>
+</li>
+</ul>
+<ul>
+<li><p>如果没加<strong>username.setAccessible(true)</strong>则会报错如下</p>
+<p>   can not access a member of class x.com.lib.Test with modifiers “private”</p>
+</li>
+</ul>
+<p>  <strong>因为Test里面定义的变量是private的,改成public即可。</strong></p>
+<p>  <strong>如果需要获取到private属性的则需要加username.setAccessible(true)。</strong></p>
 <pre><code>public static void main(String[] args){
+    Class&lt;?&gt; cls = Class.forName(&quot;x.com.lib.Test&quot;);
+        Object object = cls.newInstance();
+        Field username = cls.getDeclaredField(&quot;username&quot;);
+        username.setAccessible(true);
+        username.set(object,&quot;100&quot;);
+
+        Field password = cls.getDeclaredField(&quot;password&quot;);
+        password.setAccessible(true);
+        password.set(object,&quot;1234567&quot;);
+
+        print(object.toString());
+}
+
+
+
+输出 
+Test{username=&apos;100&apos;, password=&apos;1234567&apos;}    
+</code></pre><hr>
+<h4 id="反射方法"><a href="#反射方法" class="headerlink" title="反射方法"></a>反射方法</h4><pre><code> public static void main(String[] args){
+                Class&lt;?&gt; cls = Class.forName(&quot;x.com.lib.Test&quot;);
+                Object object = cls.newInstance();
+                Method method = cls.getDeclaredMethod(&quot;showInfo&quot;,String.class,String.class);
+                method.invoke(object,&quot;hello&quot;,&quot;今天天气真好&quot;);
+            }    
+
+
+输出
+name = hello
+pwd = 今天天气真好
+</code></pre><hr>
+<h4 id="反射-获取方法返回类型"><a href="#反射-获取方法返回类型" class="headerlink" title="反射 获取方法返回类型"></a>反射 获取方法返回类型</h4><pre><code>public static void main(String[] args){
+                Class&lt;?&gt; cls = Class.forName(&quot;x.com.lib.Test&quot;);
+                Object object = cls.newInstance();
+                Method method = cls.getDeclaredMethod(&quot;showInfo&quot;,String.class,String.class);
+                Class&lt;?&gt; returnType = method.getReturnType();
+                int resulr = method.invoke(object,&quot;hello&quot;,&quot;今天天气真好&quot;);
+            }    
+
+
+输出     
+name = hello
+pwd = 今天天气真好
+result = 2
+returnType = int
+</code></pre><hr>
+<h5 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h5><p>如果反射的方法是静态方法的话可直接<strong>invoke(null,…)</strong></p>
+<pre><code>public static int showInfo(String name,String pwd){
+                MyClass.print(&quot;name = &quot; + name);
+                MyClass.print(&quot;pwd = &quot; + pwd);
+                return 2;
+            }
+
+public static void main(String[] args){
     Class&lt;?&gt; cls = Class.forName(&quot;x.com.lib.Test&quot;);
     Object object = cls.newInstance();
     Method method = cls.getDeclaredMethod(&quot;showInfo&quot;,String.class,String.class);
     Class&lt;?&gt; returnType = method.getReturnType();
     int resulr = method.invoke(null,&quot;hello&quot;,&quot;今天天气真好&quot;);
 }
-</code></pre><p>```        </p>
-<pre><code>输出     
+
+
+输出     
 name = hello
 pwd = 今天天气真好
 result = 2
