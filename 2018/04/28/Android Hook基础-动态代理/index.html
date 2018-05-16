@@ -14,8 +14,8 @@
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">SendMessage<span class="built_in"> proxy </span>= (SendMessage) Proxy.newProxyInstance(sendMessage.getClass().getClassLoader(), sendMessage.getClass().getInterfaces(), new InvocationHandler() &#123;</div><div class="line">               @Override</div><div class="line">               public Object invoke(Object o, Method method, Object[] objects) throws Throwable &#123;</div><div class="line">                   return method.invoke(sendMessage,objects);</div><div class="line">               &#125;</div><div class="line">           &#125;);</div><div class="line"></div><div class="line">           proxy.sendMsg(<span class="string">"代理类发出信息 超市大甩卖"</span>);</div></pre></td></tr></table></figure>
 <p>动态代理主要处理InvocationHandler和Proxy类，在<code>InvocationHandler</code>反射调用方法。</p>
 </div><div class="tags"><a href="/tags/Android/">Android</a></div><div class="post-nav"><a href="/2018/05/01/Java设计模式-观察者模式/" class="pre">Java设计模式 观察者模式</a><a href="/2018/04/27/Android Hook基础-反射/" class="next">Android Hook基础-反射</a></div><div id="container"></div><link rel="stylesheet" href="/css/default.css?v=0.0.0"><script src="/js/gitment.browser.js?v=0.0.0"></script><script>var gitment = new Gitment({
-  owner: 'xwdz9989@gmail.com',
-  repo: 'git@github.com:hxw-study-data/hxw-blog.github.io.git',
+  owner: 'xwdzm',
+  repo: 'https://github.com/hxw-study-data/hxw-blog.github.io',
   oauth: {
     client_id: 'c62ab72e41cea1fc64ce',
     client_secret: '2b4319c22eabf970e7f8301c302934e6a641dbf4',
