@@ -16,8 +16,8 @@ mRemoteViews.setOnClickPendingIntent(mRemoteBuild.clickId, pendingIntent1);
 <p>而又我在新建的项目里面继续写测试代码，写了个3s之后自动finish当前activity，果然也报错了，看来就是跟当前生命周期有关，那也就是传过来的context了。</p>
 <h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>想了想，解决办法也很简单。因为下载的service要一直在后台运行，所以将传进来的context.getApplicationContext()，去注册广播，销毁广播等，这样就能保证是在整个app运行期间了，也不会造成内存泄漏问题。</p>
 </div><div class="tags"><a href="/tags/Android/">Android</a></div><div class="post-nav"><a href="/2018/04/26/石原里美真美/" class="pre">石原里美真美</a><a href="/2018/04/12/NotifyManager的一些坑/" class="next">Notification的一些坑。</a></div><div id="container"></div><link rel="stylesheet" href="/css/default.css?v=0.0.0"><script src="/js/gitment.browser.js?v=0.0.0"></script><script>var gitment = new Gitment({
-  owner: 'xwdzm',
-  repo: 'https://github.com/hxw-study-data/hxw-blog.github.io',
+  owner: 'xwdz',
+  repo: 'xwdz.github.io',
   oauth: {
     client_id: 'c62ab72e41cea1fc64ce',
     client_secret: '2b4319c22eabf970e7f8301c302934e6a641dbf4',
