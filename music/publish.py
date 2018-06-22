@@ -27,7 +27,7 @@ if __name__ == '__main__':
     reload(sys)
     sys.setdefaultencoding('utf-8')
     path = '/Users/huangxingwei/hxw-blog/source/music'
-    configPath = path + '/music_config.json'
+    configPath = '/Users/huangxingwei/Desktop/music_config.json'
 
     # 创建文件夹
     createFile(path)
@@ -42,7 +42,7 @@ if __name__ == '__main__':
     # 写入markdown
     contentFile.write(
         '---\n' + 'title: ' + result['music_name'] + '\n' + "date: " + time.strftime("%Y-%m-%d %H:%M:%S",
-                                                                          time.localtime()) + '\n' + 'category:\n' + '\t - music' + '\n---')
+          time.localtime()) + '\n' + 'category:\n' + '\t - music' + '\n---')
     contentFile.write('\n\n\n')
 
     contentFile.write('![](' + result['music_icon'] + ')' + '\n\n\n')
@@ -65,10 +65,10 @@ if __name__ == '__main__':
         contentResult = contents.split(',')
         for str in contentResult:
             contentFile.write('**' + str + '**' + '\n\n\n')
-    else:
-        contentFile.write('**' + contents + '**')
+        else:
+            contentFile.write('**' + contents + '**')
 
-    contentFile.flush()
+            contentFile.flush()
 
     # copy文件到Hexo文件夹里面去
     publishMarkdownFile = '/' + result['music_name'] + '.md'
