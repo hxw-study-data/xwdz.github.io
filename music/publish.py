@@ -3,6 +3,7 @@
 import json
 import os
 import sys
+import time
 
 import shutil
 
@@ -40,7 +41,8 @@ if __name__ == '__main__':
     contentFile = file(contentPath, 'w+')
     # 写入markdown
     contentFile.write(
-        '---\n' + 'title: '+result['music_name'] + '\n' + 'date: 2018-06-19 10:30:20\n' + 'category:\n' + '\t - music' + '\n---')
+        '---\n' + 'title: ' + result['music_name'] + '\n' + "date: " + time.strftime("%Y-%m-%d %H:%M:%S",
+                                                                          time.localtime()) + '\n' + 'category:\n' + '\t - music' + '\n---')
     contentFile.write('\n\n\n')
 
     contentFile.write('![](' + result['music_icon'] + ')' + '\n\n\n')
@@ -51,10 +53,10 @@ if __name__ == '__main__':
 
     contentFile.write('---' + '\n\n\n')
 
-
     contentFile.write('<iframe name="music" src="http://link.hhtjim.com/163/')
     contentFile.write(result['music_id'] + '.mp3" ')
-    contentFile.write('marginwidth="1px" marginheight="10px" width=70% height="60px" frameborder=1 　scrolling="yes"></iframe>')
+    contentFile.write(
+        'marginwidth="1px" marginheight="10px" width=70% height="60px" frameborder=1 　scrolling="yes"></iframe>')
     contentFile.write('\n\n\n')
 
     contents = result['music_content']
