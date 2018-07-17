@@ -17,7 +17,7 @@
 <meta property="og:description" content="问题背景下载APK的时候需要做一个通知栏并且支持暂停，取消等功能交互。通知栏的UI点击交互用的就是broadcast来接受点击事件 代码如下  registerReceiver(context, MyBroadcastReceiver);  Intent intent = new Intent(ACTION);  PendingIntent pendingIntent1 = PendingInte">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2651056-87ebe321327cdd0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-06-25T02:58:57.000Z">
+<meta property="og:updated_time" content="2018-07-17T06:41:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 使用Activity作为Contenxt启动BroadcastReceiveer的一些问题">
 <meta name="twitter:description" content="问题背景下载APK的时候需要做一个通知栏并且支持暂停，取消等功能交互。通知栏的UI点击交互用的就是broadcast来接受点击事件 代码如下  registerReceiver(context, MyBroadcastReceiver);  Intent intent = new Intent(ACTION);  PendingIntent pendingIntent1 = PendingInte">
@@ -181,6 +181,7 @@
 mRemoteViews.setOnClickPendingIntent(mRemoteBuild.clickId, pendingIntent1);
 </code></pre><p>伪代码如上就是为通知栏设置点击事件的一种方法。</p>
 <p>可当我测试点击的时候我注册的广播里面就是接收不到点击事件。<br>无奈我有改用静态方式来注册广播，观察log发现静态方式是可以接受到点击事件的那看来就是动态注册方式出了问题。于是我开始整理思路。</p>
+<a id="more"></a>
 <p>打开App，显示开屏广告，点击广告下载apk然后再创建通知栏，再更新下载进度。</p>
 <p>而后我继续测试，我将组件拿出来新建了一个项目来测试，发现是正常的，而后再次切换到前者项目测试，发现还是不行接受不到广播点击事件。</p>
 <p>我对比发现两者的不同点只是在activity的生命周期上面了。</p>

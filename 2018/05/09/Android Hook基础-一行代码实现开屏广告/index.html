@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://xwdz-blog.com">
   <title>Android Hook基础-一行代码实现开屏广告 | 酸菜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="需求背景多个产品线都需要实现开屏广告，我们产品广告都是接的我们自家广告SDK，而SplashActivity只是几行代码请求我们广告，广告SDK会把View封装好返回来，SplashActivity要做的事情只是获取响应结果，并且show出来. 如何实现一行代码实现开屏广告 通过Hook Instrumentation监听到App主界面启动并且回调出来，然后跳转到内置的一个activity里面实现">
+  <meta name="description" content="需求背景多个产品线都需要实现开屏广告，我们产品广告都是接的我们自家广告SDK，而SplashActivity只是几行代码请求我们广告，广告SDK会把View封装好返回来，SplashActivity要做的事情只是获取响应结果，并且show出来.">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Hook基础-一行代码实现开屏广告">
 <meta property="og:url" content="http://xwdz-blog.com/2018/05/09/Android Hook基础-一行代码实现开屏广告/index.html">
 <meta property="og:site_name" content="酸菜">
-<meta property="og:description" content="需求背景多个产品线都需要实现开屏广告，我们产品广告都是接的我们自家广告SDK，而SplashActivity只是几行代码请求我们广告，广告SDK会把View封装好返回来，SplashActivity要做的事情只是获取响应结果，并且show出来. 如何实现一行代码实现开屏广告 通过Hook Instrumentation监听到App主界面启动并且回调出来，然后跳转到内置的一个activity里面实现">
+<meta property="og:description" content="需求背景多个产品线都需要实现开屏广告，我们产品广告都是接的我们自家广告SDK，而SplashActivity只是几行代码请求我们广告，广告SDK会把View封装好返回来，SplashActivity要做的事情只是获取响应结果，并且show出来.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2651056-8f123da3799e6b83.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2018-06-25T02:59:21.000Z">
+<meta property="og:updated_time" content="2018-07-17T06:41:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Hook基础-一行代码实现开屏广告">
-<meta name="twitter:description" content="需求背景多个产品线都需要实现开屏广告，我们产品广告都是接的我们自家广告SDK，而SplashActivity只是几行代码请求我们广告，广告SDK会把View封装好返回来，SplashActivity要做的事情只是获取响应结果，并且show出来. 如何实现一行代码实现开屏广告 通过Hook Instrumentation监听到App主界面启动并且回调出来，然后跳转到内置的一个activity里面实现">
+<meta name="twitter:description" content="需求背景多个产品线都需要实现开屏广告，我们产品广告都是接的我们自家广告SDK，而SplashActivity只是几行代码请求我们广告，广告SDK会把View封装好返回来，SplashActivity要做的事情只是获取响应结果，并且show出来.">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2651056-8f123da3799e6b83.gif?imageMogr2/auto-orient/strip">
   
     <link rel="alternative" href="/atom.xml" title="酸菜" type="application/atom+xml">
@@ -174,6 +174,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h3><p>多个产品线都需要实现开屏广告，我们产品广告都是接的我们自家广告SDK，而<code>SplashActivity</code>只是几行代码请求我们广告，广告SDK会把View封装好返回来，<code>SplashActivity</code>要做的事情只是获取响应结果，并且<code>show</code>出来.</p>
+<a id="more"></a>
 <h3 id="如何实现一行代码实现开屏广告"><a href="#如何实现一行代码实现开屏广告" class="headerlink" title="如何实现一行代码实现开屏广告"></a>如何实现一行代码实现开屏广告</h3><ol>
 <li>通过Hook Instrumentation监听到App主界面启动并且回调出来，然后跳转到内置的一个activity里面实现开屏广告广告结束再finish。</li>
 <li>如何鉴别是否是主LAUNCHER(App第一个启动界面)</li>

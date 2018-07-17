@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://xwdz-blog.com">
   <title>Android Hook基础-动态代理 | 酸菜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="代理顾名思义，委托别人来帮助自己完成一些事情。例如打官司是不是要请律师，这样的一种关系就可以叫做代理关系。 静态代理 小明姨妈本想明天约小明妈妈去超市超市大甩卖，不过小姨妈临时需要去学习办点事去，这时小明姨妈委托小明告诉小明妈妈，明天某某超市大甩卖，让小明妈妈明天再门口等小明姨妈一起去超市购物。不过小明不仅告诉了自己妈妈，还告诉了一个不认识的大妈 如此小明便成为一个代理者。 1234public">
+  <meta name="description" content="代理顾名思义，委托别人来帮助自己完成一些事情。例如打官司是不是要请律师，这样的一种关系就可以叫做代理关系。">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Hook基础-动态代理">
 <meta property="og:url" content="http://xwdz-blog.com/2018/04/28/Android Hook基础-动态代理/index.html">
 <meta property="og:site_name" content="酸菜">
-<meta property="og:description" content="代理顾名思义，委托别人来帮助自己完成一些事情。例如打官司是不是要请律师，这样的一种关系就可以叫做代理关系。 静态代理 小明姨妈本想明天约小明妈妈去超市超市大甩卖，不过小姨妈临时需要去学习办点事去，这时小明姨妈委托小明告诉小明妈妈，明天某某超市大甩卖，让小明妈妈明天再门口等小明姨妈一起去超市购物。不过小明不仅告诉了自己妈妈，还告诉了一个不认识的大妈 如此小明便成为一个代理者。 1234public">
+<meta property="og:description" content="代理顾名思义，委托别人来帮助自己完成一些事情。例如打官司是不是要请律师，这样的一种关系就可以叫做代理关系。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2651056-87d7932810ae1628.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-06-25T02:59:05.000Z">
+<meta property="og:updated_time" content="2018-07-17T06:41:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Hook基础-动态代理">
-<meta name="twitter:description" content="代理顾名思义，委托别人来帮助自己完成一些事情。例如打官司是不是要请律师，这样的一种关系就可以叫做代理关系。 静态代理 小明姨妈本想明天约小明妈妈去超市超市大甩卖，不过小姨妈临时需要去学习办点事去，这时小明姨妈委托小明告诉小明妈妈，明天某某超市大甩卖，让小明妈妈明天再门口等小明姨妈一起去超市购物。不过小明不仅告诉了自己妈妈，还告诉了一个不认识的大妈 如此小明便成为一个代理者。 1234public">
+<meta name="twitter:description" content="代理顾名思义，委托别人来帮助自己完成一些事情。例如打官司是不是要请律师，这样的一种关系就可以叫做代理关系。">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2651056-87d7932810ae1628.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="酸菜" type="application/atom+xml">
@@ -174,6 +174,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h3><p>顾名思义，委托别人来帮助自己完成一些事情。例如打官司是不是要请律师，这样的一种关系就可以叫做代理关系。</p>
+<a id="more"></a>
 <h3 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h3><p><img src="https://upload-images.jianshu.io/upload_images/2651056-87d7932810ae1628.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <p><strong>小明姨妈本想明天约小明妈妈去超市超市大甩卖，不过小姨妈临时需要去学习办点事去，这时小明姨妈委托小明告诉小明妈妈，明天某某超市大甩卖，让小明妈妈明天再门口等小明姨妈一起去超市购物。不过小明不仅告诉了自己妈妈，还告诉了一个不认识的大妈</strong></p>
 <p><strong>如此小明便成为一个代理者。</strong></p>

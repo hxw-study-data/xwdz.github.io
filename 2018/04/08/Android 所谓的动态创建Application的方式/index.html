@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://xwdz-blog.com">
   <title>Android 所谓的动态创建Application的方式 | 酸菜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于需求在不调用代码的情况下，完成SDK初始化以及请求广告开屏广告操作。 拿到这个需求的时候很疑惑，为什么不能调用代码，是考虑到接入我们SDK成本太高？不存在的，SDK的接入都会给使用者详细的文档按照文档接入即可。我提出了我的质疑。甚至觉得这是一个伪需求 然而给我的答案仅仅是优化我们的接入方式。(这就是个伪需求) 怎么做当确定了需求之后我立即着手该怎么而后确定了大致思路 在Manifest里面声明">
+  <meta name="description" content="关于需求在不调用代码的情况下，完成SDK初始化以及请求广告开屏广告操作。 拿到这个需求的时候很疑惑，为什么不能调用代码，是考虑到接入我们SDK成本太高？不存在的，SDK的接入都会给使用者详细的文档按照文档接入即可。我提出了我的质疑。甚至觉得这是一个伪需求 然而给我的答案仅仅是优化我们的接入方式。(这就是个伪需求)">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 所谓的动态创建Application的方式">
 <meta property="og:url" content="http://xwdz-blog.com/2018/04/08/Android 所谓的动态创建Application的方式/index.html">
 <meta property="og:site_name" content="酸菜">
-<meta property="og:description" content="关于需求在不调用代码的情况下，完成SDK初始化以及请求广告开屏广告操作。 拿到这个需求的时候很疑惑，为什么不能调用代码，是考虑到接入我们SDK成本太高？不存在的，SDK的接入都会给使用者详细的文档按照文档接入即可。我提出了我的质疑。甚至觉得这是一个伪需求 然而给我的答案仅仅是优化我们的接入方式。(这就是个伪需求) 怎么做当确定了需求之后我立即着手该怎么而后确定了大致思路 在Manifest里面声明">
+<meta property="og:description" content="关于需求在不调用代码的情况下，完成SDK初始化以及请求广告开屏广告操作。 拿到这个需求的时候很疑惑，为什么不能调用代码，是考虑到接入我们SDK成本太高？不存在的，SDK的接入都会给使用者详细的文档按照文档接入即可。我提出了我的质疑。甚至觉得这是一个伪需求 然而给我的答案仅仅是优化我们的接入方式。(这就是个伪需求)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-25T02:58:43.000Z">
+<meta property="og:updated_time" content="2018-07-17T06:41:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 所谓的动态创建Application的方式">
-<meta name="twitter:description" content="关于需求在不调用代码的情况下，完成SDK初始化以及请求广告开屏广告操作。 拿到这个需求的时候很疑惑，为什么不能调用代码，是考虑到接入我们SDK成本太高？不存在的，SDK的接入都会给使用者详细的文档按照文档接入即可。我提出了我的质疑。甚至觉得这是一个伪需求 然而给我的答案仅仅是优化我们的接入方式。(这就是个伪需求) 怎么做当确定了需求之后我立即着手该怎么而后确定了大致思路 在Manifest里面声明">
+<meta name="twitter:description" content="关于需求在不调用代码的情况下，完成SDK初始化以及请求广告开屏广告操作。 拿到这个需求的时候很疑惑，为什么不能调用代码，是考虑到接入我们SDK成本太高？不存在的，SDK的接入都会给使用者详细的文档按照文档接入即可。我提出了我的质疑。甚至觉得这是一个伪需求 然而给我的答案仅仅是优化我们的接入方式。(这就是个伪需求)">
   
     <link rel="alternative" href="/atom.xml" title="酸菜" type="application/atom+xml">
   
@@ -174,6 +174,7 @@
         <h3 id="关于需求"><a href="#关于需求" class="headerlink" title="关于需求"></a>关于需求</h3><p>在不调用代码的情况下，完成SDK初始化以及请求广告开屏广告操作。</p>
 <p>拿到这个需求的时候很疑惑，为什么不能调用代码，是考虑到接入我们SDK成本太高？不存在的，SDK的接入都会给使用者详细的文档按照文档接入即可。我提出了我的质疑。甚至觉得这是一个伪需求</p>
 <p>然而给我的答案仅仅是优化我们的接入方式。(这就是个伪需求)</p>
+<a id="more"></a>
 <h3 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h3><p>当确定了需求之后我立即着手该怎么而后确定了大致思路</p>
 <p>在Manifest里面声明SDK的代理Application累，替换原有的Application，当创建SDK的代理类Application的时候手动初始化我们的SDK，然后使用hook方式启动一个SDK内置WelcomeActivity，请求广告吸附在该WelcomeActivit上面，随后控制其Activity声明周期创建/销毁 关联 广告展示/关闭等周期。</p>
 <h4 id="我们知道Android-Application-创建的方式即在Manifest里面声明一个name属性即可创建代码如下"><a href="#我们知道Android-Application-创建的方式即在Manifest里面声明一个name属性即可创建代码如下" class="headerlink" title="我们知道Android Application 创建的方式即在Manifest里面声明一个name属性即可创建代码如下"></a>我们知道Android Application 创建的方式即在Manifest里面声明一个name属性即可创建代码如下</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;application</div><div class="line">	android:<span class="attribute">name</span>=<span class="string">".sample.MyApplication"</span></div><div class="line">	android:<span class="attribute">allowBackup</span>=<span class="string">"true"</span></div><div class="line">	android:<span class="attribute">icon</span>=<span class="string">"@mipmap/ic_launcher"</span></div><div class="line">	android:<span class="attribute">label</span>=<span class="string">"@string/app_name"</span></div><div class="line">	android:<span class="attribute">supportsRtl</span>=<span class="string">"true"</span></div><div class="line">	android:<span class="attribute">theme</span>=<span class="string">"@style/AppTheme"</span>&gt;</div></pre></td></tr></table></figure>

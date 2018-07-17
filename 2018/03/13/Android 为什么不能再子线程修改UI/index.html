@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://xwdz-blog.com">
   <title>为什么不能再子线程修改UI | 酸菜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如果在子线程中修改UI报错如下: 如果问题搞清楚了这三大原则基本上就ok了；  why what   how  Why？  为什么会报错，报错的方法是checkThread，requestLayout 方法都在ViewRootimpl 类里面,  也就是说一旦ViewRootImpl 这个类被实例化,则就会调用requestLaoyout 方法来检查,requestLayout    方法如下:1">
+  <meta name="description" content="如果在子线程中修改UI报错如下: 如果问题搞清楚了这三大原则基本上就ok了；  why what   how">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为什么不能再子线程修改UI">
 <meta property="og:url" content="http://xwdz-blog.com/2018/03/13/Android 为什么不能再子线程修改UI/index.html">
 <meta property="og:site_name" content="酸菜">
-<meta property="og:description" content="如果在子线程中修改UI报错如下: 如果问题搞清楚了这三大原则基本上就ok了；  why what   how  Why？  为什么会报错，报错的方法是checkThread，requestLayout 方法都在ViewRootimpl 类里面,  也就是说一旦ViewRootImpl 这个类被实例化,则就会调用requestLaoyout 方法来检查,requestLayout    方法如下:1">
+<meta property="og:description" content="如果在子线程中修改UI报错如下: 如果问题搞清楚了这三大原则基本上就ok了；  why what   how">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2651056-9eadcc13ddd9201d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2651056-4b260d2b4cc40b4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-06-25T02:58:50.000Z">
+<meta property="og:updated_time" content="2018-07-17T06:41:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为什么不能再子线程修改UI">
-<meta name="twitter:description" content="如果在子线程中修改UI报错如下: 如果问题搞清楚了这三大原则基本上就ok了；  why what   how  Why？  为什么会报错，报错的方法是checkThread，requestLayout 方法都在ViewRootimpl 类里面,  也就是说一旦ViewRootImpl 这个类被实例化,则就会调用requestLaoyout 方法来检查,requestLayout    方法如下:1">
+<meta name="twitter:description" content="如果在子线程中修改UI报错如下: 如果问题搞清楚了这三大原则基本上就ok了；  why what   how">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2651056-9eadcc13ddd9201d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="酸菜" type="application/atom+xml">
@@ -179,7 +179,9 @@
 <ul>
 <li>why</li>
 <li>what  </li>
-<li>how</li>
+<li><p>how</p>
+<a id="more"></a>
+</li>
 </ul>
 <h2 id="Why？"><a href="#Why？" class="headerlink" title="Why？"></a>Why？</h2><p>  为什么会报错，报错的方法是checkThread，requestLayout 方法都在ViewRootimpl 类里面,<br>  也就是说一旦ViewRootImpl 这个类被实例化,则就会调用requestLaoyout 方法来检查,requestLayout    方法如下:<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">requestLayout</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!mHandlingLayoutInLayoutRequest) &#123;</div><div class="line">            checkThread();</div><div class="line">            mLayoutRequested = <span class="keyword">true</span>;</div><div class="line">            scheduleTraversals();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">   <span class="function"><span class="keyword">void</span> <span class="title">checkThread</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">//报错如下</span></div><div class="line">        <span class="keyword">if</span> (mThread != Thread.currentThread()) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> CalledFromWrongThreadException(</div><div class="line">                    <span class="string">"Only the original thread that created a view hierarchy can touch its views."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
 <blockquote>
