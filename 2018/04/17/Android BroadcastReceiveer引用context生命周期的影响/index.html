@@ -15,7 +15,6 @@
 <meta property="og:url" content="http://xwdz-blog.com/2018/04/17/Android BroadcastReceiveer引用context生命周期的影响/index.html">
 <meta property="og:site_name" content="酸菜的博客🔥">
 <meta property="og:description" content="问题背景下载APK的时候需要做一个通知栏并且支持暂停，取消等功能交互。通知栏的UI点击交互用的就是broadcast来接受点击事件 代码如下  registerReceiver(context, MyBroadcastReceiver);  Intent intent = new Intent(ACTION);  PendingIntent pendingIntent1 = PendingInte">
-<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2651056-87ebe321327cdd0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:updated_time" content="2018-07-17T06:41:31.000Z">
 <meta name="twitter:card" content="summary">
@@ -53,8 +52,10 @@
 			<img src="/img/28927771.jpeg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="">酸菜</a></h1>
+		  <h1 class="header-author"><a href="">John Doe</a></h1>
 		</hgroup>
+		
+		<p class="header-subtitle">[object Object]</p>
 		
 
 		<nav class="header-menu">
@@ -113,8 +114,10 @@
 				<img src="/img/28927771.jpeg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">酸菜</h1>
+			  <h1 class="header-author js-header-author">John Doe</h1>
 			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>[object Object]<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -370,7 +373,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 酸菜
+    		&copy; 2018 John Doe
     	</div>
 	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1274201994'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1274201994%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
 	</script>
@@ -463,19 +466,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">日常侃侃</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">日常侃侃</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">music</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
             
             <div class="clearfix"></div>
