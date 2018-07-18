@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://xwdz-blog.com">
   <title>Python-Django | 酸菜的博客🔥</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="细节请参考Django官方文档版本信息 python : 3.6  操作环境 : mac  django : 2.0  需要安装 pip django mysql">
+  <meta name="description" content="Django官方文档 版本信息 python : 3.6  操作环境 : mac  django : 2.0  需要安装 pip django mysql">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python-Django">
 <meta property="og:url" content="http://xwdz-blog.com/2018/07/18/Python-Django/index.html">
 <meta property="og:site_name" content="酸菜的博客🔥">
-<meta property="og:description" content="细节请参考Django官方文档版本信息 python : 3.6  操作环境 : mac  django : 2.0  需要安装 pip django mysql">
+<meta property="og:description" content="Django官方文档 版本信息 python : 3.6  操作环境 : mac  django : 2.0  需要安装 pip django mysql">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-18T09:34:15.000Z">
+<meta property="og:updated_time" content="2018-07-18T09:37:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python-Django">
-<meta name="twitter:description" content="细节请参考Django官方文档版本信息 python : 3.6  操作环境 : mac  django : 2.0  需要安装 pip django mysql">
+<meta name="twitter:description" content="Django官方文档 版本信息 python : 3.6  操作环境 : mac  django : 2.0  需要安装 pip django mysql">
   
     <link rel="alternative" href="/atom.xml" title="酸菜的博客🔥" type="application/atom+xml">
   
@@ -186,7 +186,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="细节请参考Django官方文档"><a href="#细节请参考Django官方文档" class="headerlink" title="细节请参考Django官方文档"></a><a href="https://docs.djangoproject.com/zh-hans/2.0/" target="_blank" rel="external">细节请参考Django官方文档</a></h4><h5 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h5><ul>
+        <p><strong><a href="https://docs.djangoproject.com/zh-hans/2.0/" target="_blank" rel="external">Django官方文档</a></strong></p>
+<h5 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h5><ul>
 <li><code>python</code> : 3.6 </li>
 <li><code>操作环境</code> : mac </li>
 <li><code>django</code> : 2.0</li>
@@ -262,7 +263,7 @@ return HttpResponse(json.dumps(resultJson), content_type=&quot;application/json&
 <p>class user(models.Model):<br>    name = models.TextField(max_length=332)<br>    desc = models.TextField(max_length=223)<br>    db = models.Manager()</p>
 <pre><code>def __str__(self):
     return self.name
-</code></pre><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">#</span><span class="bash"><span class="comment">### 注意</span></span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> 安装mysql如果报错<span class="keyword">do</span> you install mysqlclient ？</span></div><div class="line">在site/__init__.py 添加如下代码</div></pre></td></tr></table></figure>
+</code></pre><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">#</span><span class="bash"><span class="comment">### 注意</span></span></div><div class="line"></div><div class="line"><span class="meta">&gt;</span><span class="bash"> 安装mysql如果报错<span class="keyword">do</span> you install mysqlclient ？</span></div><div class="line"></div><div class="line">在site/__init__.py 添加如下代码</div></pre></td></tr></table></figure>
 <p>import pymysql<br>pymysql.install_as_MySQLdb()<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">执行命令</div><div class="line"><span class="meta">&gt;</span><span class="bash"> python manage.py makemigrations（可选）</span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> </span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> python manage.py migrate</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#</span><span class="bash"><span class="comment">### 数据库查询</span></span></div><div class="line">先导入model模块</div></pre></td></tr></table></figure></p>
 <p>from blog import models as model<br>model.Test0.db.all().values().first() …<br>```</p>
 
