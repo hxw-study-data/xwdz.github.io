@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xwdz-blog.com">
-  <title>酸菜的博客🔥</title>
+  <title>Python-Django | 酸菜的博客🔥</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="酸菜的博客🔥">
-<meta property="og:url" content="http://xwdz-blog.com/index.html">
+  <meta name="description" content="细节请参考Django官方文档版本信息 python : 3.6  操作环境 : mac  django : 2.0  需要安装 pip django mysql">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python-Django">
+<meta property="og:url" content="http://xwdz-blog.com/2018/07/18/Python-Django/index.html">
 <meta property="og:site_name" content="酸菜的博客🔥">
+<meta property="og:description" content="细节请参考Django官方文档版本信息 python : 3.6  操作环境 : mac  django : 2.0  需要安装 pip django mysql">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-18T09:25:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="酸菜的博客🔥">
+<meta name="twitter:title" content="Python-Django">
+<meta name="twitter:description" content="细节请参考Django官方文档版本信息 python : 3.6  操作环境 : mac  django : 2.0  需要安装 pip django mysql">
   
     <link rel="alternative" href="/atom.xml" title="酸菜的博客🔥" type="application/atom+xml">
   
@@ -156,16 +161,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Python-Django" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Python-Django" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/18/Python-Django/">Python-Django</a>
+    <h1 class="article-title" itemprop="name">
+      Python-Django
     </h1>
   
 
@@ -174,6 +177,10 @@
   	<time datetime="2018-07-18T07:45:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-18</time>
 </a>
         
+	
+		<span class="archive-article-date">
+			阅读量 <span id="busuanzi_value_page_pv"></span>
+		</span>
 	
       </header>
     
@@ -189,9 +196,76 @@
 <li>django</li>
 <li>mysql</li>
 </ul>
-        
-          <a class="article-more-a" href="/2018/07/18/Python-Django/#more">more >></a>
-        
+<a id="more"></a>
+<h4 id="安装Django"><a href="#安装Django" class="headerlink" title="安装Django"></a>安装Django</h4><blockquote>
+<p>pip install Django==2.0</p>
+</blockquote>
+<p><strong>可使用django-admi是否验证安装成功</strong></p>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[django]</div><div class="line">    check</div><div class="line">    compilemessages</div><div class="line">    createcachetable</div><div class="line">    dbshell</div><div class="line">    diffsettings</div><div class="line">    dumpdata</div><div class="line">    flush</div><div class="line"><span class="keyword">    .</span>..</div></pre></td></tr></table></figure>
+<p>输出如上说明成功</p>
+<h4 id="创建一个项目"><a href="#创建一个项目" class="headerlink" title="创建一个项目"></a>创建一个项目</h4><blockquote>
+<p>djando-admin startproject site(项目名称) 目录结构如下</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">+-- project</div><div class="line">	-- __init__<span class="selector-class">.py</span>  </div><div class="line">	-- settings<span class="selector-class">.py</span> 配置各种组件</div><div class="line">	-- urls<span class="selector-class">.py</span> 配置每个页面url地址</div><div class="line">	-- wsgi<span class="selector-class">.py</span> python应用与web服务器交互</div><div class="line">+-- manage<span class="selector-class">.py</span> 管理器 启动server等</div></pre></td></tr></table></figure>
+<h4 id="运行server"><a href="#运行server" class="headerlink" title="运行server"></a>运行server</h4><p>进入manage.py同级目录执行命令</p>
+<blockquote>
+<p>python manage.py runserver 8989(端口,可选,默认8080)</p>
+</blockquote>
+<p>打开浏览器输出<a href="http://127.0.0.1:端口/" target="_blank" rel="external">http://127.0.0.1:端口/</a> 回车没报错则说明运行成功</p>
+<h4 id="创建一个应用"><a href="#创建一个应用" class="headerlink" title="创建一个应用"></a>创建一个应用</h4><p>进入manage.py同级目录执行命令</p>
+<blockquote>
+<p>python manage.py startapp blog(应用名称) 自动生成目录结构如下</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">blog/</div><div class="line">    __init__.py</div><div class="line">    admin.py</div><div class="line">    apps.py</div><div class="line">    migrations/</div><div class="line">    __init__.py</div><div class="line">    models.py</div><div class="line">    tests.py</div><div class="line">    views<span class="selector-class">.py</span> 接受请求以及返回代码编写</div></pre></td></tr></table></figure>
+<h4 id="配置site-INSTALLED-APPS"><a href="#配置site-INSTALLED-APPS" class="headerlink" title="配置site/INSTALLED_APPS"></a>配置site/INSTALLED_APPS</h4><figure class="highlight sml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">'django</span>.contrib.admin',</div><div class="line">   <span class="symbol">'django</span>.contrib.auth',</div><div class="line">   <span class="symbol">'django</span>.contrib.contenttypes',</div><div class="line">   <span class="symbol">'django</span>.contrib.sessions',</div><div class="line">   <span class="symbol">'django</span>.contrib.messages',</div><div class="line">   <span class="symbol">'django</span>.contrib.staticfiles',</div><div class="line">   <span class="symbol">'blog'</span> # 应用名称</div></pre></td></tr></table></figure>
+<h4 id="接收一个request请求"><a href="#接收一个request请求" class="headerlink" title="接收一个request请求"></a>接收一个request请求</h4><p>打开 <code>blog/views.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</div><div class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">(request)</span>:</span></div><div class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">'hello Django!'</span>)</div></pre></td></tr></table></figure>
+<p><strong>注意:</strong> 函数参数带了request的说明会有请求过来</p>
+<h4 id="配置urls-py"><a href="#配置urls-py" class="headerlink" title="配置urls.py"></a>配置urls.py</h4><p>在<code>blog</code>文件夹下创建<code>urls.py</code>文件</p>
+<figure class="highlight xl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">from django.urls <span class="keyword">import</span> <span class="built_in">path</span></div><div class="line"></div><div class="line">from . <span class="keyword">import</span> views <span class="keyword">as</span> blog</div><div class="line"></div><div class="line">urlpatterns = [</div><div class="line">    <span class="built_in">path</span>(<span class="string">'login/'</span>, blog.login),</div><div class="line">]</div></pre></td></tr></table></figure>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</div><div class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</div><div class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> include</div><div class="line"></div><div class="line">urlpatterns = [</div><div class="line">	 # 默认存在</div><div class="line">    path(<span class="string">'admin/'</span>, admin.site.urls),</div><div class="line">    # 自己配置</div><div class="line">    path(<span class="string">'auth/'</span>, include(<span class="string">'blog.urls'</span>)),</div><div class="line">]</div><div class="line"></div><div class="line">```   </div><div class="line"></div><div class="line">&gt; 执行 python manage.py runserver <span class="number">3232</span> 在浏览器打开即可看见hello Django!</div><div class="line"></div><div class="line">这里其他都还好理解说一点配置urls.py</div></pre></td></tr></table></figure>
+<p>“””blog URL Configuration</p>
+<p>The <code>urlpatterns</code> list routes URLs to views. For more information please see:<br>    <a href="https://docs.djangoproject.com/en/2.0/topics/http/urls/" target="_blank" rel="external">https://docs.djangoproject.com/en/2.0/topics/http/urls/</a><br>Examples:<br>Function views</p>
+<pre><code>1. Add an import:  from my_app import views
+2. Add a URL to urlpatterns:  path(&apos;&apos;, views.home, name=&apos;home&apos;)
+</code></pre><p>Class-based views</p>
+<pre><code>1. Add an import:  from other_app.views import Home
+2. Add a URL to urlpatterns:  path(&apos;&apos;, Home.as_view(), name=&apos;home&apos;)
+</code></pre><p>Including another URLconf</p>
+<pre><code>1. Import the include() function: from django.urls import include, path
+2. Add a URL to urlpatterns:  path(&apos;blog/&apos;, include(&apos;blog.urls&apos;))
+</code></pre><p>“””</p>
+<pre><code># 自己配置
+path(&apos;auth/&apos;, include(&apos;blog.urls&apos;)),
+</code></pre><figure class="highlight qml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">这里配置的<span class="built_in">url</span>其实类似一个树形结构</div></pre></td></tr></table></figure>
+<p>+– path<br>    site(项目)/urls.py配置如下<br>    path(‘auth’,include(‘blog.urls’)))<br>        – login <a href="http://127.0.0.1:9999/auth/login/" target="_blank" rel="external">http://127.0.0.1:9999/auth/login/</a><br>        – getUserName <a href="http://127.0.0.1:9999/auth/getUserName/" target="_blank" rel="external">http://127.0.0.1:9999/auth/getUserName/</a><br>+– list<br>    site(项目)/urls.py配置如下<br>    path(‘list’,include(‘blog.urls’)))<br>        – getOrderlist   <a href="http://127.0.0.1:9999/list/getOrderlist/" target="_blank" rel="external">http://127.0.0.1:9999/list/getOrderlist/</a><br>            blog/urls.py 配置如下<br>            path(‘getOrderlist/‘, blog.getOrderlist),</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">#### API抛出json数据结构</div><div class="line">在`blog`/views.py 编写接口</div></pre></td></tr></table></figure>
+<p>def getJsonTest:<br>    resultJson = {}<br>    result = {‘name’: ‘huang’, ‘age’: ‘11’}<br>    result2 = {‘name’: ‘huang’, ‘age’: ‘11’}<br>    result3 = {‘name’: ‘huang’, ‘age’: ‘11’}</p>
+<pre><code>testJson = {
+    &apos;datetime&apos;: &apos;昨天&apos;,
+    &apos;starttime&apos;: &quot;今天&quot;
+}
+result4 = {&apos;name&apos;: testJson, &apos;age&apos;: &apos;11&apos;}
+
+listdata = [result, result2, result3, result4]
+resultJson[&apos;list&apos;] = listdata
+resultJson[&apos;msg&apos;] = &apos;this is message&apos;
+print(&apos;request count &apos; + str(REQUESTCOUNT))
+return HttpResponse(json.dumps(resultJson), content_type=&quot;application/json&quot;)
+</code></pre><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**在Rresponse添加如下content_type=<span class="string">"application/json"</span>返回即是json数据**</div><div class="line"></div><div class="line"></div><div class="line">#### 配置数据库</div><div class="line"></div><div class="line">配置`Site`/`settings.py`下DATABASES模块</div></pre></td></tr></table></figure>
+<p>DATABASES = {<br>    ‘default’: {<br>        ‘ENGINE’: ‘django.db.backends.mysql’,   # 数据库引擎<br>        ‘NAME’: ‘douban_info’,       # 你要存储数据的库名，事先要创建<br>        ‘USER’: ‘root’,         # 数据库用户名<br>        ‘PASSWORD’: ‘123123’,     # 密码<br>        ‘HOST’: ‘localhost’,    # 主机<br>        ‘PORT’: ‘3306’,         # 数据库使用的端口<br>    }</p>
+<h1 id="默认使用sqlite3"><a href="#默认使用sqlite3" class="headerlink" title="默认使用sqlite3"></a>默认使用sqlite3</h1><pre><code>#&apos;default&apos;: {
+#    &apos;ENGINE&apos;: &apos;django.db.backends.sqlite3&apos;,
+#    &apos;NAME&apos;: os.path.join(BASE_DIR, &apos;db.sqlite3&apos;),
+#}
+</code></pre><p>}<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">#### Django中的ORM</div><div class="line">新建class继承models.Model表明新建表</div></pre></td></tr></table></figure></p>
+<p>class user(models.Model):<br>    name = models.TextField(max_length=332)<br>    desc = models.TextField(max_length=223)<br>    db = models.Manager()</p>
+<pre><code>def __str__(self):
+    return self.name
+</code></pre><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">#</span><span class="bash"><span class="comment">### 注意</span></span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> 安装mysql如果报错<span class="keyword">do</span> you install mysqlclient ？</span></div><div class="line">在site/__init__.py 添加如下代码</div></pre></td></tr></table></figure>
+<p>import pymysql<br>pymysql.install_as_MySQLdb()<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">执行命令</div><div class="line"><span class="meta">&gt;</span><span class="bash"> python manage.py makemigrations（可选）</span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> </span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> python manage.py migrate</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#</span><span class="bash"><span class="comment">### 数据库查询</span></span></div><div class="line">先导入model模块</div></pre></td></tr></table></figure></p>
+<p>from blog import models as model<br>model.Test0.db.all().values().first() …<br>```</p>
+
       
 
       
@@ -213,16 +287,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/18/Python-Django/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aS27DMAwFwNz/0u62QGr1kUwWlsYrI0ktjQsQ/Oj1iq/r19X7/P3+7jfvT/vYhYGB8VjGtbzWC09eRH6/3hsGBsY5jLuF149Ovu2B871hYGBgVBO7HFZ9DgYGBkY18FUTyvVfJaEcAwMDI1lgjUySwvW2cjYGBsZpjElh+e37r8w3MDAwHsW4itd8wFkdbUa7wsDA2JqRB7j1Rielby/gYmBgYOSLVUNn/vzyQBQDA+NIxqRa7BXAvfCNgYGxN2MSLnuhOXlBSaj9oxbHwMDYlNE7hpUH3F4Y7Q07MTAwdmX0ysjqcYccWS16X/lpMgwMjMcy5sezqmll3qqrHgHBwMDYlVEdKFZL0N62ykUvBgbGMYzJ8tWhY/6bQqMNAwNjU8akfTZJH6vFcNSSw8DA2JRRbmMVz2IlzbVqmw8DA+NMxrzRlowq8ySvOQbAwMA4gNELo9VtTUL57ecYGBhbM6oDyLzczQ9q5McvCv8TDAyMrRnJ46qpWz4czcG3XUMMDIytGd9YrBqaP5DnYmBgHMBICtRec+1TgfufIhYDA2M7xlW8em395AUlr/U2TcTAwNiaUW3TJ6F28u2k6MXAwNibkYTI3kGKvHHWC7gYGBinMSYN/bzczYeUzVIWAwMDo3iArDd+qBa3GBgYGPmBjOoIodeA+1hqiIGB8UBGntLlw85eydocZ2JgYGzNyEvHvJVfpc6TSwwMjE0ZP6cLQc8MAEi+AAAAAElFTkSuQmCC" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/02/平凡的生活/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">平凡的生活</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -242,412 +375,30 @@
 
 
 
-
-  
-    <article id="post-平凡的生活" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/02/平凡的生活/">平凡的生活</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/02/平凡的生活/" class="archive-article-date">
-  	<time datetime="2018-07-02T03:38:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-02</time>
-</a>
-        
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=5345163ddd43ad4ba62e41c6ba393d92/0df431adcbef7609c140720722dda3cc7dd99edb.jpg" alt=""></p>
-<p><strong>歌手：毛不易</strong></p>
-<p><strong>作曲：毛不易</strong> </p>
-<p><strong>作词：毛不易</strong></p>
-        
-          <a class="article-more-a" href="/2018/07/02/平凡的生活/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">music</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/02/平凡的生活/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-百家湖，我们的车窗升起了雾" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/百家湖，我们的车窗升起了雾/">百家湖，我们的车窗升起了雾</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/百家湖，我们的车窗升起了雾/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:16:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="data:image/jpeg;base64,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" alt=""></p>
-<p><strong>歌手：蚂蚁先生</strong></p>
-<p><strong>作曲：蚂蚁</strong></p>
-<p><strong>作词：蚂蚁</strong></p>
-        
-          <a class="article-more-a" href="/2018/06/23/百家湖，我们的车窗升起了雾/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">music</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/百家湖，我们的车窗升起了雾/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-你的眼睛" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/你的眼睛/">你的眼睛</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/你的眼睛/" class="archive-article-date">
-  	<time datetime="2018-06-23T03:05:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMtfsHDGa2kkURP0D6UoYodfRjOv33TeyzaphpnSm-P6pQGkA6" alt=""></p>
-<p><strong>歌手：陈小熊</strong></p>
-<p><strong>作曲：陈洁修</strong></p>
-<p><strong>作词：陈洁修</strong></p>
-        
-          <a class="article-more-a" href="/2018/06/23/你的眼睛/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">music</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/你的眼睛/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-栖息" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/20/栖息/">栖息</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/20/栖息/" class="archive-article-date">
-  	<time datetime="2018-06-20T06:03:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-20</time>
-</a>
-        
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://upload-images.jianshu.io/upload_images/2651056-f0fe5bf070ba1ef5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><strong>歌手：郭诚（橙子）</strong></p>
-<p><strong>作曲：少年佩</strong></p>
-<p><strong>作词：郭诚 行文泽</strong></p>
-        
-          <a class="article-more-a" href="/2018/06/20/栖息/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">music</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/20/栖息/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-下一站茶山刘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/19/下一站茶山刘/">下一站茶山刘</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/19/下一站茶山刘/" class="archive-article-date">
-  	<time datetime="2018-06-19T02:30:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-19</time>
-</a>
-        
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://upload-images.jianshu.io/upload_images/2651056-60edf36344c5e604.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><strong>歌手：房东的猫</strong></p>
-<p><strong>作曲 : 少年佩</strong></p>
-<p><strong>作词 : 少年佩/红鼻子小黑/李纤橙</strong></p>
-        
-          <a class="article-more-a" href="/2018/06/19/下一站茶山刘/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">music</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/19/下一站茶山刘/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://xwdz-blog.com/2018/07/18/Python-Django/",
+  owner: 'hxw-study-data',
+  repo: 'gitment-comments',
+  oauth: {
+    client_id: 'c62ab72e41cea1fc64ce',
+    client_secret: '2b4319c22eabf970e7f8301c302934e6a641dbf4',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -676,8 +427,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
