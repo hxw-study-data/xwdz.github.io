@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
   
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://xwdz-blog.com">
-  <title>Notification的一些坑。 | 酸菜的博客🔥</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="RemoteViews自定义layout支持大图用setCustomBigContentView方法 123if (Build.VERSION.SDK_INT &amp;gt; Build.VERSION_CODES.JELLY_BEAN) &amp;#123;    notificationBuilder.setCustomBigContentView(mRemoteViews);&amp;#125; 另外Androi">
+ <!-- Import APlayer.js -->
+ 
+
+ <meta charset="utf-8">
+ 
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<link rel="dns-prefetch" href="http://xwdz-blog.com">
+<title>Notification的一些坑。 | 酸菜的博客🔥</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="RemoteViews自定义layout支持大图用setCustomBigContentView方法 123if (Build.VERSION.SDK_INT &amp;gt; Build.VERSION_CODES.JELLY_BEAN) &amp;#123;    notificationBuilder.setCustomBigContentView(mRemoteViews);&amp;#125; 另外Androi">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Notification的一些坑。">
@@ -20,22 +24,22 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Notification的一些坑。">
 <meta name="twitter:description" content="RemoteViews自定义layout支持大图用setCustomBigContentView方法 123if (Build.VERSION.SDK_INT &amp;gt; Build.VERSION_CODES.JELLY_BEAN) &amp;#123;    notificationBuilder.setCustomBigContentView(mRemoteViews);&amp;#125; 另外Androi">
-  
-    <link rel="alternative" href="/atom.xml" title="酸菜的博客🔥" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-  <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
-  <style type="text/css">
-  
-    #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
-    }
-  </style>
-  
 
-  
+<link rel="alternative" href="/atom.xml" title="酸菜的博客🔥" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+<style type="text/css">
+
+#container.show {
+  background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+}
+</style>
+
+
+
 
 </head>
 
@@ -187,7 +191,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="RemoteViews"><a href="#RemoteViews" class="headerlink" title="RemoteViews"></a>RemoteViews</h4><p>自定义layout支持大图用setCustomBigContentView方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt; Build.VERSION_CODES.JELLY_BEAN) &#123;</div><div class="line">    notificationBuilder.setCustomBigContentView(mRemoteViews);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt; Build.VERSION_CODES.JELLY_BEAN) &#123;</span><br><span class="line">    notificationBuilder.setCustomBigContentView(mRemoteViews);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>另外Android 华为7.0默认背景颜色白色，是不会显示任何东西的，不过在小米上面又是正常。<br>另外小米以及华为都是默认都有padding值，注意UI方面调整。</p>
 
       
@@ -350,6 +354,7 @@ gitment.render('gitment-ctn')
         <span id="busuanzi_container_site_pv"> 
   本站访客数<span id="busuanzi_value_site_pv"></span>人次
 	</span>
+
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>

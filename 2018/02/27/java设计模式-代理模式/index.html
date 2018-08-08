@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
   
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://xwdz-blog.com">
-  <title>Java设计模式 代理模式 | 酸菜的博客🔥</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="定义为其他对象提供一种代理一控制对这个对象的访问。 场景当不想直接访问某个对象或访问某个对象存在着一定困难时就可以通过一个代理对象来间接访问。">
+ <!-- Import APlayer.js -->
+ 
+
+ <meta charset="utf-8">
+ 
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<link rel="dns-prefetch" href="http://xwdz-blog.com">
+<title>Java设计模式 代理模式 | 酸菜的博客🔥</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="定义为其他对象提供一种代理一控制对这个对象的访问。 场景当不想直接访问某个对象或访问某个对象存在着一定困难时就可以通过一个代理对象来间接访问。">
 <meta name="keywords" content="设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java设计模式 代理模式">
@@ -20,22 +24,22 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java设计模式 代理模式">
 <meta name="twitter:description" content="定义为其他对象提供一种代理一控制对这个对象的访问。 场景当不想直接访问某个对象或访问某个对象存在着一定困难时就可以通过一个代理对象来间接访问。">
-  
-    <link rel="alternative" href="/atom.xml" title="酸菜的博客🔥" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-  <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
-  <style type="text/css">
-  
-    #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
-    }
-  </style>
-  
 
-  
+<link rel="alternative" href="/atom.xml" title="酸菜的博客🔥" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+<style type="text/css">
+
+#container.show {
+  background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+}
+</style>
+
+
+
 
 </head>
 
@@ -189,7 +193,7 @@
         <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>为其他对象提供一种代理一控制对这个对象的访问。</p>
 <h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>当不想直接访问某个对象或访问某个对象存在着一定困难时就可以通过一个代理对象来间接访问。</p>
 <a id="more"></a>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Test</span> &#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String args[]</span>) </span>&#123;</div><div class="line">        <span class="comment">// 通过代理类访问具体执行发送信息对象</span></div><div class="line">        ProxyMessage proxy = <span class="keyword">new</span> ProxyMessage();</div><div class="line">        proxy.sendMessage(<span class="string">"Android"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//代理类</span></div><div class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">ProxyMessage</span> &#123;</div><div class="line"></div><div class="line">        final Message mMessage = <span class="keyword">new</span> Message();</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">sendMessage</span>(<span class="params">String type</span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (<span class="string">"Android"</span>.<span class="keyword">equals</span>(type)) &#123;</div><div class="line">                mMessage.sendAndroid();</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                mMessage.sendIOS();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">Message</span> &#123;</div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">sendAndroid</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            System.<span class="keyword">out</span>.println(<span class="string">"send Android"</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">sendIOS</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            System.<span class="keyword">out</span>.println(<span class="string">"send ios"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Test</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String args[]</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 通过代理类访问具体执行发送信息对象</span></span><br><span class="line">        ProxyMessage proxy = <span class="keyword">new</span> ProxyMessage();</span><br><span class="line">        proxy.sendMessage(<span class="string">"Android"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//代理类</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">ProxyMessage</span> &#123;</span><br><span class="line"></span><br><span class="line">        final Message mMessage = <span class="keyword">new</span> Message();</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">sendMessage</span>(<span class="params">String type</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="string">"Android"</span>.<span class="keyword">equals</span>(type)) &#123;</span><br><span class="line">                mMessage.sendAndroid();</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                mMessage.sendIOS();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">Message</span> &#123;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">sendAndroid</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">"send Android"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">sendIOS</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">"send ios"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -351,6 +355,7 @@ gitment.render('gitment-ctn')
         <span id="busuanzi_container_site_pv"> 
   本站访客数<span id="busuanzi_value_site_pv"></span>人次
 	</span>
+
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>

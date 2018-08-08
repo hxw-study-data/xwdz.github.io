@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
   
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://xwdz-blog.com">
-  <title>Android studio发布个人开源项目至bintray | 酸菜的博客🔥</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="创建账号创建账号时要注意要用国外邮箱。 使用插件发布 项目根目录 build.gradle 添加引用  1classpath &apos;com.novoda:bintray-release:0.3.4&apos;">
+ <!-- Import APlayer.js -->
+ 
+
+ <meta charset="utf-8">
+ 
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<link rel="dns-prefetch" href="http://xwdz-blog.com">
+<title>Android studio发布个人开源项目至bintray | 酸菜的博客🔥</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="创建账号创建账号时要注意要用国外邮箱。 使用插件发布 项目根目录 build.gradle 添加引用  1classpath &apos;com.novoda:bintray-release:0.3.4&apos;">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android studio发布个人开源项目至bintray">
@@ -20,22 +24,22 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android studio发布个人开源项目至bintray">
 <meta name="twitter:description" content="创建账号创建账号时要注意要用国外邮箱。 使用插件发布 项目根目录 build.gradle 添加引用  1classpath &apos;com.novoda:bintray-release:0.3.4&apos;">
-  
-    <link rel="alternative" href="/atom.xml" title="酸菜的博客🔥" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-  <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
-  <style type="text/css">
-  
-    #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
-    }
-  </style>
-  
 
-  
+<link rel="alternative" href="/atom.xml" title="酸菜的博客🔥" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+<style type="text/css">
+
+#container.show {
+  background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+}
+</style>
+
+
+
 
 </head>
 
@@ -190,18 +194,18 @@
 <h3 id="使用插件发布"><a href="#使用插件发布" class="headerlink" title="使用插件发布"></a>使用插件发布</h3><ul>
 <li>项目根目录 build.gradle 添加引用</li>
 </ul>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">classpath</span> <span class="string">'com.novoda:bintray-release:0.3.4'</span></div></pre></td></tr></table></figure>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">classpath</span> <span class="string">'com.novoda:bintray-release:0.3.4'</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <ul>
 <li>library目录下的build.gradle 配置如下信息</li>
 </ul>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">apply plugin: <span class="string">'com.android.library'</span></div><div class="line"><span class="comment">//添加如下引用</span></div><div class="line">apply plugin: <span class="string">'com.novoda.bintray-release'</span></div><div class="line"></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="keyword">def</span> siteUrl = <span class="string">'https://github.com/xwdz/BarChartView'</span></div><div class="line">publish &#123;</div><div class="line">    userOrg = <span class="string">'quinnhuang'</span><span class="comment">//bintray.com的用户名</span></div><div class="line">    repoName = <span class="string">'xw-widget'</span><span class="comment">//远程仓库名字,不指明，默认是上传到maven</span></div><div class="line">    groupId = <span class="string">'com.xiaowei'</span><span class="comment">//jcenter上的路径</span></div><div class="line">    artifactId = <span class="string">'barchart-view'</span><span class="comment">//项目名称</span></div><div class="line">    publishVersion = <span class="string">'1.0.0'</span><span class="comment">//版本号</span></div><div class="line">    desc = <span class="string">'轻量型柱形图'</span><span class="comment">//描述，不重要</span></div><div class="line">    website = siteUrl<span class="comment">//项目主页</span></div><div class="line">&#125;</div><div class="line">tasks.withType(Javadoc) &#123;<span class="comment">//防止编码问题</span></div><div class="line">    <span class="keyword">options</span>.addStringOption(<span class="string">'Xdoclint:none'</span>, <span class="string">'-quiet'</span>)</div><div class="line">    <span class="keyword">options</span>.addStringOption(<span class="string">'encoding'</span>, <span class="string">'UTF-8'</span>)</div><div class="line">    <span class="keyword">options</span>.addStringOption(<span class="string">'charSet'</span>, <span class="string">'UTF-8'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="上传至bintray"><a href="#上传至bintray" class="headerlink" title="上传至bintray"></a>上传至bintray</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew clean build bintrayUpload <span class="attribute">-PbintrayUser</span>=xxx <span class="attribute">-PbintrayKey</span>=xxxx <span class="attribute">-PdryRun</span>=falser</div></pre></td></tr></table></figure>
-<h2 id="期间遇到的问题"><a href="#期间遇到的问题" class="headerlink" title="期间遇到的问题"></a>期间遇到的问题</h2><h3 id="用户名不统一"><a href="#用户名不统一" class="headerlink" title="用户名不统一"></a>用户名不统一</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Could <span class="keyword">not</span> <span class="built_in">create</span> <span class="built_in">version</span> <span class="string">'1.0.0'</span>: HTTP/<span class="number">1.1</span> <span class="number">401</span> Unauthorized</div></pre></td></tr></table></figure>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: <span class="string">'com.android.library'</span></span><br><span class="line"><span class="comment">//添加如下引用</span></span><br><span class="line">apply plugin: <span class="string">'com.novoda.bintray-release'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">def</span> siteUrl = <span class="string">'https://github.com/xwdz/BarChartView'</span></span><br><span class="line">publish &#123;</span><br><span class="line">    userOrg = <span class="string">'quinnhuang'</span><span class="comment">//bintray.com的用户名</span></span><br><span class="line">    repoName = <span class="string">'xw-widget'</span><span class="comment">//远程仓库名字,不指明，默认是上传到maven</span></span><br><span class="line">    groupId = <span class="string">'com.xiaowei'</span><span class="comment">//jcenter上的路径</span></span><br><span class="line">    artifactId = <span class="string">'barchart-view'</span><span class="comment">//项目名称</span></span><br><span class="line">    publishVersion = <span class="string">'1.0.0'</span><span class="comment">//版本号</span></span><br><span class="line">    desc = <span class="string">'轻量型柱形图'</span><span class="comment">//描述，不重要</span></span><br><span class="line">    website = siteUrl<span class="comment">//项目主页</span></span><br><span class="line">&#125;</span><br><span class="line">tasks.withType(Javadoc) &#123;<span class="comment">//防止编码问题</span></span><br><span class="line">    <span class="keyword">options</span>.addStringOption(<span class="string">'Xdoclint:none'</span>, <span class="string">'-quiet'</span>)</span><br><span class="line">    <span class="keyword">options</span>.addStringOption(<span class="string">'encoding'</span>, <span class="string">'UTF-8'</span>)</span><br><span class="line">    <span class="keyword">options</span>.addStringOption(<span class="string">'charSet'</span>, <span class="string">'UTF-8'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="上传至bintray"><a href="#上传至bintray" class="headerlink" title="上传至bintray"></a>上传至bintray</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew clean build bintrayUpload <span class="attribute">-PbintrayUser</span>=xxx <span class="attribute">-PbintrayKey</span>=xxxx <span class="attribute">-PdryRun</span>=falser</span><br></pre></td></tr></table></figure>
+<h2 id="期间遇到的问题"><a href="#期间遇到的问题" class="headerlink" title="期间遇到的问题"></a>期间遇到的问题</h2><h3 id="用户名不统一"><a href="#用户名不统一" class="headerlink" title="用户名不统一"></a>用户名不统一</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Could <span class="keyword">not</span> <span class="built_in">create</span> <span class="built_in">version</span> <span class="string">'1.0.0'</span>: HTTP/<span class="number">1.1</span> <span class="number">401</span> Unauthorized</span><br></pre></td></tr></table></figure>
 <p><code>PbintrayUser、userOrg 两者属性属性必须一样，即bintray.com的用户名</code></p>
-<h3 id="lint-检查出来的错误"><a href="#lint-检查出来的错误" class="headerlink" title="lint 检查出来的错误"></a>lint 检查出来的错误</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="section">android</span> &#123;</div><div class="line">     <span class="section">lintOptions</span> &#123;</div><div class="line">         <span class="attribute">abortOnError</span> <span class="literal">false</span></div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h3 id="lint-检查出来的错误"><a href="#lint-检查出来的错误" class="headerlink" title="lint 检查出来的错误"></a>lint 检查出来的错误</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">android</span> &#123;</span><br><span class="line">     <span class="section">lintOptions</span> &#123;</span><br><span class="line">         <span class="attribute">abortOnError</span> <span class="literal">false</span></span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 <p><strong>在你library以及App的build.gradle的androud模块添加</strong></p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="section">android</span> &#123;</div><div class="line">    <span class="attribute">compileSdkVersion</span> <span class="number">26</span></div><div class="line">    buildToolsVersion <span class="string">"26.0.0"</span></div><div class="line"></div><div class="line">    defaultConfig &#123;</div><div class="line">        <span class="attribute">minSdkVersion</span> <span class="number">21</span></div><div class="line">        targetSdkVersion <span class="number">26</span></div><div class="line">        versionCode <span class="number">1</span></div><div class="line">        versionName <span class="string">"1.0"</span></div><div class="line"></div><div class="line">        testInstrumentationRunner <span class="string">"android.support.test.runner.AndroidJUnitRunner"</span></div><div class="line"></div><div class="line">    &#125;</div><div class="line">    buildTypes &#123;</div><div class="line">        <span class="section">release</span> &#123;</div><div class="line">            <span class="attribute">minifyEnabled</span> <span class="literal">false</span></div><div class="line">            proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.pro'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">	 // 忽略lint</div><div class="line">    lintOptions &#123;</div><div class="line">        <span class="attribute">abortOnError</span> <span class="literal">false</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">android</span> &#123;</span><br><span class="line">    <span class="attribute">compileSdkVersion</span> <span class="number">26</span></span><br><span class="line">    buildToolsVersion <span class="string">"26.0.0"</span></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        <span class="attribute">minSdkVersion</span> <span class="number">21</span></span><br><span class="line">        targetSdkVersion <span class="number">26</span></span><br><span class="line">        versionCode <span class="number">1</span></span><br><span class="line">        versionName <span class="string">"1.0"</span></span><br><span class="line"></span><br><span class="line">        testInstrumentationRunner <span class="string">"android.support.test.runner.AndroidJUnitRunner"</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        <span class="section">release</span> &#123;</span><br><span class="line">            <span class="attribute">minifyEnabled</span> <span class="literal">false</span></span><br><span class="line">            proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.pro'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	 // 忽略lint</span><br><span class="line">    lintOptions &#123;</span><br><span class="line">        <span class="attribute">abortOnError</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>最后add central 等待审核即可</strong></p>
 
       
@@ -375,6 +379,7 @@ gitment.render('gitment-ctn')
         <span id="busuanzi_container_site_pv"> 
   本站访客数<span id="busuanzi_value_site_pv"></span>人次
 	</span>
+
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>

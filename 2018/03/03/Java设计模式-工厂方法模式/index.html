@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
   
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://xwdz-blog.com">
-  <title>Java设计模式 工厂方法模式 | 酸菜的博客🔥</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="工厂方法模式定义一个用于创建对象的接口，让子类决定实例化哪个类 而工厂方法模式有一套通用模式代码 定义zoo类如下: 1234public abstract class Zoo &amp;#123;    public abstract void showAnimal();&amp;#125;">
+ <!-- Import APlayer.js -->
+ 
+
+ <meta charset="utf-8">
+ 
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<link rel="dns-prefetch" href="http://xwdz-blog.com">
+<title>Java设计模式 工厂方法模式 | 酸菜的博客🔥</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="工厂方法模式定义一个用于创建对象的接口，让子类决定实例化哪个类 而工厂方法模式有一套通用模式代码 定义zoo类如下: 1234public abstract class Zoo &amp;#123;    public abstract void showAnimal();&amp;#125;">
 <meta name="keywords" content="设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java设计模式 工厂方法模式">
@@ -20,22 +24,22 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java设计模式 工厂方法模式">
 <meta name="twitter:description" content="工厂方法模式定义一个用于创建对象的接口，让子类决定实例化哪个类 而工厂方法模式有一套通用模式代码 定义zoo类如下: 1234public abstract class Zoo &amp;#123;    public abstract void showAnimal();&amp;#125;">
-  
-    <link rel="alternative" href="/atom.xml" title="酸菜的博客🔥" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-  <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
-  <style type="text/css">
-  
-    #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
-    }
-  </style>
-  
 
-  
+<link rel="alternative" href="/atom.xml" title="酸菜的博客🔥" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+<style type="text/css">
+
+#container.show {
+  background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+}
+</style>
+
+
+
 
 </head>
 
@@ -189,19 +193,19 @@
         <h3 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h3><p>定义一个用于创建对象的接口，让子类决定实例化哪个类</p>
 <p>而工厂方法模式有一套通用模式代码</p>
 <p>定义zoo类如下:</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Zoo</span> &#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">showAnimal</span>(<span class="params"></span>)</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Zoo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">showAnimal</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>dog类如下:</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Zoo</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    public void showAnimal() &#123;</div><div class="line">        <span class="type">System</span>.out.println(<span class="string">"dog is show"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Zoo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    public void showAnimal() &#123;</span><br><span class="line">        <span class="type">System</span>.out.println(<span class="string">"dog is show"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>pig类如下:</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public <span class="class"><span class="keyword">class</span> <span class="title">Pig</span> <span class="keyword">extends</span> <span class="title">Zoo</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    public void showAnimal() &#123;</div><div class="line">        <span class="type">System</span>.out.println(<span class="string">"pig is show"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">Pig</span> <span class="keyword">extends</span> <span class="title">Zoo</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    public void showAnimal() &#123;</span><br><span class="line">        <span class="type">System</span>.out.println(<span class="string">"pig is show"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>定义一个工厂方法接口:</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public<span class="built_in"> interface </span>Factory &#123;</div><div class="line"></div><div class="line">     Zoo createAnimal();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public<span class="built_in"> interface </span>Factory &#123;</span><br><span class="line"></span><br><span class="line">     Zoo createAnimal();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>实现类:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClientFactory</span> <span class="keyword">implements</span> <span class="title">Factory</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Zoo <span class="title">createAnimal</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Dog();</div><div class="line">        <span class="comment">//return new Pig();</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="built_in">String</span>[] arg)&#123;</div><div class="line">	Factory <span class="keyword">factory</span> = <span class="keyword">new</span> ClientFactory();</div><div class="line">            Dog zoo = (Dog) <span class="keyword">factory</span>.createAnimal();</div><div class="line">            <span class="comment">// or Pig pig = (Pig) factory.createAnimal();</span></div><div class="line">            zoo.showAnimal();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClientFactory</span> <span class="keyword">implements</span> <span class="title">Factory</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Zoo <span class="title">createAnimal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Dog();</span><br><span class="line">        <span class="comment">//return new Pig();</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="built_in">String</span>[] arg)&#123;</span><br><span class="line">	Factory <span class="keyword">factory</span> = <span class="keyword">new</span> ClientFactory();</span><br><span class="line">            Dog zoo = (Dog) <span class="keyword">factory</span>.createAnimal();</span><br><span class="line">            <span class="comment">// or Pig pig = (Pig) factory.createAnimal();</span></span><br><span class="line">            zoo.showAnimal();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>输出结果</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dog <span class="built_in">is</span> <span class="built_in">show</span></div></pre></td></tr></table></figure>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dog <span class="built_in">is</span> <span class="built_in">show</span></span><br></pre></td></tr></table></figure>
 <p>需要哪一个类的对象就传入哪一个类的类型即可，这种方法比较简洁，动态。</p>
 
       
@@ -364,6 +368,7 @@ gitment.render('gitment-ctn')
         <span id="busuanzi_container_site_pv"> 
   本站访客数<span id="busuanzi_value_site_pv"></span>人次
 	</span>
+
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>

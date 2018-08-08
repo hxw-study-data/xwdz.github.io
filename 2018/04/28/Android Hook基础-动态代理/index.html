@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
   
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://xwdz-blog.com">
-  <title>Android Hook基础-动态代理 | 酸菜的博客🔥</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="代理顾名思义，委托别人来帮助自己完成一些事情。例如打官司是不是要请律师，这样的一种关系就可以叫做代理关系。">
+ <!-- Import APlayer.js -->
+ 
+
+ <meta charset="utf-8">
+ 
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<link rel="dns-prefetch" href="http://xwdz-blog.com">
+<title>Android Hook基础-动态代理 | 酸菜的博客🔥</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="代理顾名思义，委托别人来帮助自己完成一些事情。例如打官司是不是要请律师，这样的一种关系就可以叫做代理关系。">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Hook基础-动态代理">
@@ -22,22 +26,22 @@
 <meta name="twitter:title" content="Android Hook基础-动态代理">
 <meta name="twitter:description" content="代理顾名思义，委托别人来帮助自己完成一些事情。例如打官司是不是要请律师，这样的一种关系就可以叫做代理关系。">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2651056-87d7932810ae1628.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-  
-    <link rel="alternative" href="/atom.xml" title="酸菜的博客🔥" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-  <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
-  <style type="text/css">
-  
-    #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
-    }
-  </style>
-  
 
-  
+<link rel="alternative" href="/atom.xml" title="酸菜的博客🔥" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+<style type="text/css">
+
+#container.show {
+  background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+}
+</style>
+
+
+
 
 </head>
 
@@ -193,16 +197,16 @@
 <h3 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h3><p><img src="https://upload-images.jianshu.io/upload_images/2651056-87d7932810ae1628.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <p><strong>小明姨妈本想明天约小明妈妈去超市超市大甩卖，不过小姨妈临时需要去学习办点事去，这时小明姨妈委托小明告诉小明妈妈，明天某某超市大甩卖，让小明妈妈明天再门口等小明姨妈一起去超市购物。不过小明不仅告诉了自己妈妈，还告诉了一个不认识的大妈</strong></p>
 <p><strong>如此小明便成为一个代理者。</strong></p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public<span class="built_in"> interface </span>SendMessage &#123;</div><div class="line"></div><div class="line">    void sendMsg(String msg);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public<span class="built_in"> interface </span>SendMessage &#123;</span><br><span class="line"></span><br><span class="line">    void sendMsg(String msg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>实现类如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SendMessageImpl</span> <span class="keyword">implements</span> <span class="title">SendMessage</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMsg</span><span class="params">(String msg)</span> </span>&#123;</div><div class="line">        System.out.println(msg);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SendMessageImpl</span> <span class="keyword">implements</span> <span class="title">SendMessage</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMsg</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>代理类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxySend</span> <span class="keyword">implements</span> <span class="title">SendMessage</span> </span>&#123;</div><div class="line"></div><div class="line"></div><div class="line">    SendMessage mSendMessage;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ProxySend</span><span class="params">(SendMessage sendMessage)</span> </span>&#123;</div><div class="line">        mSendMessage = sendMessage;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMsg</span><span class="params">(String msg)</span> </span>&#123;</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"大妈，隔壁某某超市甩卖了拉，赶紧去买点便宜的东西"</span>);</div><div class="line">        mSendMessage.sendMsg(msg);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> statis <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">	<span class="keyword">final</span> SendMessage sendMessage = <span class="keyword">new</span> SendMessageImpl();</div><div class="line">            ProxySend send = <span class="keyword">new</span> ProxySend(sendMessage);</div><div class="line">            send.sendMsg(<span class="string">"超市大甩卖"</span>);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="section">输出结果:</span></div><div class="line">大妈，隔壁某某超市甩卖了拉，赶紧去买点便宜的东西</div><div class="line">超市大甩卖</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxySend</span> <span class="keyword">implements</span> <span class="title">SendMessage</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    SendMessage mSendMessage;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ProxySend</span><span class="params">(SendMessage sendMessage)</span> </span>&#123;</span><br><span class="line">        mSendMessage = sendMessage;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMsg</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"大妈，隔壁某某超市甩卖了拉，赶紧去买点便宜的东西"</span>);</span><br><span class="line">        mSendMessage.sendMsg(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> statis <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">	<span class="keyword">final</span> SendMessage sendMessage = <span class="keyword">new</span> SendMessageImpl();</span><br><span class="line">            ProxySend send = <span class="keyword">new</span> ProxySend(sendMessage);</span><br><span class="line">            send.sendMsg(<span class="string">"超市大甩卖"</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">输出结果:</span></span><br><span class="line">大妈，隔壁某某超市甩卖了拉，赶紧去买点便宜的东西</span><br><span class="line">超市大甩卖</span><br></pre></td></tr></table></figure>
 <hr>
 <p>由于静态代理需要为每一个需要代理的类写一个代理类，如果需要代理的类有几百个那不是要累死？</p>
 <p>使用动态代理则不需要手写每一个静态代理类。</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">SendMessage<span class="built_in"> proxy </span>= (SendMessage) Proxy.newProxyInstance(sendMessage.getClass().getClassLoader(), sendMessage.getClass().getInterfaces(), new InvocationHandler() &#123;</div><div class="line">               @Override</div><div class="line">               public Object invoke(Object o, Method method, Object[] objects) throws Throwable &#123;</div><div class="line">                   return method.invoke(sendMessage,objects);</div><div class="line">               &#125;</div><div class="line">           &#125;);</div><div class="line"></div><div class="line">           proxy.sendMsg(<span class="string">"代理类发出信息 超市大甩卖"</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SendMessage<span class="built_in"> proxy </span>= (SendMessage) Proxy.newProxyInstance(sendMessage.getClass().getClassLoader(), sendMessage.getClass().getInterfaces(), new InvocationHandler() &#123;</span><br><span class="line">               @Override</span><br><span class="line">               public Object invoke(Object o, Method method, Object[] objects) throws Throwable &#123;</span><br><span class="line">                   return method.invoke(sendMessage,objects);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;);</span><br><span class="line"></span><br><span class="line">           proxy.sendMsg(<span class="string">"代理类发出信息 超市大甩卖"</span>);</span><br></pre></td></tr></table></figure>
 <p>动态代理主要处理InvocationHandler和Proxy类，在<code>InvocationHandler</code>反射调用方法。</p>
 
       
@@ -365,6 +369,7 @@ gitment.render('gitment-ctn')
         <span id="busuanzi_container_site_pv"> 
   本站访客数<span id="busuanzi_value_site_pv"></span>人次
 	</span>
+
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
