@@ -197,57 +197,9 @@
 <li>队列最大同时下载任务数,超过则进入等待队列</li>
 <li>自动恢复上一次下载任务</li>
 </ul>
-<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><h4 id="downloader-权限相关"><a href="#downloader-权限相关" class="headerlink" title="downloader 权限相关"></a>downloader 权限相关</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:<span class="attribute">name</span>=<span class="string">"android.permission.INTERNET"</span>/&gt;</span><br><span class="line">&lt;uses-permission android:<span class="attribute">name</span>=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h4><p>根项目的build.gradle：</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">allprojects </span>&#123;</span><br><span class="line">    <span class="class">repositories </span>&#123;</span><br><span class="line">        jcenter()</span><br><span class="line">			<span class="class">maven </span>&#123; url <span class="string">"https://jitpack.io"</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>$lastVersion = <a href="https://jitpack.io/#xwdz/QuietDownload" target="_blank" rel="noopener"><img src="https://jitpack.io/v/xwdz/QuietDownload.svg" alt=""></a></p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">implementation</span> <span class="string">'com.xwdz:QuietDownloader:<span class="variable">$lastVersion</span>'</span></span><br></pre></td></tr></table></figure>
-<p>在AndroidManifest.xml 声明如下service</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;service android:<span class="attribute">name</span>=<span class="string">"com.xwdz.download.core.DownloadService"</span>/&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><pre><code>1. 在您的Application处调用初始化代码:
-   XDownloaderManager.getImpl().bindService(this);
-
-2. 添加一些列配置
-    QuietConfig.getImpl()
-                    // 默认下载路径为[sdcard/Download/包名/xxx.apk]
-                    // 若没有自定义下载文件路径,则必须调用该init代码
-                    .initDownloadFile(context)
-                    //debug模式
-                    .setDebug(boolean isDebug)
-                    //下载文件路径
-                    .setDownloadDir(File file)
-                    // 队列最大同时下载任务数,超过则进入等待队列 默认:3
-                    .setMaxDownloadTasks(int)
-                    // 最大线程下载数   默认:3
-                    .setMaxDownloadThreads(int)
-                    // 间隔毫秒
-                    .setMinOperateInterval(long)
-                    // 打开界面自动恢复下载
-                    .setRecoverDownloadWhenStart(false);
-
-QuietDownloadConfig还提供了一处全局处理网络的接口:
-
-public interface HandlerNetwork {
-              /**
-               * 处理网络状况接口
-               * @return true:  消费该事件终止运行下载任务
-               *         false: 正常执行下载任务
-               */
-              boolean onHandlerNetworkStatus();
-          }
-QuietConfig.getImpl().setHandlerNetworkListener(new QuietDownloadConfig.HandlerNetwork() {
-     @Override
-     public boolean onHandlerNetworkStatus() {
-         // 自己的逻辑判断，提示当前不在wifi情况dialog 等
-         return false;
-     }
- });
-</code></pre><h4 id="关于DownloadEntry"><a href="#关于DownloadEntry" class="headerlink" title="关于DownloadEntry"></a>关于DownloadEntry</h4><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DownloadEntry</span> <span class="keyword"><span class="keyword">implements</span> <span class="type">Serializable</span></span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">String</span> id;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">String</span> name;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">String</span> url;</span><br><span class="line">    <span class="keyword">public</span> int currentLength;</span><br><span class="line">    <span class="keyword">public</span> int totalLength;</span><br><span class="line">        <span class="comment">// ... 省略代码</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> DownloadEntry(<span class="keyword">String</span> url) &#123;</span><br><span class="line">        <span class="built_in">this</span>.url = url;</span><br><span class="line">        <span class="built_in">this</span>.id = url;</span><br><span class="line">        <span class="built_in">this</span>.name = url.substring(url.lastIndexOf(<span class="string">"/"</span>) + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// ... 省略代码</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Quited内部使用DownloadEntry实体类进行关联</span><br></pre></td></tr></table></figure>
-<h4 id="DownloadEntry的几种状态"><a href="#DownloadEntry的几种状态" class="headerlink" title="DownloadEntry的几种状态"></a>DownloadEntry的几种状态</h4><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">enum</span> <span class="title">DownloadStatus</span> &#123;</span></span><br><span class="line">        idle, waiting, connecting, downloading, paused, resumed, cancelled, completed, error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="使用方法-1"><a href="#使用方法-1" class="headerlink" title="使用方法"></a>使用方法</h4><figure class="highlight pony"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">private <span class="type">QuietDownload</span> mDownloader = <span class="type">QuietDownload</span>.getImpl();</span><br><span class="line"></span><br><span class="line">private final <span class="type">DownloadEntry</span> downloadEntry = <span class="function"><span class="keyword">new</span> <span class="title">DownloadEntry</span>("url");</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  ... 省略代码</span></span><br><span class="line"><span class="function">  </span></span><br><span class="line"><span class="function">  <span class="comment">// 常用API</span></span></span><br><span class="line"><span class="function">  <span class="comment">// 开始任务</span></span></span><br><span class="line"><span class="function">  <span class="title">mDownloader</span>.<span class="title">startDownad</span>(downloadEntry);</span></span><br><span class="line"><span class="function">  <span class="comment">// 暂停任务</span></span></span><br><span class="line"><span class="function">  <span class="title">mDownloader</span>.<span class="title">pause</span>(downloadEntry);</span></span><br><span class="line"><span class="function">  <span class="comment">//取消任务</span></span></span><br><span class="line"><span class="function">  <span class="title">mDownloader</span>.<span class="title">cancel</span>(downloadEntry);</span></span><br><span class="line"><span class="function">  <span class="comment">// 恢复任务</span></span></span><br><span class="line"><span class="function">  <span class="title">mDownloader</span>.<span class="title">resume</span>(downloadEntry);</span></span><br><span class="line"><span class="function">  <span class="comment">// 恢复所有</span></span></span><br><span class="line"><span class="function">  <span class="title">mDownloader</span>.<span class="title">recoverAll</span>(downloadEntry);</span></span><br><span class="line"><span class="function">  <span class="comment">// 暂停所有</span></span></span><br><span class="line"><span class="function">  <span class="title">mDownloader</span>.<span class="title">pauseAll</span>(downloadEntry);</span></span><br></pre></td></tr></table></figure>
-<h4 id="关于监听"><a href="#关于监听" class="headerlink" title="关于监听"></a>关于监听</h4><p><code>QuiteDownload</code> 并没有采用传统listener方式，而是使用了观察者模式,如需要在某个界面监听下载进度</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> DataUpdateWatcher mDataUpdateReceiver = <span class="keyword">new</span> DataUpdateWatcher() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">notifyUpdate</span><span class="params">(DownloadEntry data)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// calback mainUIThread </span></span><br><span class="line">        <span class="comment">// do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 省略若干代码</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onResume();</span><br><span class="line">    mDownloader.addObserver(mDataUpdateReceiver);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onPause();</span><br><span class="line">    mDownloader.removeObserver(mDataUpdateReceiver);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        
+          <a class="article-more-a" href="/2018/09/07/Android多任务下载lib/#more">more >></a>
+        
       
 
       
@@ -260,7 +212,7 @@ QuietConfig.getImpl().setHandlerNetworkListener(new QuietDownloadConfig.HandlerN
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Andorid</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
         		</li>
       		
 		</ul>
@@ -813,19 +765,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Andorid</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color1">music</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">music</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
