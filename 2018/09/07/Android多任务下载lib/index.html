@@ -10,15 +10,23 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" >
 <link rel="dns-prefetch" href="http://xwdz-blog.com">
-<title>Category: work | 酸菜的博客🔥</title>
+<title>Android多任务下载lib | 酸菜的博客🔥</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta property="og:type" content="website">
-<meta property="og:title" content="酸菜的博客🔥">
-<meta property="og:url" content="http://xwdz-blog.com/categories/work/page/2/index.html">
+<meta name="description" content="TODO 输出lib流程图 重试机制  Github 功能 任何一个界面检测进度 单个任务下载 多个任务下载 取消单个任务 取消全部任务 暂停所有任务 队列最大同时下载任务数,超过则进入等待队列 自动恢复上一次下载任务  使用方法downloader 权限相关12&amp;lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&amp;gt;&amp;">
+<meta name="keywords" content="Andorid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android多任务下载lib">
+<meta property="og:url" content="http://xwdz-blog.com/2018/09/07/Android多任务下载lib/index.html">
 <meta property="og:site_name" content="酸菜的博客🔥">
+<meta property="og:description" content="TODO 输出lib流程图 重试机制  Github 功能 任何一个界面检测进度 单个任务下载 多个任务下载 取消单个任务 取消全部任务 暂停所有任务 队列最大同时下载任务数,超过则进入等待队列 自动恢复上一次下载任务  使用方法downloader 权限相关12&amp;lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&amp;gt;&amp;">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://xwdz-blog.com/2018/09/07/Android多任务下载lib/download_simple.gif">
+<meta property="og:image" content="https://jitpack.io/v/xwdz/QuietDownload.svg">
+<meta property="og:updated_time" content="2018-09-07T01:56:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="酸菜的博客🔥">
+<meta name="twitter:title" content="Android多任务下载lib">
+<meta name="twitter:description" content="TODO 输出lib流程图 重试机制  Github 功能 任何一个界面检测进度 单个任务下载 多个任务下载 取消单个任务 取消全部任务 暂停所有任务 队列最大同时下载任务数,超过则进入等待队列 自动恢复上一次下载任务  使用方法downloader 权限相关12&amp;lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&amp;gt;&amp;">
+<meta name="twitter:image" content="http://xwdz-blog.com/2018/09/07/Android多任务下载lib/download_simple.gif">
 
 <link rel="alternative" href="/atom.xml" title="酸菜的博客🔥" type="application/atom+xml">
 
@@ -160,172 +168,230 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Android多任务下载lib" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android多任务下载lib
+    </h1>
+  
+
+        
+        <a href="/2018/09/07/Android多任务下载lib/" class="archive-article-date">
+  	<time datetime="2018-09-07T01:51:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-07</time>
+</a>
+        
+	
+		<span class="archive-article-date">
+			阅读量 <span id="busuanzi_value_page_pv"></span>
+		</span>
+	
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h4><ol>
+<li>输出lib流程图</li>
+<li>重试机制</li>
+</ol>
+<h4 id="Github"><a href="#Github" class="headerlink" title="Github"></a><a href="https://github.com/xwdz/QuietDownload" target="_blank" rel="noopener">Github</a></h4><p><img src="/2018/09/07/Android多任务下载lib/./download_simple.gif" alt="image"></p>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><ul>
+<li>任何一个界面检测进度</li>
+<li>单个任务下载</li>
+<li>多个任务下载</li>
+<li>取消单个任务</li>
+<li>取消全部任务</li>
+<li>暂停所有任务</li>
+<li>队列最大同时下载任务数,超过则进入等待队列</li>
+<li>自动恢复上一次下载任务</li>
+</ul>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><h4 id="downloader-权限相关"><a href="#downloader-权限相关" class="headerlink" title="downloader 权限相关"></a>downloader 权限相关</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:<span class="attribute">name</span>=<span class="string">"android.permission.INTERNET"</span>/&gt;</span><br><span class="line">&lt;uses-permission android:<span class="attribute">name</span>=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h4><p>根项目的build.gradle：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">allprojects </span>&#123;</span><br><span class="line">    <span class="class">repositories </span>&#123;</span><br><span class="line">        jcenter()</span><br><span class="line">			<span class="class">maven </span>&#123; url <span class="string">"https://jitpack.io"</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>$lastVersion = <a href="https://jitpack.io/#xwdz/QuietDownload" target="_blank" rel="noopener"><img src="https://jitpack.io/v/xwdz/QuietDownload.svg" alt=""></a></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">implementation</span> <span class="string">'com.xwdz:QuietDownloader:<span class="variable">$lastVersion</span>'</span></span><br></pre></td></tr></table></figure>
+<p>在AndroidManifest.xml 声明如下service</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;service android:<span class="attribute">name</span>=<span class="string">"com.xwdz.download.core.DownloadService"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><pre><code>1. 在您的Application处调用初始化代码:
+   XDownloaderManager.getImpl().bindService(this);
+
+2. 添加一些列配置
+    QuietConfig.getImpl()
+                    // 默认下载路径为[sdcard/Download/包名/xxx.apk]
+                    // 若没有自定义下载文件路径,则必须调用该init代码
+                    .initDownloadFile(context)
+                    //debug模式
+                    .setDebug(boolean isDebug)
+                    //下载文件路径
+                    .setDownloadDir(File file)
+                    // 队列最大同时下载任务数,超过则进入等待队列 默认:3
+                    .setMaxDownloadTasks(int)
+                    // 最大线程下载数   默认:3
+                    .setMaxDownloadThreads(int)
+                    // 间隔毫秒
+                    .setMinOperateInterval(long)
+                    // 打开界面自动恢复下载
+                    .setRecoverDownloadWhenStart(false);
+
+QuietDownloadConfig还提供了一处全局处理网络的接口:
+
+public interface HandlerNetwork {
+              /**
+               * 处理网络状况接口
+               * @return true:  消费该事件终止运行下载任务
+               *         false: 正常执行下载任务
+               */
+              boolean onHandlerNetworkStatus();
+          }
+QuietConfig.getImpl().setHandlerNetworkListener(new QuietDownloadConfig.HandlerNetwork() {
+     @Override
+     public boolean onHandlerNetworkStatus() {
+         // 自己的逻辑判断，提示当前不在wifi情况dialog 等
+         return false;
+     }
+ });
+</code></pre><h4 id="关于DownloadEntry"><a href="#关于DownloadEntry" class="headerlink" title="关于DownloadEntry"></a>关于DownloadEntry</h4><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DownloadEntry</span> <span class="keyword"><span class="keyword">implements</span> <span class="type">Serializable</span></span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">String</span> id;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">String</span> name;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">String</span> url;</span><br><span class="line">    <span class="keyword">public</span> int currentLength;</span><br><span class="line">    <span class="keyword">public</span> int totalLength;</span><br><span class="line">        <span class="comment">// ... 省略代码</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> DownloadEntry(<span class="keyword">String</span> url) &#123;</span><br><span class="line">        <span class="built_in">this</span>.url = url;</span><br><span class="line">        <span class="built_in">this</span>.id = url;</span><br><span class="line">        <span class="built_in">this</span>.name = url.substring(url.lastIndexOf(<span class="string">"/"</span>) + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// ... 省略代码</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Quited内部使用DownloadEntry实体类进行关联</span><br></pre></td></tr></table></figure>
+<h4 id="DownloadEntry的几种状态"><a href="#DownloadEntry的几种状态" class="headerlink" title="DownloadEntry的几种状态"></a>DownloadEntry的几种状态</h4><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">enum</span> <span class="title">DownloadStatus</span> &#123;</span></span><br><span class="line">        idle, waiting, connecting, downloading, paused, resumed, cancelled, completed, error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="使用方法-1"><a href="#使用方法-1" class="headerlink" title="使用方法"></a>使用方法</h4><figure class="highlight pony"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">private <span class="type">QuietDownload</span> mDownloader = <span class="type">QuietDownload</span>.getImpl();</span><br><span class="line"></span><br><span class="line">private final <span class="type">DownloadEntry</span> downloadEntry = <span class="function"><span class="keyword">new</span> <span class="title">DownloadEntry</span>("url");</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  ... 省略代码</span></span><br><span class="line"><span class="function">  </span></span><br><span class="line"><span class="function">  <span class="comment">// 常用API</span></span></span><br><span class="line"><span class="function">  <span class="comment">// 开始任务</span></span></span><br><span class="line"><span class="function">  <span class="title">mDownloader</span>.<span class="title">startDownad</span>(downloadEntry);</span></span><br><span class="line"><span class="function">  <span class="comment">// 暂停任务</span></span></span><br><span class="line"><span class="function">  <span class="title">mDownloader</span>.<span class="title">pause</span>(downloadEntry);</span></span><br><span class="line"><span class="function">  <span class="comment">//取消任务</span></span></span><br><span class="line"><span class="function">  <span class="title">mDownloader</span>.<span class="title">cancel</span>(downloadEntry);</span></span><br><span class="line"><span class="function">  <span class="comment">// 恢复任务</span></span></span><br><span class="line"><span class="function">  <span class="title">mDownloader</span>.<span class="title">resume</span>(downloadEntry);</span></span><br><span class="line"><span class="function">  <span class="comment">// 恢复所有</span></span></span><br><span class="line"><span class="function">  <span class="title">mDownloader</span>.<span class="title">recoverAll</span>(downloadEntry);</span></span><br><span class="line"><span class="function">  <span class="comment">// 暂停所有</span></span></span><br><span class="line"><span class="function">  <span class="title">mDownloader</span>.<span class="title">pauseAll</span>(downloadEntry);</span></span><br></pre></td></tr></table></figure>
+<h4 id="关于监听"><a href="#关于监听" class="headerlink" title="关于监听"></a>关于监听</h4><p><code>QuiteDownload</code> 并没有采用传统listener方式，而是使用了观察者模式,如需要在某个界面监听下载进度</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> DataUpdateWatcher mDataUpdateReceiver = <span class="keyword">new</span> DataUpdateWatcher() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">notifyUpdate</span><span class="params">(DownloadEntry data)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// calback mainUIThread </span></span><br><span class="line">        <span class="comment">// do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 省略若干代码</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onResume();</span><br><span class="line">    mDownloader.addObserver(mDataUpdateReceiver);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onPause();</span><br><span class="line">    mDownloader.removeObserver(mDataUpdateReceiver);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/12/AndroidStudio发布个人开源项目遇到的几个坑bintray/" class="archive-article-date">
-  	<time datetime="2017-11-12T11:17:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/12/AndroidStudio发布个人开源项目遇到的几个坑bintray/">Android studio发布个人开源项目至bintray</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Andorid</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/work//" class="article-tag-list-link color5">work</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACPElEQVR42u3aQZLDIAwF0dz/0p7tbDD9BUkVor2aYhzDY6ESEp8Pfh7wjN7/PzL62uhXmx8ZMmQcyyCLI8vi3yfjfG0yZMi4hzGanofL96BJRvgGyZAhQwZnpNO/v/8efGXIkCEjDXz84MrHfxpwZciQcSCDHGLT5ZJQm27EhrO4DBkyDmTwqvvv//5Kf0OGDBlHMZ7w2dVOIElnsCoZMmS0ZqSlsbTcz1NAkjhOviBDhoymDJ6orVySWEkK0fbJkCHjGgYPhetJZFpomwR3GTJkXMBIj518ibVmA28AyJAh4wZGbcpa8N3VEij2Y2XIkHEsYyWl49OnRbc0QZQhQ0ZvRjplWiCrNQBIyjghyZAhoxEjTenS8hlpc6b4YQtThgwZrRlpfrVyzSIu+pPtkyFDRmsGuTzBr1PUFspLbOh2mwwZMlozeNqXXo8g20QWOgnKMmTIuIBBJkivRHzvv/G+ypAhox1j5Vf8UgX5QnC0liFDRmvG+xL5UTZNFvnVipQqQ4aMfgye8KXjK4W2pUOsDBkymjJ4K5GM86CctgQmAVeGDBmtGTwhq10mC65N1KpqMmTIaMp4woe0DXhiRxJHUryTIUNGb8auNgA/xJLUM20tyJAh4wZGmurxlDFNPXnADboZMmTIaMSoBcpa0W0l1ZvkuTJkyJARpoM8pKYp44aAK0OGjNaM93fSBkOtADc8xMqQIaM1Iz2IkkAcX+3C4VWGDBm3MVaOjmQyXkojyeJSI1OGDBnnMf4A5UGJh6W+SvYAAAAASUVORK5CYII=" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/14/Android-studio-9图/" class="archive-article-date">
-  	<time datetime="2017-10-14T02:35:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-14</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/06/普通生活/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">普通生活</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/14/Android-studio-9图/">Android studio .9图</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/work//" class="article-tag-list-link color5">work</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/03/Android-混淆相关/" class="archive-article-date">
-  	<time datetime="2017-10-03T05:00:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/03/Android-混淆相关/">Android 混淆相关</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/work//" class="article-tag-list-link color5">work</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/categories/work/">&laquo; Prev</a><a class="page-number" href="/categories/work/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://xwdz-blog.com/2018/09/07/Android多任务下载lib/",
+  owner: 'hxw-study-data',
+  repo: 'gitment-comments',
+  oauth: {
+    client_id: 'c62ab72e41cea1fc64ce',
+    client_secret: '2b4319c22eabf970e7f8301c302934e6a641dbf4',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -356,10 +422,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
