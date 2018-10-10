@@ -156,6 +156,83 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-NotifyManager的一些坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/12/NotifyManager的一些坑/">Notification的一些坑。</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/12/NotifyManager的一些坑/" class="archive-article-date">
+  	<time datetime="2018-04-12T13:04:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-12</time>
+</a>
+        
+	
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="RemoteViews"><a href="#RemoteViews" class="headerlink" title="RemoteViews"></a>RemoteViews</h4><p>自定义layout支持大图用setCustomBigContentView方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt; Build.VERSION_CODES.JELLY_BEAN) &#123;</span><br><span class="line">    notificationBuilder.setCustomBigContentView(mRemoteViews);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外Android 华为7.0默认背景颜色白色，是不会显示任何东西的，不过在小米上面又是正常。<br>另外小米以及华为都是默认都有padding值，注意UI方面调整。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/12/NotifyManager的一些坑/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-最近" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -562,84 +639,6 @@
 
 
   
-    <article id="post-Java设计模式-代理模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/27/Java设计模式-代理模式/">Java设计模式 代理模式</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/27/Java设计模式-代理模式/" class="archive-article-date">
-  	<time datetime="2018-02-27T13:12:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-27</time>
-</a>
-        
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>为其他对象提供一种代理一控制对这个对象的访问。</p>
-<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>当不想直接访问某个对象或访问某个对象存在着一定困难时就可以通过一个代理对象来间接访问。</p>
-        
-          <a class="article-more-a" href="/2018/02/27/Java设计模式-代理模式/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/27/Java设计模式-代理模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -752,6 +751,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">music</a>
               </li>
              
@@ -764,7 +767,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
             
             <div class="clearfix"></div>
