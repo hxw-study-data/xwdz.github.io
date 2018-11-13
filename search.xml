@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>%2F2018%2F10%2F18%2Fa%2F</url>
+    <content type="text"><![CDATA[目录 目前主流浏览器大概是什么样?(一) 确定浏览器应该支持的功能?(二) 编写一款浏览器App!(三)]]></content>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[进击的大前端]]></title>
     <url>%2F2018%2F10%2F10%2F%E8%BF%9B%E5%87%BB%E7%9A%84%E5%A4%A7%E5%89%8D%E7%AB%AF%2F</url>
     <content type="text"><![CDATA[HTML HTML DOM HTML5 CSS js vue]]></content>
