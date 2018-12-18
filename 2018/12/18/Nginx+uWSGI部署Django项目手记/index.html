@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="daQ的博客">
 <meta property="og:description" content="折腾了两天的项目部署终于弄好了，记录一下。 部署环境 阿里云+ ubuntu  更新ubuntu默认2.x 至 python3.x sudo apt-get install python3.5">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-18T06:26:21.869Z">
+<meta property="og:updated_time" content="2018-12-18T06:36:57.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx+uWSGI部署Django项目手记">
 <meta name="twitter:description" content="折腾了两天的项目部署终于弄好了，记录一下。 部署环境 阿里云+ ubuntu  更新ubuntu默认2.x 至 python3.x sudo apt-get install python3.5">
@@ -208,8 +208,8 @@
 <blockquote>
 <p>uwsgi –http :8000 –module xxx.wsgi <code>xxx</code>为项目名称</p>
 </blockquote>
-<p>如果uwsgi运行正常，则外网能否访问项目</p>
-<h3 id="nginx-测试"><a href="#nginx-测试" class="headerlink" title="nginx 测试"></a>nginx 测试</h3><p>配置*.conf文件</p>
+<p>如果uwsgi运行正常，则外网能够访问项目</p>
+<h3 id="nginx-测试"><a href="#nginx-测试" class="headerlink" title="nginx 测试"></a>nginx 测试</h3><p><code>配置default.conf文件,安装成功后默认会在/etc/nginx/site-enabled/default</code> </p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">error_log  logs/error.log;</span><br><span class="line">access_log  logs/access.log;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    # the<span class="built_in"> port </span>your site will be served on</span><br><span class="line">    listen      80;</span><br><span class="line">    # the domain name it will serve <span class="keyword">for</span></span><br><span class="line">    charset     utf-8;</span><br><span class="line">    # max upload size</span><br><span class="line">    client_max_body_size 75M;   # adjust <span class="keyword">to</span> taste</span><br><span class="line">    server_name 47.106.223.246;</span><br><span class="line">    location / &#123;</span><br><span class="line">  </span><br><span class="line">        include     /etc/nginx/uwsgi_params;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>客户端直接输入IP地址应该会看房welcome nginx界面如果nginx启动成功。</p>
 <h3 id="nginx-uwsgi关联"><a href="#nginx-uwsgi关联" class="headerlink" title="nginx+uwsgi关联"></a>nginx+uwsgi关联</h3><p>如果nginx能否访问成功，uwsgi也能够拉起Django项目最后一步将其关联即可。</p>
@@ -494,19 +494,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">server</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">music</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
