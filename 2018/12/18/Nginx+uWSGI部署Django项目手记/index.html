@@ -12,18 +12,18 @@
 <link rel="dns-prefetch" href="http://xwdz-blog.com">
 <title>Nginx+uWSGI部署Django项目手记 | daQ的博客🔥</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="折腾了两天的项目部署终于弄好了，记录一下。 部署环境 阿里云+ ubuntu  更新python3.x ubuntu 默认版本2.x   sudo apt-get install python3.5  安装Django pip install django==xxx  安装uwsgi pip install uwsgi   uwsgi –version    # 查看 uwsgi 版本  安装ng">
+<meta name="description" content="折腾了两天的项目部署终于弄好了，记录一下。 部署环境 阿里云+ ubuntu  更新python3.x ubuntu 默认版本2.x   sudo apt-get install python3.5  安装Django pip install django==xxx">
 <meta name="keywords" content="server">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx+uWSGI部署Django项目手记">
 <meta property="og:url" content="http://xwdz-blog.com/2018/12/18/Nginx+uWSGI部署Django项目手记/index.html">
 <meta property="og:site_name" content="daQ的博客🔥">
-<meta property="og:description" content="折腾了两天的项目部署终于弄好了，记录一下。 部署环境 阿里云+ ubuntu  更新python3.x ubuntu 默认版本2.x   sudo apt-get install python3.5  安装Django pip install django==xxx  安装uwsgi pip install uwsgi   uwsgi –version    # 查看 uwsgi 版本  安装ng">
+<meta property="og:description" content="折腾了两天的项目部署终于弄好了，记录一下。 部署环境 阿里云+ ubuntu  更新python3.x ubuntu 默认版本2.x   sudo apt-get install python3.5  安装Django pip install django==xxx">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-18T06:20:10.587Z">
+<meta property="og:updated_time" content="2018-12-18T06:24:47.903Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx+uWSGI部署Django项目手记">
-<meta name="twitter:description" content="折腾了两天的项目部署终于弄好了，记录一下。 部署环境 阿里云+ ubuntu  更新python3.x ubuntu 默认版本2.x   sudo apt-get install python3.5  安装Django pip install django==xxx  安装uwsgi pip install uwsgi   uwsgi –version    # 查看 uwsgi 版本  安装ng">
+<meta name="twitter:description" content="折腾了两天的项目部署终于弄好了，记录一下。 部署环境 阿里云+ ubuntu  更新python3.x ubuntu 默认版本2.x   sudo apt-get install python3.5  安装Django pip install django==xxx">
 
 <link rel="alternative" href="/atom.xml" title="daQ的博客🔥" type="application/atom+xml">
 
@@ -197,6 +197,7 @@
 <h4 id="安装Django"><a href="#安装Django" class="headerlink" title="安装Django"></a>安装Django</h4><blockquote>
 <p>pip install django==xxx</p>
 </blockquote>
+<a id="more"></a>
 <h4 id="安装uwsgi"><a href="#安装uwsgi" class="headerlink" title="安装uwsgi"></a>安装uwsgi</h4><blockquote>
 <p>pip install uwsgi</p>
 </blockquote>
@@ -206,12 +207,12 @@
 <h4 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h4><blockquote>
 <p>sudo apt-get install nginx</p>
 </blockquote>
-<h4 id="uwsgi测试"><a href="#uwsgi测试" class="headerlink" title="uwsgi测试"></a>uwsgi测试</h4><p>先直接run server 跑Django是否正常，如果正常则使用uwsgi运行项目</p>
+<h3 id="uwsgi测试"><a href="#uwsgi测试" class="headerlink" title="uwsgi测试"></a>uwsgi测试</h3><p>先直接run server 跑Django是否正常，如果正常则使用uwsgi运行项目</p>
 <blockquote>
 <p>uwsgi –http :8000 –module xxx.wsgi <code>xxx</code>为项目名称</p>
 </blockquote>
 <p>如果uwsgi运行正常，则外网能否访问项目</p>
-<h4 id="nginx-测试"><a href="#nginx-测试" class="headerlink" title="nginx 测试"></a>nginx 测试</h4><p>配置*.conf文件</p>
+<h3 id="nginx-测试"><a href="#nginx-测试" class="headerlink" title="nginx 测试"></a>nginx 测试</h3><p>配置*.conf文件</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">error_log  logs/error.log;</span><br><span class="line">access_log  logs/access.log;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    # the<span class="built_in"> port </span>your site will be served on</span><br><span class="line">    listen      80;</span><br><span class="line">    # the domain name it will serve <span class="keyword">for</span></span><br><span class="line">    charset     utf-8;</span><br><span class="line">    # max upload size</span><br><span class="line">    client_max_body_size 75M;   # adjust <span class="keyword">to</span> taste</span><br><span class="line">    server_name 47.106.223.246;</span><br><span class="line">    location / &#123;</span><br><span class="line">  </span><br><span class="line">        include     /etc/nginx/uwsgi_params;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>客户端直接输入IP地址应该会看房welcome nginx界面如果nginx启动成功。</p>
 <h3 id="nginx-uwsgi关联"><a href="#nginx-uwsgi关联" class="headerlink" title="nginx+uwsgi关联"></a>nginx+uwsgi关联</h3><p>如果nginx能否访问成功，uwsgi也能够拉起Django项目最后一步将其关联即可。</p>
@@ -221,8 +222,13 @@
 <p>重新生效 uwsgi –ini site.ini</p>
 </blockquote>
 <h4 id="nginx设置反向代理，修改nginx-conf文件"><a href="#nginx设置反向代理，修改nginx-conf文件" class="headerlink" title="nginx设置反向代理，修改nginx.conf文件"></a>nginx设置反向代理，修改nginx.conf文件</h4><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">upstream</span> django &#123;</span><br><span class="line">    <span class="attribute">server</span> unix:///home/hxw_site/uwsgi.sock; <span class="comment"># for a file socket</span></span><br><span class="line">   <span class="comment"># server 127.0.0.1:8001; # for a web port socket (we'll use this first)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="attribute">error_log</span>  logs/error.log;</span><br><span class="line"><span class="attribute">access_log</span>  logs/access.log;</span><br><span class="line"><span class="comment"># configuration of the server</span></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="comment"># the port your site will be served on</span></span><br><span class="line">    <span class="attribute">listen</span>      <span class="number">80</span>;</span><br><span class="line">    <span class="comment"># the domain name it will serve for</span></span><br><span class="line">    <span class="attribute">charset</span>     utf-<span class="number">8</span>;</span><br><span class="line">    <span class="comment"># max upload size</span></span><br><span class="line">    <span class="attribute">client_max_body_size</span> <span class="number">75M</span>;   <span class="comment"># adjust to taste</span></span><br><span class="line">    <span class="attribute">server_name</span> <span class="number">47.106.223.246</span>;</span><br><span class="line"><span class="comment"># Django media</span></span><br><span class="line">    <span class="comment">#location /media  &#123;</span></span><br><span class="line">    <span class="comment">#    alias /home/www-data/www/mysite_data/media;  # your Django #project's media files - amend as required</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line">    <span class="comment">#location /static &#123;</span></span><br><span class="line">    <span class="comment">#    alias /home/www-data/www/mysite/static; # your Django #project's static files - amend as required</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line">    <span class="comment"># Finally, send all non-media requests to the Django server.</span></span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        <span class="attribute">uwsgi_pass</span>  django;</span><br><span class="line">        <span class="attribute">include</span>     /etc/nginx/uwsgi_params; <span class="comment"># the uwsgi_params file you installed</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">location</span> /static &#123;</span><br><span class="line">        <span class="attribute">alias</span> /home/hxw_site/static;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="坑！需要注意"><a href="#坑！需要注意" class="headerlink" title="坑！需要注意"></a>坑！需要注意</h3><h4 id="no-internal-routing-support-rebuild-with-pcre-support"><a href="#no-internal-routing-support-rebuild-with-pcre-support" class="headerlink" title="no internal routing support, rebuild with pcre support"></a>no internal routing support, rebuild with pcre support</h4><p>1.卸载uwsgi</p>
+<h3 id="坑！需要注意"><a href="#坑！需要注意" class="headerlink" title="坑！需要注意"></a>坑！需要注意</h3><ul>
+<li>no internal routing support, rebuild with pcre support </li>
+</ul>
+<p>1.卸载uwsgi</p>
+<blockquote>
 <p>pip uninstall uwsgi</p>
+</blockquote>
 <p>注意此时卸载，pip会有缓存留在系统里</p>
 <p>2.安装pcre支持库</p>
 <blockquote>
@@ -233,15 +239,22 @@
 <p>pip install uwsgi -I –no-cache-dir</p>
 </blockquote>
 <p>启动uwsgi，已经没有<code>!!! no internal routing support, rebuild with pcre support !!!</code>报错了</p>
-<hr>
-<h4 id="启动以后500，查看uwsgi-log-发现importError，no-django-model"><a href="#启动以后500，查看uwsgi-log-发现importError，no-django-model" class="headerlink" title="启动以后500，查看uwsgi.log 发现importError，no django model"></a>启动以后500，查看uwsgi.log 发现importError，no django model</h4><p>在<code>site.ini</code>文件中添加pathonpath = (python路径)</p>
+<ul>
+<li>启动以后500，查看uwsgi.log 发现importError，no django model</li>
+</ul>
+<p>在<code>site.ini</code>文件中添加pathonpath = (python路径)</p>
 <blockquote>
 <p>pythonpath = /usr/local/lib/python3.5/dist-packages</p>
 </blockquote>
-<hr>
-<h4 id="注意site-ini文件中的socket属性值"><a href="#注意site-ini文件中的socket属性值" class="headerlink" title="注意site.ini文件中的socket属性值"></a>注意<code>site.ini</code>文件中的socket属性值</h4><p><code>socket = /home/hxw_site/uwsgi.sock</code> 表示了sock文件生成位置，必须跟nginx 设置方向代理的<code>server unix:///home/hxw_site/uwsgi.sock;</code> 一直。不然访问不了</p>
-<h4 id="注意查看nginx以及uwsgi的error日志"><a href="#注意查看nginx以及uwsgi的error日志" class="headerlink" title="注意查看nginx以及uwsgi的error日志"></a>注意查看nginx以及uwsgi的error日志</h4><p><code>error_log  logs/error.log;</code><br><code>access_log  logs/access.log;</code><br>相对路径在<code>/usr/share/nginx/logs/</code>下查看，有可直接写绝对路径。</p>
-<h3 id="简单的部署脚本"><a href="#简单的部署脚本" class="headerlink" title="简单的部署脚本"></a>简单的部署脚本</h3><figure class="highlight moonscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> <span class="built_in">os</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">     <span class="built_in">os</span>.system(<span class="string">'pkill -9 nginx'</span>)</span><br><span class="line">     <span class="built_in">os</span>.system(<span class="string">'nginx -c /etc/nginx/nginx.conf'</span>)</span><br><span class="line">     <span class="built_in">os</span>.system(<span class="string">'pkill -9 uwsgi'</span>)</span><br><span class="line">     <span class="built_in">os</span>.system(<span class="string">'rm -rf uwsgi.log'</span>)</span><br><span class="line">     <span class="built_in">os</span>.system(<span class="string">'uwsgi --ini site.ini'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">        main()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意<code>site.ini</code>文件中的socket属性值</li>
+</ul>
+<p><code>socket = /home/hxw_site/uwsgi.sock</code> 表示了sock文件生成位置，必须跟nginx 设置方向代理的<code>server unix:///home/hxw_site/uwsgi.sock;</code> 一致。不然访问不了</p>
+<ul>
+<li>注意查看nginx以及uwsgi的error日志</li>
+</ul>
+<p><code>error_log  logs/error.log;</code><br><code>access_log  logs/access.log;</code><br>相对路径在<code>/usr/share/nginx/logs/</code>下查看，有可直接写绝对路径。</p>
+<h4 id="每次测试需要重新启动超麻烦，简单的部署脚本"><a href="#每次测试需要重新启动超麻烦，简单的部署脚本" class="headerlink" title="每次测试需要重新启动超麻烦，简单的部署脚本"></a>每次测试需要重新启动超麻烦，简单的部署脚本</h4><figure class="highlight moonscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> <span class="built_in">os</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">     <span class="built_in">os</span>.system(<span class="string">'pkill -9 nginx'</span>)</span><br><span class="line">     <span class="built_in">os</span>.system(<span class="string">'nginx -c /etc/nginx/nginx.conf'</span>)</span><br><span class="line">     <span class="built_in">os</span>.system(<span class="string">'pkill -9 uwsgi'</span>)</span><br><span class="line">     <span class="built_in">os</span>.system(<span class="string">'rm -rf uwsgi.log'</span>)</span><br><span class="line">     <span class="built_in">os</span>.system(<span class="string">'uwsgi --ini site.ini'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">        main()</span><br></pre></td></tr></table></figure>
 
       
 
@@ -488,19 +501,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">music</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">日常侃侃</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">日常侃侃</a>
               </li>
              
               <li class="article-tag-list-item">
