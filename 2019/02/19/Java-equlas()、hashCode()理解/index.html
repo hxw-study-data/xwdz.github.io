@@ -10,15 +10,20 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" >
 <link rel="dns-prefetch" href="http://xwdz-blog.com">
-<title>daQ的博客</title>
+<title>Java-equlas()、hashCode()理解 | daQ的博客</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta property="og:type" content="website">
-<meta property="og:title" content="daQ的博客">
-<meta property="og:url" content="http://xwdz-blog.com/page/7/index.html">
+<meta name="description" content="Java基础复习。 12public boolean equals(Object obj)public int hashCode() 上述两个非常重要的方法来自每一个类的父类Object">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java-equlas()、hashCode()理解">
+<meta property="og:url" content="http://xwdz-blog.com/2019/02/19/Java-equlas()、hashCode()理解/index.html">
 <meta property="og:site_name" content="daQ的博客">
+<meta property="og:description" content="Java基础复习。 12public boolean equals(Object obj)public int hashCode() 上述两个非常重要的方法来自每一个类的父类Object">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-19T08:51:44.310Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="daQ的博客">
+<meta name="twitter:title" content="Java-equlas()、hashCode()理解">
+<meta name="twitter:description" content="Java基础复习。 12public boolean equals(Object obj)public int hashCode() 上述两个非常重要的方法来自每一个类的父类Object">
 
 <link rel="alternative" href="/atom.xml" title="daQ的博客" type="application/atom+xml">
 
@@ -154,37 +159,66 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Java设计模式-Builder模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Java-equlas()、hashCode()理解" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/25/Java设计模式-Builder模式/">Java设计模式 Builder模式</a>
+    <h1 class="article-title" itemprop="name">
+      Java-equlas()、hashCode()理解
     </h1>
   
 
         
-        <a href="/2018/02/25/Java设计模式-Builder模式/" class="archive-article-date">
-  	<time datetime="2018-02-25T03:01:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-25</time>
+        <a href="/2019/02/19/Java-equlas()、hashCode()理解/" class="archive-article-date">
+  	<time datetime="2019-02-19T07:11:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-19</time>
 </a>
         
+	
+		<span class="archive-article-date">
+			阅读量 <span id="busuanzi_value_page_pv"></span>
+		</span>
 	
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Builder模式是一步一步创建一个复杂对象的创建型模式，可以更精细的控制对象的构造流程。</p>
-<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ul>
-<li>当初始化一个对象特别复杂，比如说参数多，且很多参数都具有默认值</li>
-<li>多个部件或者零件，都可以组装到同一个对象中，但是产生的运行结果又不相同。</li>
+        <p>Java基础复习。</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">boolean</span> equals(<span class="keyword">Object</span> obj)</span><br><span class="line"><span class="keyword">public</span> <span class="built_in">int</span> hashCode()</span><br></pre></td></tr></table></figure>
+<p>上述两个非常重要的方法来自每一个类的父类<code>Object</code></p>
+<a id="more"></a>
+<h3 id="equals-Object-obj"><a href="#equals-Object-obj" class="headerlink" title="equals(Object obj)"></a>equals(Object obj)</h3><p>equals()方法在object类中定义如下： </p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">this</span> == obj);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>是比较引用是否相同。</p>
+<p>大多数基本对象(String,Math)等都会复写equals()方法</p>
+<p>比如在String类中如下：</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">boolean</span> equals(<span class="keyword">Object</span> anObject) &#123;  </span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == anObject) &#123;  </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> <span class="keyword">String</span>) &#123;  </span><br><span class="line">        <span class="keyword">String</span> anotherString = (<span class="keyword">String</span>)anObject;  </span><br><span class="line">        <span class="built_in">int</span> n = count;  </span><br><span class="line">        <span class="keyword">if</span> (n == anotherString.count) &#123;  </span><br><span class="line">            <span class="built_in">char</span> v1[] = value;  </span><br><span class="line">            <span class="built_in">char</span> v2[] = anotherString.value;  </span><br><span class="line">            <span class="built_in">int</span> i = offset;  </span><br><span class="line">            <span class="built_in">int</span> j = anotherString.offset;  </span><br><span class="line">            <span class="keyword">while</span> (n– != <span class="number">0</span>) &#123;  </span><br><span class="line">                <span class="keyword">if</span> (v1[i++] != v2[j++])  </span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;  </span><br><span class="line">            &#125;  </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>String类复写equals方法其目的是为了比较内容,而不再是地址的比较。</p>
+<p><strong>很明显对象可以根据需要制定比较规则。</strong></p>
+<p><strong>需要注意的是当equals()方法被override时，hashCode()也要被override。按照一般hashCode()方法的实现来说，相等的对象，它们的hash code一定相等。</strong></p>
+<h3 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode()"></a>hashCode()</h3><p>hashCode()方法给对象返回一个hash code值。这个方法被用于集合里面比较.</p>
+<p>hashCode()方法在object类中定义如下： </p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">native</span> <span class="function"><span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+<p>说明是一个本地方法，它的实现是根据本地机器相关的。当然我们可以在自己写的类中覆盖hashcode()方法</p>
+<h3 id="Java对于eqauls方法和hashCode方法是这样规定的"><a href="#Java对于eqauls方法和hashCode方法是这样规定的" class="headerlink" title="Java对于eqauls方法和hashCode方法是这样规定的"></a>Java对于eqauls方法和hashCode方法是这样规定的</h3><ul>
+<li>如果两个对象相同，那么它们的hashCode值一定要相同；</li>
+<li>如果两个对象的hashCode相同，它们并不一定相同（这里说的对象相同指的是用eqauls方法比较）。<br>如不按要求去做了，会发现相同的对象可以出现在Set集合中，同时，增加新元素的效率会大大下降。</li>
+<li>equals()相等的两个对象，hashcode()一定相等；equals()不相等的两个对象，却并不能证明他们的hashcode()不相等。换句话说，equals()方法不相等的两个对象，hashcode()有可能相等（我的理解是由于哈希码在生成的时候产生冲突造成的）。反过来，hashcode()不等，一定能推出equals()也不等；hashcode()相等，equals()可能相等，也可能不等。</li>
 </ul>
-        
-          <a class="article-more-a" href="/2018/02/25/Java设计模式-Builder模式/#more">more >></a>
-        
+<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h3><p>通过重写equals方法以及hashCode方法指定当前对象是否相等规则.</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestModel</span></span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span> final <span class="keyword">String</span> name;</span><br><span class="line">   <span class="keyword">private</span> final <span class="keyword">String</span> id;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> TestModel(<span class="keyword">String</span> name, <span class="keyword">String</span> id) &#123;</span><br><span class="line">	    <span class="built_in">this</span>.name = name;</span><br><span class="line">	    <span class="built_in">this</span>.id = id;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试代码:</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;TestModel&gt; testModels = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">testModels.<span class="built_in">add</span>(<span class="keyword">new</span> TestModel(<span class="string">"hxw"</span>, <span class="string">"1"</span>));</span><br><span class="line"></span><br><span class="line"><span class="built_in">boolean</span> result = testModels.contains(<span class="keyword">new</span> TestModel(<span class="string">"hxw"</span>, <span class="string">"1"</span>));</span><br><span class="line">System.out.<span class="built_in">print</span>(<span class="string">"result:"</span>+result)</span><br><span class="line"></span><br><span class="line">输出:</span><br><span class="line">result:<span class="keyword">false</span></span><br></pre></td></tr></table></figure>
+<p>如上代码在集合中添加了一个<code>TestModel</code>对象,并且调用了集合的<code>contains</code>方法来判断当前集合中是否包含该对象,代码结果返回false,没有任何问题,那有没有办法让<code>contains</code>方法判断当前集合中包含改对象呢?(即<code>contains</code>方法返回true)</p>
+<p>答案有的,<code>Arraylist</code>中<code>contains</code>方法代码如下:</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">boolean</span> contains(<span class="keyword">Object</span> o) &#123;</span><br><span class="line">   <span class="keyword">return</span> indexOf(o) &gt;= <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">public</span> <span class="built_in">int</span> indexOf(<span class="keyword">Object</span> o) &#123;</span><br><span class="line">   <span class="keyword">if</span> (o == <span class="keyword">null</span>) &#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">size</span>; i++)</span><br><span class="line">           <span class="keyword">if</span> (elementData[i]==<span class="keyword">null</span>)</span><br><span class="line">               <span class="keyword">return</span> i;</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">size</span>; i++)</span><br><span class="line">           <span class="keyword">if</span> (o.equals(elementData[i]))</span><br><span class="line">               <span class="keyword">return</span> i;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>contains</code>方法中调用了<code>indexOf</code>方法在集合中找位置,没找到返回<code>-1</code>,找到返回该对象在集合中的位置,<code>indexOf</code>就是通过调用对象的<code>equals</code>方法来判断在数组中是否有相同对象。</p>
+<p>所以通过重写<code>equals</code>方法以及<code>hashCode</code>方法即可实现<br>修改TestModel类代码如下:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestModel</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> TestModel(String name, String id) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> boolean equals(Object o) &#123;</span><br><span class="line">        TestModel originModel = (TestModel) o;</span><br><span class="line">        <span class="keyword">if</span> (!name.equals(originModel.name)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!id.equals(originModel.id)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> int hashCode() &#123;</span><br><span class="line">        <span class="keyword">return</span> name.hashCode();</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改后的<code>TestModel</code>重写了<code>equals</code>方法以及<code>hashCode</code>方法。<code>hashCode</code>返回<code>name</code>属性的hashCode,并且<code>equals</code>方法认定如果<code>name</code>以及<code>id</code>相同就认定为同一个对象。</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">        ArrayList&lt;TestModel&gt; testModels = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        testModels.<span class="built_in">add</span>(<span class="keyword">new</span> TestModel(<span class="string">"hxw"</span>, <span class="string">"1"</span>));</span><br><span class="line"></span><br><span class="line">        <span class="built_in">boolean</span> result = testModels.contains(<span class="keyword">new</span> TestModel(<span class="string">"hxw"</span>, <span class="string">"1"</span>));</span><br><span class="line">        <span class="built_in">log</span>(<span class="string">"result:"</span> + result);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">输出结果:</span><br><span class="line">result:<span class="keyword">true</span></span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -197,7 +231,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
@@ -206,16 +240,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/25/Java设计模式-Builder模式/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsUlEQVR42u3a0U7kMAwFUP7/p1lpX2E699pNAen0qSqZNidIiWX74yO+Pv9fX++/jnl1vXrb9TvbMcMLDw8PbzT162ldT/d6Ca7vZ4uS/woPDw/vHC+Z7it2e4QkX9kcTnh4eHi/h7eJYF+NSd6Dh4eH99d5ecibgNuFw8PDw/s9vNkk2iB7n2s9mGvBw8PDi3mbTfmn7h+q7+Hh4eGV2/EsdZs/z1sKZhceHh7eCV5b3Lr+cJ56mH0rPwWKieLh4eGNeLNSVttAkBwSmyVrlwMPDw9vxttMer8QbRI2L7zh4eHhneO14exs0vnzGePNUYGHh4d3K2+2KW8C62T58qD5zczx8PDwDvCSockmfjzlGs+zKIDh4eHhHeC1QfPmeNgcVG8KZnh4eHi38u6C1Zv1TcmOogCGh4eHdxPv3mB3356Vvz9ZUDw8PLxneO2GPjsSks09H9++DQ8PD2/DK8Tlx/L7vGUhOVq+6SnDw8PDO8ZLNtx9eJ1jNu0FeHh4eM/w2nTA9SGxKY9dt6ImI/Hw8PCe4eVFqXwSs2B6FtDj4eHhPcPLC2B5INv+dZOkqMfg4eHhPcL7HF1Jyf8H8Hh4eHg38dpGqBYwS8K2M8HDw8N7npe0Rm3KYPn72zavN8uBh4eHdyuvTcsm5atkivuUbvQvwcPDwzvMmyUFZguUJylmxwweHh7eOV6Sktg8OdeOUMDw8PDwbuXNylqzVEKyiO1CvDk28PDw8A7wNmnZNvHalv+TUL4+/fDw8PBu4uXtU+1W3jYTtO1fUXoXDw8P7xhvVqzKfzsLyvODJOopw8PDw3ucl2/6bUFr055VlL7w8PDwfoiXTzcJfPPWhDxhMQyp8fDw8Epem4yYlflnqd68KeGbJ3h4eHgHeG0BrE6kllt5kp7YLyseHh7eiPcP9BaccSJmqb8AAAAASUVORK5CYII=" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/02/13/2019年不能落下的事情/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2019年不能落下的事情</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -235,451 +328,30 @@
 
 
 
-
-  
-    <article id="post-RxAndroid-常用操作符" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/26/RxAndroid-常用操作符/">RxAndroid 常用操作符记录</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/26/RxAndroid-常用操作符/" class="archive-article-date">
-  	<time datetime="2018-01-26T05:32:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-26</time>
-</a>
-        
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="map-filter-操作符区别？"><a href="#map-filter-操作符区别？" class="headerlink" title="map,filter,操作符区别？"></a>map,filter,操作符区别？</h3><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//map</span></span><br><span class="line">Observable.just(mIntegers).</span><br><span class="line">                <span class="built_in">map</span>(<span class="literal">new</span> Func1&lt;<span class="built_in">List</span>&lt;<span class="built_in">Integer</span>&gt;, <span class="built_in">Boolean</span>&gt;() &#123;</span><br><span class="line">                    @Override</span><br><span class="line">                    <span class="keyword">public</span> <span class="built_in">Boolean</span> call(<span class="built_in">List</span>&lt;<span class="built_in">Integer</span>&gt; <span class="built_in">list</span>) &#123;</span><br><span class="line">                        <span class="comment">// 做想做的操作</span></span><br><span class="line">                        int number = <span class="built_in">list</span>.get(i);</span><br><span class="line">                        <span class="keyword">return</span> nulber == <span class="number">2</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;).subscribe(<span class="literal">new</span> Observer&lt;<span class="built_in">Boolean</span>&gt;() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            <span class="keyword">public</span> <span class="literal">void</span> onCompleted() &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            @Override</span><br><span class="line">            <span class="keyword">public</span> <span class="literal">void</span> onError(Throwable e) &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            @Override</span><br><span class="line">            <span class="keyword">public</span> <span class="literal">void</span> onNext(<span class="built_in">Boolean</span> aBoolean) &#123;</span><br><span class="line">                <span class="keyword">Log</span>.d(<span class="string">"TAG"</span>, <span class="string">"A = "</span> + aBoolean);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/01/26/RxAndroid-常用操作符/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/26/RxAndroid-常用操作符/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Android带箭头的指引tipLayout实现。" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/22/Android带箭头的指引tipLayout实现。/">Android-带三角形箭头头的指引TipLayout实现</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/22/Android带箭头的指引tipLayout实现。/" class="archive-article-date">
-  	<time datetime="2018-01-22T07:24:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-22</time>
-</a>
-        
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://upload-images.jianshu.io/upload_images/2651056-ad5b11e1c00070a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image1.png"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2651056-91d1f5bdad61f17c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image2.png"></p>
-<p>如上设计图，要求三角形指示器需要动态对齐上面的文本，需要动态的实现对其三角形。</p>
-<h3 id="引用方式"><a href="#引用方式" class="headerlink" title="引用方式"></a>引用方式</h3><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'com.xiaowei:TriangleTipLayout:1.0.1'</span></span><br><span class="line"><span class="comment">//or</span></span><br><span class="line"><span class="keyword">implementation</span> <span class="string">'com.xiaowei:TriangleTipLayout:1.0.1'</span></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/01/22/Android带箭头的指引tipLayout实现。/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/work//" class="article-tag-list-link color5">work</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/22/Android带箭头的指引tipLayout实现。/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-AndroidStudio发布个人开源项目遇到的几个坑bintray" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/12/AndroidStudio发布个人开源项目遇到的几个坑bintray/">AndroidStudio发布个人开源项目至bintray</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/12/AndroidStudio发布个人开源项目遇到的几个坑bintray/" class="archive-article-date">
-  	<time datetime="2017-11-12T11:17:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
-</a>
-        
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="创建账号"><a href="#创建账号" class="headerlink" title="创建账号"></a>创建账号</h3><p>创建账号时要注意要用国外邮箱。</p>
-<h3 id="使用插件发布"><a href="#使用插件发布" class="headerlink" title="使用插件发布"></a>使用插件发布</h3><ul>
-<li>项目根目录 build.gradle 添加引用</li>
-</ul>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">classpath</span> <span class="string">'com.novoda:bintray-release:0.3.4'</span></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/11/12/AndroidStudio发布个人开源项目遇到的几个坑bintray/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/work//" class="article-tag-list-link color5">work</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/12/AndroidStudio发布个人开源项目遇到的几个坑bintray/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Android-studio-9图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/14/Android-studio-9图/">AndroidStudio-点9图</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/14/Android-studio-9图/" class="archive-article-date">
-  	<time datetime="2017-10-14T02:35:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-14</time>
-</a>
-        
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="生成-9图"><a href="#生成-9图" class="headerlink" title="生成.9图"></a>生成.9图</h3><p>Android Studio 对于.9图的生成也非常友好，直接点击图片右建create.9图；</p>
-<p>图片右键 =&gt; Create 9-patch File =&gt; 确定即可，生成.9图之后打开即如见下图</p>
-<p><img src="/2017/10/14/Android-studio-9图/点9_1.jpg" alt="img"></p>
-<p><strong>文件名会默认为：xxx.9.png</strong></p>
-<p><strong>如上图4条黑线位置构成拉伸区域</strong></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/work//" class="article-tag-list-link color5">work</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/14/Android-studio-9图/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Android-混淆相关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/03/Android-混淆相关/">Android-混淆相关</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/03/Android-混淆相关/" class="archive-article-date">
-  	<time datetime="2017-10-03T05:00:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-03</time>
-</a>
-        
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>忽略tmp.txt</strong></p>
-<p><code>tmp.txt</code></p>
-        
-          <a class="article-more-a" href="/2017/10/03/Android-混淆相关/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/work//" class="article-tag-list-link color5">work</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/03/Android-混淆相关/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://xwdz-blog.com/2019/02/19/Java-equlas()、hashCode()理解/",
+  owner: 'hxw-study-data',
+  repo: 'gitment-comments',
+  oauth: {
+    client_id: 'c62ab72e41cea1fc64ce',
+    client_secret: '2b4319c22eabf970e7f8301c302934e6a641dbf4',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -709,8 +381,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
