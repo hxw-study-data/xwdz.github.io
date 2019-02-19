@@ -12,18 +12,18 @@
 <link rel="dns-prefetch" href="http://xwdz-blog.com">
 <title>equlas()、hashCode() | daQ的博客</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Java基础复习。 12public boolean equals(Object obj)public int hashCode() 上述两个非常重要的方法来自每一个类的父类Object equals(Object obj)equals()方法在object类中定义如下：  123public boolean equals(Object obj) &amp;#123;      return (this">
+<meta name="description" content="Java基础复习。 12public boolean equals(Object obj)public int hashCode() 上述两个非常重要的方法来自每一个类的父类Object">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="equlas()、hashCode()">
 <meta property="og:url" content="http://xwdz-blog.com/2019/02/19/equlas()、hashCode()/index.html">
 <meta property="og:site_name" content="daQ的博客">
-<meta property="og:description" content="Java基础复习。 12public boolean equals(Object obj)public int hashCode() 上述两个非常重要的方法来自每一个类的父类Object equals(Object obj)equals()方法在object类中定义如下：  123public boolean equals(Object obj) &amp;#123;      return (this">
+<meta property="og:description" content="Java基础复习。 12public boolean equals(Object obj)public int hashCode() 上述两个非常重要的方法来自每一个类的父类Object">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-19T08:10:57.024Z">
+<meta property="og:updated_time" content="2019-02-19T08:12:50.637Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="equlas()、hashCode()">
-<meta name="twitter:description" content="Java基础复习。 12public boolean equals(Object obj)public int hashCode() 上述两个非常重要的方法来自每一个类的父类Object equals(Object obj)equals()方法在object类中定义如下：  123public boolean equals(Object obj) &amp;#123;      return (this">
+<meta name="twitter:description" content="Java基础复习。 12public boolean equals(Object obj)public int hashCode() 上述两个非常重要的方法来自每一个类的父类Object">
 
 <link rel="alternative" href="/atom.xml" title="daQ的博客" type="application/atom+xml">
 
@@ -187,10 +187,10 @@
         <p>Java基础复习。</p>
 <figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">boolean</span> equals(<span class="keyword">Object</span> obj)</span><br><span class="line"><span class="keyword">public</span> <span class="built_in">int</span> hashCode()</span><br></pre></td></tr></table></figure>
 <p>上述两个非常重要的方法来自每一个类的父类<code>Object</code></p>
+<a id="more"></a>
 <h3 id="equals-Object-obj"><a href="#equals-Object-obj" class="headerlink" title="equals(Object obj)"></a>equals(Object obj)</h3><p>equals()方法在object类中定义如下： </p>
 <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">this</span> == obj);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>是比较引用是否相同。</p>
-<a id="more"></a>
 <p>大多数基本对象(String,Math)等都会复写equals()方法</p>
 <p>比如在String类中如下：</p>
 <figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">boolean</span> equals(<span class="keyword">Object</span> anObject) &#123;  </span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == anObject) &#123;  </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> <span class="keyword">String</span>) &#123;  </span><br><span class="line">        <span class="keyword">String</span> anotherString = (<span class="keyword">String</span>)anObject;  </span><br><span class="line">        <span class="built_in">int</span> n = count;  </span><br><span class="line">        <span class="keyword">if</span> (n == anotherString.count) &#123;  </span><br><span class="line">            <span class="built_in">char</span> v1[] = value;  </span><br><span class="line">            <span class="built_in">char</span> v2[] = anotherString.value;  </span><br><span class="line">            <span class="built_in">int</span> i = offset;  </span><br><span class="line">            <span class="built_in">int</span> j = anotherString.offset;  </span><br><span class="line">            <span class="keyword">while</span> (n– != <span class="number">0</span>) &#123;  </span><br><span class="line">                <span class="keyword">if</span> (v1[i++] != v2[j++])  </span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;  </span><br><span class="line">            &#125;  </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -468,7 +468,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -476,7 +476,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
