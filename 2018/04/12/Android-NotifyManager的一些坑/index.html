@@ -10,15 +10,20 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" >
 <link rel="dns-prefetch" href="http://xwdz-blog.com">
-<title>Archives: 2019 | daQ的博客</title>
+<title>Android-Notification的一些坑。 | daQ的博客</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta property="og:type" content="website">
-<meta property="og:title" content="daQ的博客">
-<meta property="og:url" content="http://xwdz-blog.com/archives/2019/index.html">
+<meta name="description" content="RemoteViews自定义layout支持大图用setCustomBigContentView方法 123if (Build.VERSION.SDK_INT &amp;gt; Build.VERSION_CODES.JELLY_BEAN) &amp;#123;    notificationBuilder.setCustomBigContentView(mRemoteViews);&amp;#125; 另外Androi">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android-Notification的一些坑。">
+<meta property="og:url" content="http://xwdz-blog.com/2018/04/12/Android-NotifyManager的一些坑/index.html">
 <meta property="og:site_name" content="daQ的博客">
+<meta property="og:description" content="RemoteViews自定义layout支持大图用setCustomBigContentView方法 123if (Build.VERSION.SDK_INT &amp;gt; Build.VERSION_CODES.JELLY_BEAN) &amp;#123;    notificationBuilder.setCustomBigContentView(mRemoteViews);&amp;#125; 另外Androi">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-19T08:43:52.201Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="daQ的博客">
+<meta name="twitter:title" content="Android-Notification的一些坑。">
+<meta name="twitter:description" content="RemoteViews自定义layout支持大图用setCustomBigContentView方法 123if (Build.VERSION.SDK_INT &amp;gt; Build.VERSION_CODES.JELLY_BEAN) &amp;#123;    notificationBuilder.setCustomBigContentView(mRemoteViews);&amp;#125; 另外Androi">
 
 <link rel="alternative" href="/atom.xml" title="daQ的博客" type="application/atom+xml">
 
@@ -154,98 +159,178 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Android-NotifyManager的一些坑" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/19/equlas()、hashCode()/" class="archive-article-date">
-  	<time datetime="2019-02-19T07:11:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/19/equlas()、hashCode()/">Java-equlas()、hashCode()</a>
+    <h1 class="article-title" itemprop="name">
+      Android-Notification的一些坑。
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/04/12/Android-NotifyManager的一些坑/" class="archive-article-date">
+  	<time datetime="2018-04-12T13:04:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-12</time>
+</a>
+        
+	
+		<span class="archive-article-date">
+			阅读量 <span id="busuanzi_value_page_pv"></span>
+		</span>
+	
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="RemoteViews"><a href="#RemoteViews" class="headerlink" title="RemoteViews"></a>RemoteViews</h4><p>自定义layout支持大图用setCustomBigContentView方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt; Build.VERSION_CODES.JELLY_BEAN) &#123;</span><br><span class="line">    notificationBuilder.setCustomBigContentView(mRemoteViews);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外Android 华为7.0默认背景颜色白色，是不会显示任何东西的，不过在小米上面又是正常。<br>另外小米以及华为都是默认都有padding值，注意UI方面调整。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsklEQVR42u3d0U7DMAwF0P3/Tw+Jp0nQ7dqONyROnyYobU6Q4nBjidstvu7f1+Pnx+vqzp/3J3cmYzh84eHh4bWGfnVVH331U9UJuro/HzMeHh7eNm8y0GSyqm/Mx/PiCXh4eHgf5SVLeb7c4+Hh4f0HXs5Oisfz7XK1IOHh4eG9n5eEEb1QIA847sG1mLXg4eHhxbyz4ex7Pq+f7+Hh4eG1TtXzZbc3r73tcmGceHh4eAu8PGB9/rJ8KHk8UW0jaA4UDw8Pr8hLItQ8hK3GvtXJrd6Jh4eHt82rwpqvjL/Sa9663Ezj4eHhHeLlD520EZxNWcvBLh4eHt4ar0fqnUPNy8BKZwQeHh5e62yo2vDUC3wnB2bP8Zfne3h4eHhHeXmAO9k6z59TblnAw8PDW+DlEW11+5tvpvMpGLU74OHh4R3i9R5aLR6TBT2f4svWATw8PLxl3iQ4yCOMakxcfSYeHh7eNi/Znk7asyYb6MlnPDw8vD1eEkn0mgwmMW61RF22DuDh4eEd5eVBw17L1N6hGh4eHt4erxcZJKVitJS3Nuh4eHh47+FthALVrfOkDJR7JfDw8PDGvMnmuFceem+phh14eHh4G7xeBDBvDqgWgDzCaJ7v4eHh4dXW+cI/PTqQFg9C4eSXUcha8PDw8Aa83p/91c1uUjCq381LDh4eHt5ZXvVQf9KqNX9LfiCHh4eH9x5evgT3GguSTXP5vK5a6/Dw8PAGvHvx6gUWvUOsZFJeFBU8PDy8BV5vQHkByFfsSbPXgUKCh4eHV+TlxWCelOY/29ug/zJaPDw8vDVe79Crt13Op+ZA6cLDw8P7A7xqQFAtD9WJePFrwMPDw/sobwKeH4lV4108PDy8bV7vIH/C3ige5QYCPDw8vHEDVh4xJBN0anu93qSFh4eHl77lC5YTVLkg4LsOAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/13/2019年不能落下的事情/" class="archive-article-date">
-  	<time datetime="2019-02-13T03:00:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/04/17/Android-BroadcastReceiveer引用context生命周期的影响/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Android-使用Activity作为Contenxt启动BroadcastReceiveer的一些问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/11/最近/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">最近</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/13/2019年不能落下的事情/">2019年不能落下的事情</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">生活</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://xwdz-blog.com/2018/04/12/Android-NotifyManager的一些坑/",
+  owner: 'hxw-study-data',
+  repo: 'gitment-comments',
+  oauth: {
+    client_id: 'c62ab72e41cea1fc64ce',
+    client_secret: '2b4319c22eabf970e7f8301c302934e6a641dbf4',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -275,8 +360,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
