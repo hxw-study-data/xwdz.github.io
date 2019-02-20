@@ -10,22 +10,20 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" >
 <link rel="dns-prefetch" href="http://xwdz-blog.com">
-<title>星球坠落 | daQ的博客</title>
+<title>Java-equlas、hashCode理解 | daQ的博客</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="歌手：艾热 / 李佳隆 作曲：艾热 / 李佳隆 作词：艾热 / 李佳隆">
-<meta name="keywords" content="music">
+<meta name="description" content="Java基础复习。 12public boolean equals(Object obj)public int hashCode() 上述两个非常重要的方法来自每一个类的父类Object">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="星球坠落">
-<meta property="og:url" content="http://xwdz-blog.com/2018/08/10/星球坠落/index.html">
+<meta property="og:title" content="Java-equlas、hashCode理解">
+<meta property="og:url" content="http://xwdz-blog.com/2019/02/19/Java-equlas、hashCode理解/index.html">
 <meta property="og:site_name" content="daQ的博客">
-<meta property="og:description" content="歌手：艾热 / 李佳隆 作曲：艾热 / 李佳隆 作词：艾热 / 李佳隆">
+<meta property="og:description" content="Java基础复习。 12public boolean equals(Object obj)public int hashCode() 上述两个非常重要的方法来自每一个类的父类Object">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=64751622,381077082&fm=58&bpow=800&bpoh=800">
-<meta property="og:updated_time" content="2018-08-10T02:38:39.000Z">
+<meta property="og:updated_time" content="2019-02-20T03:05:47.573Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="星球坠落">
-<meta name="twitter:description" content="歌手：艾热 / 李佳隆 作曲：艾热 / 李佳隆 作词：艾热 / 李佳隆">
-<meta name="twitter:image" content="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=64751622,381077082&fm=58&bpow=800&bpoh=800">
+<meta name="twitter:title" content="Java-equlas、hashCode理解">
+<meta name="twitter:description" content="Java基础复习。 12public boolean equals(Object obj)public int hashCode() 上述两个非常重要的方法来自每一个类的父类Object">
 
 <link rel="alternative" href="/atom.xml" title="daQ的博客" type="application/atom+xml">
 
@@ -43,9 +41,6 @@
 
 
 
-<link rel="stylesheet" href="/assets/css/APlayer.min.css" class="aplayer-style-marker">
-<script src="/assets/js/APlayer.min.js" class="aplayer-script-marker"></script>
-<script src="/assets/js/Meting.min.js" class="meting-script-marker"></script>
 </head>
 
 <body>
@@ -164,20 +159,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-星球坠落" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java-equlas、hashCode理解" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      星球坠落
+      Java-equlas、hashCode理解
     </h1>
   
 
         
-        <a href="/2018/08/10/星球坠落/" class="archive-article-date">
-  	<time datetime="2018-08-10T02:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-10</time>
+        <a href="/2019/02/19/Java-equlas、hashCode理解/" class="archive-article-date">
+  	<time datetime="2019-02-19T07:11:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-19</time>
 </a>
         
 	
@@ -189,17 +184,40 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=64751622,381077082&amp;fm=58&amp;bpow=800&amp;bpoh=800" alt=""></p>
-<p><strong>歌手：艾热 / 李佳隆</strong></p>
-<p><strong>作曲：艾热 / 李佳隆</strong></p>
-<p><strong>作词：艾热 / 李佳隆</strong></p>
+        <p>Java基础复习。</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">boolean</span> equals(<span class="keyword">Object</span> obj)</span><br><span class="line"><span class="keyword">public</span> <span class="built_in">int</span> hashCode()</span><br></pre></td></tr></table></figure>
+<p>上述两个非常重要的方法来自每一个类的父类<code>Object</code></p>
 <a id="more"></a>
-<hr>
-
-    <div id="aplayer-lbeHAQJI" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1296583188" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#FF4081"></div>
-<hr>
-<p><strong>好听。</strong></p>
-<p>对中国新说唱这个节目关注并不算高，不过总会流传出几首好听的曲目对我胃口，去年的<code>time</code>,今年的<code>星球坠落</code>。</p>
+<h3 id="equals-Object-obj"><a href="#equals-Object-obj" class="headerlink" title="equals(Object obj)"></a>equals(Object obj)</h3><p>equals()方法在object类中定义如下： </p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">this</span> == obj);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>是比较引用是否相同。</p>
+<p>大多数基本对象(String,Math)等都会复写equals()方法</p>
+<p>比如在String类中如下：</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">boolean</span> equals(<span class="keyword">Object</span> anObject) &#123;  </span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == anObject) &#123;  </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> <span class="keyword">String</span>) &#123;  </span><br><span class="line">        <span class="keyword">String</span> anotherString = (<span class="keyword">String</span>)anObject;  </span><br><span class="line">        <span class="built_in">int</span> n = count;  </span><br><span class="line">        <span class="keyword">if</span> (n == anotherString.count) &#123;  </span><br><span class="line">            <span class="built_in">char</span> v1[] = value;  </span><br><span class="line">            <span class="built_in">char</span> v2[] = anotherString.value;  </span><br><span class="line">            <span class="built_in">int</span> i = offset;  </span><br><span class="line">            <span class="built_in">int</span> j = anotherString.offset;  </span><br><span class="line">            <span class="keyword">while</span> (n– != <span class="number">0</span>) &#123;  </span><br><span class="line">                <span class="keyword">if</span> (v1[i++] != v2[j++])  </span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;  </span><br><span class="line">            &#125;  </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>String类复写equals方法其目的是为了比较内容,而不再是地址的比较。</p>
+<p><strong>很明显对象可以根据需要制定比较规则。</strong></p>
+<p><strong>需要注意的是当equals()方法被override时，hashCode()也要被override。按照一般hashCode()方法的实现来说，相等的对象，它们的hash code一定相等。</strong></p>
+<h3 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode()"></a>hashCode()</h3><p>hashCode()方法给对象返回一个hash code值。这个方法被用于集合里面比较.</p>
+<p>hashCode()方法在object类中定义如下： </p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">native</span> <span class="function"><span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+<p>说明是一个本地方法，它的实现是根据本地机器相关的。当然我们可以在自己写的类中覆盖hashcode()方法</p>
+<h3 id="Java对于eqauls方法和hashCode方法是这样规定的"><a href="#Java对于eqauls方法和hashCode方法是这样规定的" class="headerlink" title="Java对于eqauls方法和hashCode方法是这样规定的"></a>Java对于eqauls方法和hashCode方法是这样规定的</h3><ul>
+<li>如果两个对象相同，那么它们的hashCode值一定要相同；</li>
+<li>如果两个对象的hashCode相同，它们并不一定相同（这里说的对象相同指的是用eqauls方法比较）。<br>如不按要求去做了，会发现相同的对象可以出现在Set集合中，同时，增加新元素的效率会大大下降。</li>
+<li>equals()相等的两个对象，hashcode()一定相等；equals()不相等的两个对象，却并不能证明他们的hashcode()不相等。换句话说，equals()方法不相等的两个对象，hashcode()有可能相等（我的理解是由于哈希码在生成的时候产生冲突造成的）。反过来，hashcode()不等，一定能推出equals()也不等；hashcode()相等，equals()可能相等，也可能不等。</li>
+</ul>
+<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h3><p>通过重写equals方法以及hashCode方法指定当前对象是否相等规则.</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestModel</span></span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span> final <span class="keyword">String</span> name;</span><br><span class="line">   <span class="keyword">private</span> final <span class="keyword">String</span> id;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> TestModel(<span class="keyword">String</span> name, <span class="keyword">String</span> id) &#123;</span><br><span class="line">	    <span class="built_in">this</span>.name = name;</span><br><span class="line">	    <span class="built_in">this</span>.id = id;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试代码:</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;TestModel&gt; testModels = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">testModels.<span class="built_in">add</span>(<span class="keyword">new</span> TestModel(<span class="string">"hxw"</span>, <span class="string">"1"</span>));</span><br><span class="line"></span><br><span class="line"><span class="built_in">boolean</span> result = testModels.contains(<span class="keyword">new</span> TestModel(<span class="string">"hxw"</span>, <span class="string">"1"</span>));</span><br><span class="line">System.out.<span class="built_in">print</span>(<span class="string">"result:"</span>+result)</span><br><span class="line"></span><br><span class="line">输出:</span><br><span class="line">result:<span class="keyword">false</span></span><br></pre></td></tr></table></figure>
+<p>如上代码在集合中添加了一个<code>TestModel</code>对象,并且调用了集合的<code>contains</code>方法来判断当前集合中是否包含该对象,代码结果返回false,没有任何问题,那有没有办法让<code>contains</code>方法判断当前集合中包含改对象呢?(即<code>contains</code>方法返回true)</p>
+<p>答案有的,<code>Arraylist</code>中<code>contains</code>方法代码如下:</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">boolean</span> contains(<span class="keyword">Object</span> o) &#123;</span><br><span class="line">   <span class="keyword">return</span> indexOf(o) &gt;= <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">public</span> <span class="built_in">int</span> indexOf(<span class="keyword">Object</span> o) &#123;</span><br><span class="line">   <span class="keyword">if</span> (o == <span class="keyword">null</span>) &#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">size</span>; i++)</span><br><span class="line">           <span class="keyword">if</span> (elementData[i]==<span class="keyword">null</span>)</span><br><span class="line">               <span class="keyword">return</span> i;</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">size</span>; i++)</span><br><span class="line">           <span class="keyword">if</span> (o.equals(elementData[i]))</span><br><span class="line">               <span class="keyword">return</span> i;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>contains</code>方法中调用了<code>indexOf</code>方法在集合中找位置,没找到返回<code>-1</code>,找到返回该对象在集合中的位置,<code>indexOf</code>就是通过调用对象的<code>equals</code>方法来判断在数组中是否有相同对象。</p>
+<p>所以通过重写<code>equals</code>方法以及<code>hashCode</code>方法即可实现<br>修改TestModel类代码如下:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestModel</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> TestModel(String name, String id) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> boolean equals(Object o) &#123;</span><br><span class="line">        TestModel originModel = (TestModel) o;</span><br><span class="line">        <span class="keyword">if</span> (!name.equals(originModel.name)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!id.equals(originModel.id)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> int hashCode() &#123;</span><br><span class="line">        <span class="keyword">return</span> name.hashCode();</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改后的<code>TestModel</code>重写了<code>equals</code>方法以及<code>hashCode</code>方法。<code>hashCode</code>返回<code>name</code>属性的hashCode,并且<code>equals</code>方法认定如果<code>name</code>以及<code>id</code>相同就认定为同一个对象。</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">        ArrayList&lt;TestModel&gt; testModels = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        testModels.<span class="built_in">add</span>(<span class="keyword">new</span> TestModel(<span class="string">"hxw"</span>, <span class="string">"1"</span>));</span><br><span class="line"></span><br><span class="line">        <span class="built_in">boolean</span> result = testModels.contains(<span class="keyword">new</span> TestModel(<span class="string">"hxw"</span>, <span class="string">"1"</span>));</span><br><span class="line">        <span class="built_in">log</span>(<span class="string">"result:"</span> + result);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">输出结果:</span><br><span class="line">result:<span class="keyword">true</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -213,7 +231,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">music</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
@@ -269,7 +287,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACI0lEQVR42u3aUbKDIAwFUPe/ad8CWuwN0TcjHL46VgvHj5SQHEc8zo8xumd0//W3n9ePJwYGBsZrGeflGE2QPDXiVT8ns2BgYOzASALo6P4Rci6MXs81vI6BgYFR3NhVQ3D+yjAwMDCqjCSkVlNWDAwMjE4S2znpul5EP4hjYGCszegklk9/fqS+gYGB8SrGWRx9an8NX1aFgYGxNCMPcFVMntZGCWryCxgYGEsz5top7ipqVn+ncOiGgYGxHCN5OLnSKVX2S5sYGBhrM/LgmAffvM1iriyKgYGxAyM/UKs2QOQLqqbKX2bBwMBYmtHZtFVDahJk86T6yB/AwMB4OSM5Aquy+6XN8ivDwMBYmpHkuHmTVl4euCtMY2Bg7MDIj7TmmsPyVoxOyQEDA2NtRmczdx06q8nqXCjHwMDYmXFXufHexq/C0jEwMBZlzDU95Clr9V3OPYWBgbEeIzn2SsB5wO1sN4erwsDAWJqRh9q8bJmktZ0t4I+WCwwMjA0Y/VpoJxDPHflhYGDsxsiP1apNrp2SJAYGBsZcoXFu49g5hos62jAwMJZjnMWRlyE7xctk3vI/BgYGxmsZ/YJitf2remDX2W5iYGCsxKgG2bnyQL41zNeAgYGxG6Ma+OaO2+bY0SvAwMDAaLdQzJVCC4UEDAwMjDiAXl/pNJY9+L+BgYHxEka1zSLH/1PDGQYGxtKMPHXMSwVzG8rqEjEwMDZg/AGL1tsZOyP79gAAAABJRU5ErkJggg==" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNUlEQVR42u3aSW4DMQwFUd//0s42QCKlPtkOIKq0MpyeXgegOej1wuv9ba3+ujr+57n7z6u7PLBkyJBxLOO9XatjVgBy/f0L2t93SZUhQ8YFjH0YTUmEuofxZ5MhQ4aM9Jh+OihDhgwZTzFI+khKXxkyZMjgDB4uCWNf0PKm3kdqcRkyZBzI4F33///8kfmGDBkyjmK8w9UfJHTGn8s7ypAhYzSjM4bsN+k6AVeGDBl3MtIw2mFzABlzypAhYzYjHUDy2/Awnb7EXzAyZMi4gBEUijixS4N17fi46pUhQ8axDLIBgqdxfJyQjjODKlyGDBnjGLytn35TC7L8tcqQIeNOBg+RKb7WXEMJogwZMkYz0u0Ozz5uZ1xazHNlyJBxIIMMI9MSN33ElIr+DzJkyBjE2LfGeDqYDiNrWzfQuTJkyBjKQCVimLTxYUBtUIqKWBkyZIxgdLZNcHZ6VhqOZciQcQ+j0yBL89DaZo7l9zJkyBjN4Cldik9L2XSEGbTbZMiQMYJB0sE08D274Qz9MMiQIeMCRlrK1rZlpL8DwauUIUPGlYx0eNnZcsGL5D9yWxkyZIxjvMNVS+P2D9opkmXIkHEDg6/04Xi7P92uEQ84ZciQMYIRN7Y6eWi7VYeKWBkyZAxlpENN3nrjg4HWa5IhQ4YMHCJr28jSlDGI4jJkyLiSUQu+/NVw0gOpoQwZMo5idLZNkJZZbTMHv6YMGTJmM3jpmBaWPBDzq7UGmTJkyDiP8QXJ9fAuSxFi7gAAAABJRU5ErkJggg==" alt="微信分享二维码">
     </div>
 </div>
 
@@ -283,18 +301,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/09/06/普通生活/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          普通生活
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/08/Where Is the Love/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Where Is the Love</div>
+    <a href="/2019/02/13/2019年不能落下的事情/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2019年不能落下的事情</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -333,7 +342,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://xwdz-blog.com/2018/08/10/星球坠落/",
+  id: "http://xwdz-blog.com/2019/02/19/Java-equlas、hashCode理解/",
   owner: 'hxw-study-data',
   repo: 'gitment-comments',
   oauth: {
