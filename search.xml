@@ -11,7 +11,7 @@
   <entry>
     <title><![CDATA[2019年不能落下的事情]]></title>
     <url>%2F2019%2F02%2F13%2F2019%E5%B9%B4%E4%B8%8D%E8%83%BD%E8%90%BD%E4%B8%8B%E7%9A%84%E4%BA%8B%E6%83%85%2F</url>
-    <content type="text"><![CDATA[工作 JetPack包下控件的了解 Lifecycler * RxJava 操作符详细了解 Activity 启动流程 launcher相关 * JavaScript 学习启动篇（每两天一篇学习笔记） 基本语法 DOM * web开发 写个小项目 Django 框架的熟悉 搭建一个好玩的Web网站 系统复习基础知识 Java equals、hashCode 内存模型 HashMap ArrayList 类加载器 JVM类加载流程 JVM垃圾回收 java对象生命周期 Synchronized原理 Volatile原理 ConcurrentHashmap Threadlocal原理 序列化前后对象有何区别 HashMap的原理 Java中的强、软、弱、虚引用 垃圾回收原理以及回收策略 双亲委派模型 什么是注解以及运行时注解的使用 同步锁 synchronized与Lock区别 Android 多进程 View绘制 触摸事件传递 LRUCache HTTPS 插件化开发流程 App的启动流程 View的性能优化，页面卡顿的原因 生活 今年上半年每2-3周回去长沙看女朋友 坚持游泳 学会自由泳 周末练车 减少非必要开支 了解商业/医疗保险,父母年纪越来越大希望能对冲一些风险 多看看书 多自己做饭]]></content>
+    <content type="text"><![CDATA[工作 JetPack包下控件的了解 Lifecycler * RxJava 操作符详细了解 Activity 启动流程 launcher相关 * JavaScript 学习启动篇（每两天一篇学习笔记） 基本语法 DOM * web开发 写个小项目 Django 框架的熟悉 搭建一个好玩的Web网站 微信小程序 后端开发 Spring Boot* 系统复习基础知识 Java equals、hashCode 内存模型 HashMap ArrayList 类加载器 JVM类加载流程 JVM垃圾回收 java对象生命周期 Synchronized原理 Volatile原理 ConcurrentHashmap Threadlocal原理 序列化前后对象有何区别 HashMap的原理 Java中的强、软、弱、虚引用 垃圾回收原理以及回收策略 双亲委派模型 什么是注解以及运行时注解的使用 同步锁 synchronized与Lock区别 Android 多进程 View绘制 触摸事件传递 LRUCache HTTPS 插件化开发流程 App的启动流程 View的性能优化，页面卡顿的原因 生活 今年上半年每2-3周回去长沙看女朋友 坚持游泳 学会自由泳 周末练车 减少非必要开支 了解商业/医疗保险,父母年纪越来越大希望能对冲一些风险 多看看书 多自己做饭]]></content>
       <tags>
         <tag>生活</tag>
       </tags>
@@ -61,8 +61,8 @@
     <url>%2F2018%2F09%2F06%2F%E6%99%AE%E9%80%9A%E7%94%9F%E6%B4%BB%2F</url>
     <content type="text"><![CDATA[生活就是不断创造问题，解决问题再创造问题。 用在最近的自己身上在合适不过了。 真的真的很讨厌看那些为了应付而写的文档。 不多说了,听首歌压压惊]]></content>
       <tags>
-        <tag>日常侃侃</tag>
         <tag>music</tag>
+        <tag>日常侃侃</tag>
       </tags>
   </entry>
   <entry>
@@ -151,7 +151,7 @@
   <entry>
     <title><![CDATA[仪式感]]></title>
     <url>%2F2018%2F05%2F20%2F%E4%BB%AA%E5%BC%8F%E6%84%9F%2F</url>
-    <content type="text"><![CDATA[用日出而作，日落而息来形容今天不为过，满满的玩了一天，吃的好爽前一段时间锻炼感觉白干了，回到家很累，不过依然坚持做了自己明天饭菜。 在今天这个日子里，想起来奇葩说里面的一起辩论，中国人什么都喜欢讲究个仪式感，从古至今，皇帝登基，考状元，求婚，结婚。 生日今天我妈给我打了电话，但我的生日并不是今天，是前天，我从懂事后我基本就没过过生日了，以前的话我妈都会给我打电话问问我在干嘛，今年也许忙了吧忘了，不过我也不在意过不过，电话打过来的时候我能感觉通话过程中她非常内疚，因为儿子生日的那天她没有给我打电话，这也许就是所谓的仪式感吧，让我又了一些思考，我说生日没什么的忘了就忘了呗，(内心其实还是想接到妈电话)不过我妈并不接受，心里面应该比较内疚，有时间想想生活中有很多形式主义并不是那么的不好，但总比懒的连过场都懒的走。仪式感让我清楚的知道自己在做什么，为了什么，仪式感是一种生活的意义，给我期待，给我心安。 晚安。]]></content>
+    <content type="text"><![CDATA[用日出而作，日落而息来形容今天不为过，满满的玩了一天，吃的好爽前一段时间锻炼感觉白干了，回到家很累，不过依然坚持做了自己明天饭菜。 在今天这个日子里，想起来奇葩说里面的一起辩论，中国人什么都喜欢讲究个仪式感，从古至今，皇帝登基，考状元，求婚，结婚。 生日今天我妈给我打了电话，但我的生日并不是今天，是前天，我从懂事后我基本就没过过生日了，以前的话我妈都会给我打电话问问我在干嘛，今年也许忙了吧忘了不过我也不在意过不过，电话打过来的时候我能感觉通话过程中她非常内疚，因为儿子生日的那天她没有给我打电话，这也许就是所谓的仪式感吧，让我又了一些思考，我说生日没什么的忘了就忘了呗，(内心其实还是想接到妈电话)不过我妈并不接受，心里面应该比较内疚，有时间想想生活中有很多形式主义并不是那么的不好，但总比懒的连过场都懒的走。仪式感让我清楚的知道自己在做什么，为了什么，仪式感是一种生活的意义，给我期待，给我心安。 晚安。]]></content>
       <categories>
         <category>life</category>
       </categories>
