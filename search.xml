@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[一个工作日发烧的下午]]></title>
+    <url>%2F2019%2F10%2F12%2F%E5%86%99%E5%9C%A8%E4%B8%80%E4%B8%AA%E5%8F%91%E7%83%A7%E7%9A%84%E4%B8%8B%E5%8D%88%2F</url>
+    <content type="text"><![CDATA[近况眼睛发胀，头昏脑热就是我目前的状态了，眼睛看着电脑屏幕但是心已经睡着了… 很困很困，因为感冒了。 很久很久没有更新博客了，看着博客里面2019计划要做的内容只是稀稀散散完成了几个，技术博客更是今年更是一篇文章都没产出。 今年大部分精力都用在了感情上面，希望以后能有个好的结果吧，顺其自然。 工作目前待在一个很舒适的环境，对于我自身来说危机感很强烈也迫切需要做出改变，工作加班少，原以为可以发展一下副业，可目前副业远远没看到头。 ​ 16：09 闷热]]></content>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Java-equlas、hashCode理解]]></title>
     <url>%2F2019%2F02%2F19%2FJava-equlas%E3%80%81hashCode%E7%90%86%E8%A7%A3%2F</url>
     <content type="text"><![CDATA[Java基础复习。 12public boolean equals(Object obj)public int hashCode() 上述两个非常重要的方法来自每一个类的父类Object equals(Object obj)equals()方法在object类中定义如下： 123public boolean equals(Object obj) &#123; return (this == obj); &#125; 是比较引用是否相同。 大多数基本对象(String,Math)等都会复写equals()方法 比如在String类中如下： 123456789101112131415161718192021public boolean equals(Object anObject) &#123; if (this == anObject) &#123; return true; &#125; if (anObject instanceof String) &#123; String anotherString = (String)anObject; int n = count; if (n == anotherString.count) &#123; char v1[] = value; char v2[] = anotherString.value; int i = offset; int j = anotherString.offset; while (n– != 0) &#123; if (v1[i++] != v2[j++]) return false; &#125; return true; &#125; &#125; return false; &#125; String类复写equals方法其目的是为了比较内容,而不再是地址的比较。 很明显对象可以根据需要制定比较规则。 需要注意的是当equals()方法被override时，hashCode()也要被override。按照一般hashCode()方法的实现来说，相等的对象，它们的hash code一定相等。 hashCode()hashCode()方法给对象返回一个hash code值。这个方法被用于集合里面比较. hashCode()方法在object类中定义如下： 1public native int hashCode(); 说明是一个本地方法，它的实现是根据本地机器相关的。当然我们可以在自己写的类中覆盖hashcode()方法 Java对于eqauls方法和hashCode方法是这样规定的 如果两个对象相同，那么它们的hashCode值一定要相同； 如果两个对象的hashCode相同，它们并不一定相同（这里说的对象相同指的是用eqauls方法比较）。如不按要求去做了，会发现相同的对象可以出现在Set集合中，同时，增加新元素的效率会大大下降。 equals()相等的两个对象，hashcode()一定相等；equals()不相等的两个对象，却并不能证明他们的hashcode()不相等。换句话说，equals()方法不相等的两个对象，hashcode()有可能相等（我的理解是由于哈希码在生成的时候产生冲突造成的）。反过来，hashcode()不等，一定能推出equals()也不等；hashcode()相等，equals()可能相等，也可能不等。 Demo通过重写equals方法以及hashCode方法指定当前对象是否相等规则. 12345678910class TestModel&#123; private final String name; private final String id; public TestModel(String name, String id) &#123; this.name = name; this.id = id; &#125;&#125; 测试代码: 12345678ArrayList&lt;TestModel&gt; testModels = new ArrayList&lt;&gt;();testModels.add(new TestModel("hxw", "1"));boolean result = testModels.contains(new TestModel("hxw", "1"));System.out.print("result:"+result)输出:result:false 如上代码在集合中添加了一个TestModel对象,并且调用了集合的contains方法来判断当前集合中是否包含该对象,代码结果返回false,没有任何问题,那有没有办法让contains方法判断当前集合中包含改对象呢?(即contains方法返回true) 答案有的,Arraylist中contains方法代码如下: 12345678910111213141516public boolean contains(Object o) &#123; return indexOf(o) &gt;= 0;&#125; public int indexOf(Object o) &#123; if (o == null) &#123; for (int i = 0; i &lt; size; i++) if (elementData[i]==null) return i; &#125; else &#123; for (int i = 0; i &lt; size; i++) if (o.equals(elementData[i])) return i; &#125; return -1;&#125; contains方法中调用了indexOf方法在集合中找位置,没找到返回-1,找到返回该对象在集合中的位置,indexOf就是通过调用对象的equals方法来判断在数组中是否有相同对象。 所以通过重写equals方法以及hashCode方法即可实现修改TestModel类代码如下: 12345678910111213141516171819202122232425262728class TestModel&#123; private final String name; private final String id; public TestModel(String name, String id) &#123; this.name = name; this.id = id; &#125; @Override public boolean equals(Object o) &#123; TestModel originModel = (TestModel) o; if (!name.equals(originModel.name)) &#123; return false; &#125; if (!id.equals(originModel.id)) &#123; return false; &#125; return true; &#125; @Override public int hashCode() &#123; return name.hashCode(); &#125; &#125; 修改后的TestModel重写了equals方法以及hashCode方法。hashCode返回name属性的hashCode,并且equals方法认定如果name以及id相同就认定为同一个对象。 12345678910 public static void main(String[] args) &#123; ArrayList&lt;TestModel&gt; testModels = new ArrayList&lt;&gt;(); testModels.add(new TestModel("hxw", "1")); boolean result = testModels.contains(new TestModel("hxw", "1")); log("result:" + result); &#125; 输出结果:result:true]]></content>
@@ -29,7 +37,7 @@
     <url>%2F2018%2F12%2F09%2F%E9%82%A3%E4%B8%AA%E8%83%8C%E5%BD%B1%2F</url>
     <content type="text"><![CDATA[最近晚上很早就上床，准备睡觉，然而我并睡不着，我现在的状态基本晚上不到一点不会睡，促使我做这个早睡的决定的是因为我最近经常跟一个同学聊天，是个女生，在家工作，同学年纪轻轻却已进入养生状态，早睡早起，令我羡慕不已，在这一来一去的聊天中得知我作息很差，遂劝我早睡，我尝试了下，结果我打开电脑写下此标题。 背影四十个月前,我看着心中的背影成长。 一个人在这城市生活，那个背影给了我很大勇气。 曾经那么远的，如今这么近，我信，我信。]]></content>
       <tags>
-        <tag>日常侃侃</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -45,7 +53,7 @@
     <url>%2F2018%2F09%2F07%2F%E5%A6%A5%E5%8D%8F%E6%98%AF%E9%99%8D%E4%BD%8E%E6%A0%87%E5%87%86%E7%9A%84%E5%BC%80%E5%A7%8B%2F</url>
     <content type="text"><![CDATA[工作可以做的更好，选择妥协，过得去就好，如果工作每天都在妥协，降低标准，选择过得去就行，慢慢的慢慢的……一定会……蔓延至其他方面。 So say No!]]></content>
       <tags>
-        <tag>日常侃侃</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -54,15 +62,6 @@
     <content type="text"><![CDATA[Github功能 任何一个界面检测进度 单个任务下载 多个任务下载 取消单个任务 取消全部任务 暂停所有任务 队列最大同时下载任务数,超过则进入等待队列 自动恢复上一次下载任务 TODO 输出lib流程图 重试机制 使用方法downloader 权限相关12&lt;uses-permission android:name="android.permission.INTERNET"/&gt;&lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/&gt; 添加依赖根项目的build.gradle： 123456allprojects &#123; repositories &#123; jcenter() maven &#123; url "https://jitpack.io" &#125; &#125;&#125; $lastVersion = 1implementation 'com.xwdz:QuietDownloader:$lastVersion' 在AndroidManifest.xml 声明如下service 1&lt;service android:name="com.xwdz.download.core.DownloadService"/&gt; 配置1. 在您的Application处调用初始化代码: XDownloaderManager.getImpl().bindService(this); 2. 添加一些列配置 QuietConfig.getImpl() // 默认下载路径为[sdcard/Download/包名/xxx.apk] // 若没有自定义下载文件路径,则必须调用该init代码 .initDownloadFile(context) //debug模式 .setDebug(boolean isDebug) //下载文件路径 .setDownloadDir(File file) // 队列最大同时下载任务数,超过则进入等待队列 默认:3 .setMaxDownloadTasks(int) // 最大线程下载数 默认:3 .setMaxDownloadThreads(int) // 间隔毫秒 .setMinOperateInterval(long) // 打开界面自动恢复下载 .setRecoverDownloadWhenStart(false); QuietDownloadConfig还提供了一处全局处理网络的接口: public interface HandlerNetwork { /** * 处理网络状况接口 * @return true: 消费该事件终止运行下载任务 * false: 正常执行下载任务 */ boolean onHandlerNetworkStatus(); } QuietConfig.getImpl().setHandlerNetworkListener(new QuietDownloadConfig.HandlerNetwork() { @Override public boolean onHandlerNetworkStatus() { // 自己的逻辑判断，提示当前不在wifi情况dialog 等 return false; } }); 关于监听QuiteDownload 并没有采用传统listener方式，而是使用了观察者模式,如需要在某个界面监听下载进度 1234567891011121314151617181920212223private final DataUpdateWatcher mDataUpdateReceiver = new DataUpdateWatcher() &#123; @Override public void notifyUpdate(DownloadEntry entry) &#123; // calback mainUIThread // do something // 可根据 entry status来判断一些列状态 if(entry.status == DownloadEntry.pause || DownloadEntry.downloading ...) &#125;&#125;;// 省略若干代码@Overrideprotected void onResume() &#123; super.onResume(); mDownloader.addObserver(mDataUpdateReceiver);&#125;@Overrideprotected void onPause() &#123; super.onPause(); mDownloader.removeObserver(mDataUpdateReceiver);&#125; 关于DownloadEntry12345678910111213141516171819202122232425262728293031public class DownloadEntry implements Serializable &#123; public String id; public String name; public String url; public int currentLength; public int totalLength; // ... 省略代码 public DownloadEntry(String url) &#123; this.url = url; this.id = url; this.name = url.substring(url.lastIndexOf("/") + 1); &#125; &#125; // ... 省略代码 @Override public boolean equals(Object o) &#123; return o.hashCode() == this.hashCode(); &#125; @Override public int hashCode() &#123; final int PRIME = 31; int result = 1; result = PRIME * result + id.hashCode(); return result; &#125;&#125; 注意 DownloadEntry实体类重写其 equals 以及 hashCode 方法，使用其 id hashCode 来作为其标准 QuietDownloader内部使用DownloadEntry实体类进行关联 DownloadEntry的几种状态123public enum DownloadStatus &#123; IDLE, WAITING, CONNECTING, DOWNLOADING, PAUSED, CANCELLED, COMPLETED, ERROR&#125; 使用方法12345678910111213141516171819private QuietDownload mDownloader = QuietDownload.getImpl();private final DownloadEntry downloadEntry = new DownloadEntry("url"); ... 省略代码 // 常用API // 开始任务 mDownloader.startDownad(downloadEntry); // 暂停任务 mDownloader.pause(downloadEntry); //取消任务 mDownloader.cancel(downloadEntry); // 恢复任务 mDownloader.resume(downloadEntry); // 恢复所有 mDownloader.recoverAll(downloadEntry); // 暂停所有 mDownloader.pauseAll(downloadEntry);]]></content>
       <tags>
         <tag>Android</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[普通生活]]></title>
-    <url>%2F2018%2F09%2F06%2F%E6%99%AE%E9%80%9A%E7%94%9F%E6%B4%BB%2F</url>
-    <content type="text"><![CDATA[生活就是不断创造问题，解决问题再创造问题。 用在最近的自己身上在合适不过了。 真的真的很讨厌看那些为了应付而写的文档。 不多说了,听首歌压压惊]]></content>
-      <tags>
-        <tag>music</tag>
-        <tag>日常侃侃</tag>
       </tags>
   </entry>
   <entry>
@@ -156,7 +155,7 @@
         <category>life</category>
       </categories>
       <tags>
-        <tag>日常侃侃</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -186,15 +185,15 @@
     <url>%2F2018%2F05%2F06%2F%E6%9C%80%E5%90%8E%E7%9A%84%E5%94%90%E5%AF%85%2F</url>
     <content type="text"><![CDATA[初识刚温故了电影&lt;唐伯虎点秋香&gt;因为对他最初的印象是从这里产生的直接影响，唐伯虎能文能武，智斗奸臣，抱得美人归，十分搞笑。而如今明白真相之后再看电影，却再也笑不出来。 彻底堕落最后的才子唐伯虎利用装疯，裸奔等方法从朱宸濠(朱宸濠造反需要人才，故想收编唐伯虎，而唐一开始以为是要聘他为太师之类的,知道是造反后想溜，可知道了那么多秘密怎能放你走)虎口脱险松了一口气，但在庆祝劫后余生的同时，他对人生也已经彻底绝望。 日以继夜的饮酒作乐，纵情声色，摧垮了他的身体，却也成就了他的艺术。 但也就到此为止了，1523年这位中国文化历史上的天才结束了自己坎坷的一声归于沉寂。 再看电影时，在我脑海里始终浮现的是那个真实的唐伯虎，在无奈中痛苦挣扎，无比绝望，中年怀才不遇，老年心灰意冷，不禁让人心疼。 桃花歌别人笑我太疯癫， 我笑他人看不穿。 不见五陵豪杰墓， 无花无酒锄作田。]]></content>
       <tags>
-        <tag>日常侃侃</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[假期之后]]></title>
     <url>%2F2018%2F05%2F03%2F%E5%81%87%E6%9C%9F%E4%B9%8B%E5%90%8E%2F</url>
-    <content type="text"><![CDATA[明天上最后一天班又是周末，舒服！ 开始做饭节后上班到现在每天晚上都做饭带饭，说来已经三天了，本想着会很累，毕竟每天下班到家已经9点多了，可还是坚持自己做了两个菜，不为别的，节前的时候点了个三级第，吃完肚子疼跑了无数次厕所，唉，这次的遭遇也让我彻底的反感外卖，上班到现在以前都是叫外卖，周末从来都是外卖，我这不知道吃了几年地沟油了… 趁着五一的时候放假，去超市买了一百多块钱的菜，想着应该能吃很久了吧，刚开始做得时候由于厨艺生疏，在饭菜质量把控上面，也着实让自己捏了一把汗， 因为我总是炒糊… 做饭上瘾 刚刚炒的菜，是我目前炒的卖相最好的，颜色分明，不像之前炒的大部分都是黑色的，因为有很多地方是糊的… 是因为我没有翻炒而火又比较大直接给糊了。明天有口福了 我为何要表明主题是做饭上瘾呢，是因为我让我自己上瘾的，严格来说是即使自己不想做饭，也逼着自己做，让其成为一种习惯，习惯是不会累的，习惯让自己过得更舒服。 习惯最近我也在恶补英语，自然不会少了背单词这个大工程，当看代码看到注释或者其他地方有不认识的单词，恨一波单词用时方很少啊，便给自己定了计划。 常用单词7500个，每天背30个，那么需要250天把这些单词背完，这其中肯定也会有自己认识的严格来讲不会需要250天。 我是怎么背的一张草稿纸，笔，然后每个单词写上听上个10来遍，如此反复。 这种方式对我来说不错，只需长期坚持。 杂谈最近迷上了本书&lt;明朝那些事&gt;共七册，不得不说作者写的很棒，脉络清楚，虽说是历史，文字却也幽默。以前觉得皇帝陛下很享受，万人之上，后宫佳丽三千，然而皇帝却是一个高危职业，皇帝身边的人更加危险。 对外:来说一旦国家危在旦夕，皇帝怎能苟且，唯有一死 对内:皇帝最难得就是朋友,因为无时无刻都得提防着身边的人，也许哪天醒来已然成为阶下囚。这也是为啥皇帝总是说孤家寡人 心狠在我看来是皇帝的第一要素，朱元璋创业成功以后杀掉自己以前一起打天下的战友，功高盖主可不行，即使你没有，也得杀，保不齐将来对自己产生威胁，正如书里说的，朱元璋要么不做，要么做绝。 最后 ps:本来想分享一下~不过没有版权并不能播放 晚安]]></content>
+    <content type="text"><![CDATA[明天上最后一天班又是周末，舒服！ 开始做饭节后上班到现在每天晚上都做饭带饭，说来已经三天了，本想着会很累，毕竟每天下班到家已经9点多了，可还是坚持自己做了两个菜，不为别的，节前的时候点了个三级第，吃完肚子疼跑了无数次厕所，唉，这次的遭遇也让我彻底的反感外卖，上班到现在以前都是叫外卖，周末从来都是外卖，我这不知道吃了几年地沟油了… 趁着五一的时候放假，去超市买了一百多块钱的菜，想着应该能吃很久了吧，刚开始做得时候由于厨艺生疏，在饭菜质量把控上面，也着实让自己捏了一把汗， 因为我总是炒糊… 做饭上瘾 刚刚炒的菜，是我目前炒的卖相最好的，颜色分明，不像之前炒的大部分都是黑色的，因为有很多地方是糊的… 是因为我没有翻炒而火又比较大直接给糊了。明天有口福了 我为何要表明主题是做饭上瘾呢，是因为我让我自己上瘾的，严格来说是即使自己不想做饭，也逼着自己做，让其成为一种习惯，习惯是不会累的，习惯让自己过得更舒服。 习惯最近我也在恶补英语，自然不会少了背单词这个大工程，当看代码看到注释或者其他地方有不认识的单词，恨一波单词用时方很少啊，便给自己定了计划。 常用单词7500个，每天背30个，那么需要250天把这些单词背完，这其中肯定也会有自己认识的严格来讲不会需要250天。 我是怎么背的一张草稿纸，笔，然后每个单词写上听上个10来遍，如此反复。 这种方式对我来说不错，只需长期坚持。 杂谈最近迷上了本书&lt;明朝那些事&gt;共七册，不得不说作者写的很棒，脉络清楚，虽说是历史，文字却也幽默。以前觉得皇帝陛下很享受，万人之上，后宫佳丽三千，然而皇帝却是一个高危职业，皇帝身边的人更加危险。 对外:来说一旦国家危在旦夕，皇帝怎能苟且，唯有一死 对内:皇帝最难得就是朋友,因为无时无刻都得提防着身边的人，也许哪天醒来已然成为阶下囚。这也是为啥皇帝总是说孤家寡人 心狠在我看来是皇帝的第一要素，朱元璋创业成功以后杀掉自己以前一起打天下的战友，功高盖主可不行，即使你没有，也得杀，保不齐将来对自己产生威胁，正如书里说的，朱元璋要么不做，要么做绝。 最后ps:本来想分享一下~不过没有版权并不能播放 晚安]]></content>
       <tags>
-        <tag>日常侃侃</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -229,7 +228,7 @@
     <url>%2F2018%2F04%2F26%2F%E7%9F%B3%E5%8E%9F%E9%87%8C%E7%BE%8E%E7%9C%9F%E7%BE%8E%2F</url>
     <content type="text"><![CDATA[日剧 非自然死亡看剧过程中随手一截 - -！]]></content>
       <tags>
-        <tag>日常侃侃</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -253,7 +252,7 @@
     <url>%2F2018%2F04%2F11%2F%E6%9C%80%E8%BF%91%2F</url>
     <content type="text"><![CDATA[此时我刚洗完澡，打开花露水抹了抹腿上被蚊子在公司咬的大包。东搞西搞完了之后，打开电脑，时间已经来到11点40了，印象中已经大半年没有加班到这么晚才回家收拾好自己，马上5月了，到了5月来深圳就满整整四个年头了，我眨了眨眼睛,开始发发牢骚。 加班记忆很清晰，刚工作的时候我特别喜欢加班，为何？没钱，住的条件又差，握手楼，屋里没空调，别提多热了，人又比较胖，心想还不如在公司加班，有空调，还能给领导营造出一种你特别努力的工作状态，美哉。 然而实际情况是啥？ 代码写的烂，下什么班啊接着改BUG，由于代码设计不合理，需求频繁变动导致需要推翻之前架构，频繁返工。 既然已经这样了那就干脆更乱一点吧。懒得管了 拿着一个需求直接开始写，不做需求分析。 以上种种情况下还得按时交货，那肯定得加班。 而如今工作已三年有余，生活质量远不像以前那样将就，希望工作之外有较多的私人时间充电,多锻炼,毕竟身体好才是对自己，家人负责。 工作入职了新公司，特别特别小的创业公司，刚好入职的一段时间公司短时间内接了很多项目，服务对方过程中爆发出了一系列问题，老板临时晚上开了个会，会上我表达了一下自己的看法，项目管理上面很乱，很没有章法，服务对象短时间爆发式增长，现有系统架构不稳定，不过想来也是情有可原，毕竟基本都身兼数职，这也就是为什么今天回来的这么晚的原因了。 虽然刚入职不过也算是干了点事，毕竟谁都会背一点技术债，比如以前流程上的不规范，引入新流程，修复潜在漏洞等。 入职不久就启动了一个海外项目，分析完需求之后开始在参考Github上面一些比较出名库的架构，之后用了差不多一周的时间写SDK，基本也是跟自己预估的时间差不多，节奏控制的特别好，基本下班就走。这也是我比较纠结的一个点了，公司基本我走最早，其余都加班，有一个是刚毕业的能力方面可能有所欠缺，加加班也是应该，后来了解到原来其余的都是一起出来创业的 效率加班说明你没有效率 在我看来是这样的，并且非常认同这一句话，如果一天按时完成了工作任务何来加班！ 可是我从创业者角度来看，是这样吗？ 不是 事情做不完。永远做不完 我已入职快一个月了，基本上在coding期间会插进来各种事情，被动的不说，主动方面，由于公司网络库非常老旧，不方便维护，从长远考虑自己写了一个网络库，文档方面又非常散，对外推的时候需要手动给对方，而不是让使用者自主寻找文档，所以自己通过Github pages，找公司要了一个域名，做一个静态网页，管理对外文档，要知道我手上可是有开发任务的，所以比较难专注的去做一件事。 再比如跟我对接的后台，公司基本所有问题都要经他流转，东一下西一下的帮业务处理一些问题，关键还有自己的开发任务。 总之负责的业务越多，精力可能越分散也就无法做好一件事情，出现问题的几率也就越大。 生活关于生活不想说一些生活琐事，而想说说我发生的一些变化。 一个需求动手之前都会想想为何？此事何来？何以见得？ 因为我需要一个合理解释来说服我。 以后再写吧，该睡了 安]]></content>
       <tags>
-        <tag>日常侃侃</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>

@@ -10,22 +10,20 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" >
 <link rel="dns-prefetch" href="http:xwcc.fun">
-<title>Android-使用Activity作为Contenxt启动BroadcastReceiveer的一些问题 | daQ的博客</title>
+<title>一个工作日发烧的下午 | daQ的博客</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="问题背景下载APK的时候需要做一个通知栏并且支持暂停，取消等功能交互。通知栏的UI点击交互用的就是broadcast来接受点击事件 代码如下  registerReceiver(context, MyBroadcastReceiver);  Intent intent = new Intent(ACTION);  PendingIntent pendingIntent1 = PendingInte">
-<meta name="keywords" content="Android">
+<meta name="description" content="近况眼睛发胀，头昏脑热就是我目前的状态了，眼睛看着电脑屏幕但是心已经睡着了…  很困很困，因为感冒了。 很久很久没有更新博客了，看着博客里面2019计划要做的内容只是稀稀散散完成了几个，技术博客更是今年更是一篇文章都没产出。 今年大部分精力都用在了感情上面，希望以后能有个好的结果吧，顺其自然。 工作目前待在一个很舒适的环境，对于我自身来说危机感很强烈也迫切需要做出改变，工作加班少，原以为可以发展一">
+<meta name="keywords" content="生活">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android-使用Activity作为Contenxt启动BroadcastReceiveer的一些问题">
-<meta property="og:url" content="http:xwcc.fun/2018/04/17/Android-BroadcastReceiveer引用context生命周期的影响/index.html">
+<meta property="og:title" content="一个工作日发烧的下午">
+<meta property="og:url" content="http:xwcc.fun/2019/10/12/写在一个发烧的下午/index.html">
 <meta property="og:site_name" content="daQ的博客">
-<meta property="og:description" content="问题背景下载APK的时候需要做一个通知栏并且支持暂停，取消等功能交互。通知栏的UI点击交互用的就是broadcast来接受点击事件 代码如下  registerReceiver(context, MyBroadcastReceiver);  Intent intent = new Intent(ACTION);  PendingIntent pendingIntent1 = PendingInte">
+<meta property="og:description" content="近况眼睛发胀，头昏脑热就是我目前的状态了，眼睛看着电脑屏幕但是心已经睡着了…  很困很困，因为感冒了。 很久很久没有更新博客了，看着博客里面2019计划要做的内容只是稀稀散散完成了几个，技术博客更是今年更是一篇文章都没产出。 今年大部分精力都用在了感情上面，希望以后能有个好的结果吧，顺其自然。 工作目前待在一个很舒适的环境，对于我自身来说危机感很强烈也迫切需要做出改变，工作加班少，原以为可以发展一">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2651056-87ebe321327cdd0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-02-19T08:39:23.411Z">
+<meta property="og:updated_time" content="2019-10-12T08:10:12.602Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android-使用Activity作为Contenxt启动BroadcastReceiveer的一些问题">
-<meta name="twitter:description" content="问题背景下载APK的时候需要做一个通知栏并且支持暂停，取消等功能交互。通知栏的UI点击交互用的就是broadcast来接受点击事件 代码如下  registerReceiver(context, MyBroadcastReceiver);  Intent intent = new Intent(ACTION);  PendingIntent pendingIntent1 = PendingInte">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2651056-87ebe321327cdd0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="一个工作日发烧的下午">
+<meta name="twitter:description" content="近况眼睛发胀，头昏脑热就是我目前的状态了，眼睛看着电脑屏幕但是心已经睡着了…  很困很困，因为感冒了。 很久很久没有更新博客了，看着博客里面2019计划要做的内容只是稀稀散散完成了几个，技术博客更是今年更是一篇文章都没产出。 今年大部分精力都用在了感情上面，希望以后能有个好的结果吧，顺其自然。 工作目前待在一个很舒适的环境，对于我自身来说危机感很强烈也迫切需要做出改变，工作加班少，原以为可以发展一">
 
 <link rel="alternative" href="/atom.xml" title="daQ的博客" type="application/atom+xml">
 
@@ -157,20 +155,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Android-BroadcastReceiveer引用context生命周期的影响" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-写在一个发烧的下午" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Android-使用Activity作为Contenxt启动BroadcastReceiveer的一些问题
+      一个工作日发烧的下午
     </h1>
   
 
         
-        <a href="/2018/04/17/Android-BroadcastReceiveer引用context生命周期的影响/" class="archive-article-date">
-  	<time datetime="2018-04-17T11:00:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-17</time>
+        <a href="/2019/10/12/写在一个发烧的下午/" class="archive-article-date">
+  	<time datetime="2019-10-12T07:47:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
 </a>
         
 	
@@ -182,24 +180,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h4><p>下载APK的时候需要做一个通知栏并且支持暂停，取消等功能交互。通知栏的UI点击交互用的就是broadcast来接受点击事件 代码如下</p>
-<pre><code> registerReceiver(context, MyBroadcastReceiver);
- Intent intent = new Intent(ACTION);
- PendingIntent pendingIntent1 = PendingIntent.getBroadcast(context, 0,
-                intent, PendingIntent.FLAG_UPDATE_CURRENT);
-mRemoteViews.setOnClickPendingIntent(mRemoteBuild.clickId, pendingIntent1);
-</code></pre><p>伪代码如上就是为通知栏设置点击事件的一种方法。</p>
-<p>可当我测试点击的时候我注册的广播里面就是接收不到点击事件。<br>无奈我有改用静态方式来注册广播，观察log发现静态方式是可以接受到点击事件的那看来就是动态注册方式出了问题。于是我开始整理思路。</p>
-<a id="more"></a>
-<p>打开App，显示开屏广告，点击广告下载apk然后再创建通知栏，再更新下载进度。</p>
-<p>而后我继续测试，我将组件拿出来新建了一个项目来测试，发现是正常的，而后再次切换到前者项目测试，发现还是不行接受不到广播点击事件。</p>
-<p>我对比发现两者的不同点只是在activity的生命周期上面了。</p>
-<p>注意开屏广告的activity生命周期只有3s。这点也非常重要。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2651056-87ebe321327cdd0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>附一张非常经典的生命周期图。</p>
-<p>而我用新建的项目测试的时候有一点是 当前的activity 在下载过程中一直都没有销毁，而项目里面测试的时候是开屏广告activity，生命周期只有3s，3s之后就已经被自动的finish了。</p>
-<p>而又我在新建的项目里面继续写测试代码，写了个3s之后自动finish当前activity，果然也报错了，看来就是跟当前生命周期有关，那也就是传过来的context了。</p>
-<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>想了想，解决办法也很简单。因为下载的service要一直在后台运行，所以将传进来的context.getApplicationContext()，去注册广播，销毁广播等，这样就能保证是在整个app运行期间了，也不会造成内存泄漏问题。</p>
+        <h3 id="近况"><a href="#近况" class="headerlink" title="近况"></a>近况</h3><p>眼睛发胀，头昏脑热就是我目前的状态了，眼睛看着电脑屏幕但是心已经睡着了…  很困很困，因为感冒了。</p>
+<p>很久很久没有更新博客了，看着博客里面2019计划要做的内容只是稀稀散散完成了几个，技术博客更是今年更是一篇文章都没产出。</p>
+<p>今年大部分精力都用在了感情上面，希望以后能有个好的结果吧，顺其自然。</p>
+<h3 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h3><p>目前待在一个很舒适的环境，对于我自身来说危机感很强烈也迫切需要做出改变，工作加班少，原以为可以发展一下副业，可目前副业远远没看到头。</p>
+<p>​                                                                                                     <strong>16：09 闷热</strong></p>
 
       
 
@@ -213,7 +198,7 @@ mRemoteViews.setOnClickPendingIntent(mRemoteBuild.clickId, pendingIntent1);
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">生活</a>
         		</li>
       		
 		</ul>
@@ -269,7 +254,7 @@ mRemoteViews.setOnClickPendingIntent(mRemoteBuild.clickId, pendingIntent1);
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADO0lEQVR42u3aS44iQQwFQO5/aUYazaKlEfCeTUtUErVCTUFlmIXbn9stvu5/r5+vf17P70m+7f/XybvP//6GCxsbG/si7PvTK3/882/b3DML9/Pvx8bGxj6P3Sat/MH5PXlQnocmSnLY2NjYX8nOQ5BceQHTJjlsbGxs7Dbl5GXJpnmUhAkbGxv7m9l5WpodNwlNEqzkDG/upWFjY2N/PHs26P3M178+38bGxsb+MPa9vGZ7L0ko29HC7Pz/PouNjY19EDtp8STHats9+XC3HQnkbSZsbGzsM9h5Y71t9LefSppN+5BhY2Njn8dOklae6vL00y4GteHAxsbG/h522zBql3KSo7cLQPsRMjY2NvZ57DzX5ffkjaT9ik9dwGBjY2Mfys4TwH4MvGktbRIqNjY29nnstuSYFRL7kW0yyq1PiI2NjX0Eezay3RQMs2ZTmzJffAobGxv7IPa7kk3eTsqLmc2qUJ6tsLGxsa/OnmGSEqK9f5+WkoBiY2Njn8eelRzt+DbBtGOJfVrFxsbGPoOdp6tZgZGTZuOKpPy4JfHGxsbGvji7TTDtMk3e7t+UPcW72NjY2Mex35tI8sb9rLDJx8wv1i6xsbGxj2Dvmz55QZKPbPMxwGzMjI2NjX0SezOI3ZQim0KiHQy/qMCwsbGxD2Ln//rPEthsWacdWhQVGDY2NvYR7BY2Gwa37aT8oEnIhgNgbGxs7Eux86Iib0K1Jcqs8JitE2FjY2Ofx85bP5thwGaoMAvrsBrDxsbGvhR71hKakdqSo33KalMJGxsb++Ls/N/9TarLYe2AOf8JH863sbGxsS/L3rfpE9K7SprNqbCxsbFPZf9GS6gNQTF/Lld/Hj4RGxsb+zh20prJB7R5YyhvA+XhuM1iho2NjX1xdtv0b5d18mFA0rrKf4ZoTQcbGxv74uxZqts/eDNUnq3yDEOAjY2NfRH2bC2mLRXagXGeiuqmEjY2Nvah7LwFv//s7N026744PzY2NvZXsvdDgpz6rvBF415sbGzsr2S3iS0/4mZ5qBgMY2NjYx/Hzpcs8zFqW6jkaz1tU+lhAsPGxsY+gr1p0Mya/nlqnLHbwGFjY2Nflv0HGTxFKJ9zNYoAAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIklEQVR42u3aQW7DMAwEwP7/0+m1QBpnl3ILRBqdAtuJNTkQJMWvr3g9ntbz9eTJ5PPPKzcvDAyMj2U8Lle+uetfztnJ3V/ei4GBcQDj1SaSsJiAk7vX732zZwwMDIzLZ2bbWgnoGBgYGAkjL1ZffTcP3xgYGBh5EZvgk1euNO9uqMUxMDA+kNFu5T8//8n5BgYGxkcxHuVqX9kGysdoYWBg7M3IA1zS6J8F7lnSiYGBcRpjFv7a8DpLCleoGBgYOzFmAS65kh955sNhRVcPAwNjI8ZKSdkeVeaJZjvGgYGBsStjPcC1YxMrYfpNFY6BgbE1o23K33ssmgx2DHt4GBgYWzBWSsRZ020llXyzBwwMjAMYeUDM785+p30SAwPjHEbb1m/ZbQOu7hdiYGAcwGiPBPK22koKWGAwMDCOYayncXkSOUsuo4CLgYGxKaMdjJgVvSujGEWGi4GBsRFjvXE/O/icJY4v72JgYGzNaBPEpSIzDu5LMxUYGBibMtrBrySk5n9TstEo3cTAwDiAkSd8swbc7DAg3wkGBsYJjPxl+bBFHlKThYGBcSZj1jJb+VZSrLYjHRgYGHsz1oNdu6E8HM+CPgYGxq6MWbhsX5aMX8yOJTAwMM5h5IEvP1ycBdb2gAEDAwMjD5f5uEZeEg+nRTAwMDDKsnMWrNu/AwMD4wRGexiQF7cJ5oYnMTAwtma0pWPbjW8DaJ4aYmBgHMD4BrzA8C7VKFGnAAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -283,18 +268,9 @@ mRemoteViews.setOnClickPendingIntent(mRemoteBuild.clickId, pendingIntent1);
   
 <nav id="article-nav">
   
-    <a href="/2018/04/26/石原里美真美/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          石原里美真美
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/04/12/Android-NotifyManager的一些坑/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android-Notification的一些坑。</div>
+    <a href="/2019/02/19/Java-equlas、hashCode理解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java-equlas、hashCode理解</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -333,7 +309,7 @@ mRemoteViews.setOnClickPendingIntent(mRemoteBuild.clickId, pendingIntent1);
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http:xwcc.fun/2018/04/17/Android-BroadcastReceiveer引用context生命周期的影响/",
+  id: "http:xwcc.fun/2019/10/12/写在一个发烧的下午/",
   owner: 'hxw-study-data',
   repo: 'gitment-comments',
   oauth: {
