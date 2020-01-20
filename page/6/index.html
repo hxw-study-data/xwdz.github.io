@@ -10,17 +10,17 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" >
 <link rel="dns-prefetch" href="http:xwcc.fun">
-<title>daQ的博客</title>
+<title>跟你回星城</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
-<meta property="og:title" content="daQ的博客">
+<meta property="og:title" content="跟你回星城">
 <meta property="og:url" content="http:xwcc.fun/page/6/index.html">
-<meta property="og:site_name" content="daQ的博客">
+<meta property="og:site_name" content="跟你回星城">
 <meta property="og:locale" content="zh-cn">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="daQ的博客">
+<meta name="twitter:title" content="跟你回星城">
 
-<link rel="alternative" href="/atom.xml" title="daQ的博客" type="application/atom+xml">
+<link rel="alternative" href="/atom.xml" title="跟你回星城" type="application/atom+xml">
 
 
 <link rel="icon" href="/favicon.ico">
@@ -50,7 +50,7 @@
 			<img src="/img/favicon.ico" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">daQ</a></h1>
+		  <h1 class="header-author"><a href="/">跟你回星城</a></h1>
 		</hgroup>
 		
 		<p class="header-subtitle">勇往直前.顺其自然</p>
@@ -108,7 +108,7 @@
 				<img src="/img/favicon.ico" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">daQ</h1>
+			  <h1 class="header-author js-header-author">跟你回星城</h1>
 			</hgroup>
 			
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>勇往直前.顺其自然<i class="icon icon-quo-right"></i></p>
@@ -155,6 +155,90 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-Android-BroadcastReceiveer引用context生命周期的影响" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/17/Android-BroadcastReceiveer引用context生命周期的影响/">Android-使用Activity作为Contenxt启动BroadcastReceiveer的一些问题</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/17/Android-BroadcastReceiveer引用context生命周期的影响/" class="archive-article-date">
+  	<time datetime="2018-04-17T11:00:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-17</time>
+</a>
+        
+	
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h4><p>下载APK的时候需要做一个通知栏并且支持暂停，取消等功能交互。通知栏的UI点击交互用的就是broadcast来接受点击事件 代码如下</p>
+<pre><code> registerReceiver(context, MyBroadcastReceiver);
+ Intent intent = new Intent(ACTION);
+ PendingIntent pendingIntent1 = PendingIntent.getBroadcast(context, 0,
+                intent, PendingIntent.FLAG_UPDATE_CURRENT);
+mRemoteViews.setOnClickPendingIntent(mRemoteBuild.clickId, pendingIntent1);
+</code></pre><p>伪代码如上就是为通知栏设置点击事件的一种方法。</p>
+<p>可当我测试点击的时候我注册的广播里面就是接收不到点击事件。<br>无奈我有改用静态方式来注册广播，观察log发现静态方式是可以接受到点击事件的那看来就是动态注册方式出了问题。于是我开始整理思路。</p>
+        
+          <a class="article-more-a" href="/2018/04/17/Android-BroadcastReceiveer引用context生命周期的影响/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/17/Android-BroadcastReceiveer引用context生命周期的影响/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-Android-NotifyManager的一些坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -559,86 +643,6 @@
 
 
   
-    <article id="post-Java设计模式-工厂方法模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/03/Java设计模式-工厂方法模式/">Java设计模式 工厂方法模式</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/03/Java设计模式-工厂方法模式/" class="archive-article-date">
-  	<time datetime="2018-03-03T03:22:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-03</time>
-</a>
-        
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h3><p>定义一个用于创建对象的接口，让子类决定实例化哪个类</p>
-<p>而工厂方法模式有一套通用模式代码</p>
-<p>定义zoo类如下:</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Zoo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">showAnimal</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/03/03/Java设计模式-工厂方法模式/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/03/Java设计模式-工厂方法模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
@@ -653,7 +657,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 daQ
+    		&copy; 2020 跟你回星城
     	</div>
 	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1274201994'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1274201994%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
 	</script>
@@ -764,11 +768,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -784,11 +788,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">music</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color1">music</a>
               </li>
              
               <li class="article-tag-list-item">
